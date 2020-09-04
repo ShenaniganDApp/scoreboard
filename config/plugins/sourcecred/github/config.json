@@ -3,6 +3,7 @@
 		"ShenaniganDApp/contracts",
 		"ShenaniganDApp/ShenaniganDApp.github.io",
 		"ShenaniganDApp/server",
-		"ShenaniganDapp/wiki"
+		"ShenaniganDapp/wiki",
+		"ShenaniganDapp/shenanigan-monorepo"
 	]
 }
