@@ -42,12 +42,6 @@
     "discordId": "402781265612505088"
   },
   {
-    "name": "monomesa(KrLos)",
-    "createdAt": 1601572077769,
-    "address": "0x88004441a0f79727D19A2697344244C901736E0A",
-    "discordId": "329140338616696832"
-  },
-  {
     "name": "BigHappyTrees",
     "createdAt": 1601572922023,
     "address": "0xe0802Cf223a05A14408Ad44E7F878d21408Fb04C",
@@ -250,5 +244,11 @@
     "createdAt": 1601668759324,
     "address": "0x436Bb9e1f02C9cA7164afb5753C03c071430216d",
     "discordId": "408515952326475776"
+  },
+  {
+    "name": "monomesa(KrLos)",
+    "createdAt": 1601670383361,
+    "address": "0xb08F95dbC639621DbAf48A472AE8Fce0f6f56a6e",
+    "discordId": "329140338616696832"
   }
 ]
