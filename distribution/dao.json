@@ -1,0 +1,10 @@
+[
+	{
+		"daoAddress": "0x0ff8c9169938295F6a0Ea72065D99995f0752430",
+		"tokenManagerAddress": "0x9fed43b0fab2ff553d8fadd8e0ad5895e70851f8",
+		"votingAddress": "0xf092bc43d8968420863a4295b041e0e925402067",
+		"environment": "xdai",
+		"mints": [],
+		"burns": []
+	}
+]

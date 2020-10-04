@@ -1,0 +1,11 @@
+{
+    "environments": {
+      "xdai": {
+        "registry": "0xaafca6b0c89521752e559650206d7c925fd0e530",
+        "address": "0xecb0c14b167cda660fafbdfe4818717c7789ebc4",
+        "appName": "foo.aragonpm.eth",
+        "network": "xdai"
+      }
+    },
+    "roles": []
+  }
