@@ -108,12 +108,6 @@
     "discordId": "176043694242136064"
   },
   {
-    "name": "Prateek",
-    "createdAt": 1601583555440,
-    "address": "0xf266b68f049c51b825c719aea0dd15368e15c30b",
-    "discordId": "458521521682513932"
-  },
-  {
     "name": "Merlo",
     "createdAt": 1601584201239,
     "address": "0x51318c2f3e7d9735EaE7E9c9838bB972742470e5",
@@ -496,5 +490,11 @@
     "createdAt": 1601882611559,
     "address": "0xF9d0907a66656C3fbf773D89e56c4FC1AdC7c318",
     "discordId": "758986350849425408"
+  },
+  {
+    "name": "Prateek",
+    "createdAt": 1601883327650,
+    "address": "0xF266b68F049c51B825c719AEA0Dd15368E15C30b",
+    "discordId": "458521521682513932"
   }
 ]
