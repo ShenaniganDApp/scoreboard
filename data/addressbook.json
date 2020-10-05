@@ -526,5 +526,11 @@
     "createdAt": 1601897317268,
     "address": "0x0bCec33354865d9D192E9FC5a6648C65baE58242",
     "discordId": "758020700324757625"
+  },
+  {
+    "name": "altdollar",
+    "createdAt": 1601902554617,
+    "address": "0x82645a280fC07404F4B5009641dBC120AA346898",
+    "discordId": "739051758554185761"
   }
 ]
