@@ -78,12 +78,6 @@
     "discordId": "319946214135037953"
   },
   {
-    "name": "Bascm",
-    "createdAt": 1601574317717,
-    "address": "0x050419c059f0E38442d94673D5dd1307929E87db",
-    "discordId": "536812183397597195"
-  },
-  {
     "name": "Roblane",
     "createdAt": 1601575001466,
     "address": "0x20f2B1b8Ac363DF65658f9fB873770C0a2f82Ec5",
@@ -496,5 +490,11 @@
     "createdAt": 1601883327650,
     "address": "0xF266b68F049c51B825c719AEA0Dd15368E15C30b",
     "discordId": "458521521682513932"
+  },
+  {
+    "name": "Bascm",
+    "createdAt": 1601883742424,
+    "address": "0xE35aA8E4A63C50E9Fff37d1eCA085c62a303b073",
+    "discordId": "536812183397597195"
   }
 ]
