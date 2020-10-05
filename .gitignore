@@ -2,6 +2,3 @@ node_modules/
 site/
 output/
 cache/
-
-data/addressbook.json
-

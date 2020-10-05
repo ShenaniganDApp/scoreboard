@@ -26,12 +26,19 @@ async function processGrain() {
 	const oldAccountsMap = _.keyBy(oldAccounts, 'discordId');
 
 	const AddressBook = await (await fetch(address_book_file)).json();
+	AddressBook.forEach((element) => console.log('element.name: ', element.name));
+
 	const AddressMap = _.keyBy(AddressBook, 'discordId');
-	
+
 	const accountMap = _.keyBy(accountsJSON.accounts, 'account.identity.id');
 
 	const ledger = Ledger.parse(ledgerJSON);
-	const accounts = ledger.accounts();
+	let accounts = ledger.accounts();
+	const half = Math.ceil(accounts.length / 2);
+	const firstHalf = accounts.splice(0, half);
+	const secondHalf = accounts.splice(-half);
+	accounts = secondHalf
+
 
 	// try {
 	// 	const activateVerifiedAccounts = accounts.map((a) => {
@@ -56,7 +63,6 @@ async function processGrain() {
 	// }
 
 	const activeAccounts = accountsJSON.accounts.filter((acc) => acc.account.active);
-	console.log('activeAccounts: ', activeAccounts.length);
 	const activeUserMap = _.keyBy(activeAccounts, 'account.identity.id');
 
 	const discordAcc = accounts
@@ -85,6 +91,7 @@ async function processGrain() {
 				}
 			});
 
+
 			return {
 				...a,
 				discordId,
@@ -102,7 +109,8 @@ async function processGrain() {
 	await fs.writeFile(LEDGER_PATH, ledger.serialize());
 
 	discordAccWithAddress.forEach((acc) => {
-		const amountToMint = G.format(acc.balance, 4, '');
+		const amountToMint = G.format(acc.balance, 18, '').replace('.', '').replace(',', '');
+		console.log('amountToMint: ', amountToMint);
 		newMintAmounts.push([acc.ethAddress, amountToMint]);
 	});
 
@@ -111,9 +119,7 @@ async function processGrain() {
 
 function mintSettings(tx) {
 	const settings = tx;
-	for(let i=0;i< newMintAmounts.length; i++){
-		newMintAmounts[i][1] = BigNumber(newMintAmounts[i][1]).toFixed(18).toString().replace('.', '')
-	}
+
 	settings[0].mints = newMintAmounts;
 
 	return JSON.stringify(settings, null, 2);
@@ -125,7 +131,6 @@ function mintSettings(tx) {
  */
 const rewards = () => {
 	try {
-		// *** HARD CODED ***
 		fs.writeFile('./distribution/transactionSettings.json', mintSettings(transaction), (err) => {
 			if (err) {
 				console.log('Did not save transaction settings');
