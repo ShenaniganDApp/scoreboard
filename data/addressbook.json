@@ -436,5 +436,11 @@
     "createdAt": 1601865709798,
     "address": "0x808dee16Be78B3f9c6f9a5Ff4F6A9F601DfD7ca0",
     "discordId": "759966892986204230"
+  },
+  {
+    "name": "GemHunter",
+    "createdAt": 1601877949931,
+    "address": "0x2c36Ea13df89115C45E1af0C7BFc5CcDdf61CfD4",
+    "discordId": "395437819134345216"
   }
 ]
