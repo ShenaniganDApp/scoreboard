@@ -622,5 +622,11 @@
     "createdAt": 1601997198368,
     "address": "0x017154d1f2C228765c494DA30C018fa48a09e1aD",
     "discordId": "456711370579247115"
+  },
+  {
+    "name": "vendeta2",
+    "createdAt": 1602003019873,
+    "address": "0x106F4d08D0Cc154D63C8F557000372C5E78CAaFe",
+    "discordId": "423161382557712404"
   }
 ]
