@@ -26,7 +26,6 @@ async function processGrain() {
 	const oldAccountsMap = _.keyBy(oldAccounts, 'discordId');
 
 	const AddressBook = await (await fetch(address_book_file)).json();
-	AddressBook.forEach((element) => console.log('element.name: ', element.name));
 
 	const AddressMap = _.keyBy(AddressBook, 'discordId');
 
@@ -37,8 +36,7 @@ async function processGrain() {
 	const half = Math.ceil(accounts.length / 2);
 	const firstHalf = accounts.splice(0, half);
 	const secondHalf = accounts.splice(-half);
-	accounts = secondHalf
-
+	accounts = secondHalf;
 
 	// try {
 	// 	const activateVerifiedAccounts = accounts.map((a) => {
@@ -91,7 +89,6 @@ async function processGrain() {
 				}
 			});
 
-
 			return {
 				...a,
 				discordId,
@@ -110,7 +107,6 @@ async function processGrain() {
 
 	discordAccWithAddress.forEach((acc) => {
 		const amountToMint = G.format(acc.balance, 18, '').replace('.', '').replace(',', '');
-		console.log('amountToMint: ', amountToMint);
 		newMintAmounts.push([acc.ethAddress, amountToMint]);
 	});
 
