@@ -778,5 +778,11 @@
     "createdAt": 1602368033794,
     "address": "0x58ff69BDd36af68B1031C786C76CC511e4776B09",
     "discordId": "738758480793698325"
+  },
+  {
+    "name": "AusNzTrader",
+    "createdAt": 1602386429761,
+    "address": "0x2836545d6E07E9E96A9B622a2E5f4787eC9Cc2Ae",
+    "discordId": "730745143703109723"
   }
 ]
