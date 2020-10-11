@@ -6,12 +6,6 @@
     "discordId": "683892894767251489"
   },
   {
-    "name": "shavebha",
-    "createdAt": 1601540835056,
-    "address": "0x6084bc0d8a863eb55dE49f87F8d2BAaf1307fF53",
-    "discordId": "361774117776523264"
-  },
-  {
     "name": "Carlos110",
     "createdAt": 1601565082724,
     "address": "0xF8f12505822D80070cf852566F281cCBb10F3E61",
@@ -808,5 +802,11 @@
     "createdAt": 1602436448659,
     "address": "0xD27adc10D58aF27bcDBa85081aDC09A4379969A5",
     "discordId": "689948974790344706"
+  },
+  {
+    "name": "shavebha",
+    "createdAt": 1602436695901,
+    "address": "0x0335c9F6E2Aad931364609a614B14BCeA7118DbE",
+    "discordId": "361774117776523264"
   }
 ]
