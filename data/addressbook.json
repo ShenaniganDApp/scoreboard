@@ -802,5 +802,11 @@
     "createdAt": 1602436428244,
     "address": "0x39FD1d5394e3D4d91a7524Dd5Ee969218Ff4EF9E",
     "discordId": "583318038435069975"
+  },
+  {
+    "name": "Vincent MEV (CivicTechHub.org)",
+    "createdAt": 1602436448659,
+    "address": "0xD27adc10D58aF27bcDBa85081aDC09A4379969A5",
+    "discordId": "689948974790344706"
   }
 ]
