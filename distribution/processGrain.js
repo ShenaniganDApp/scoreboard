@@ -31,92 +31,100 @@ async function processGrain() {
 
 	const accountMap = _.keyBy(accountsJSON.accounts, 'account.identity.id');
 
+
+
 	const ledger = Ledger.parse(ledgerJSON);
 	let accounts = ledger.accounts();
-	const half = Math.ceil(accounts.length / 2);
-	const firstHalf = accounts.splice(0, half);
-	const secondHalf = accounts.splice(-half);
-	accounts = secondHalf;
 
-	// try {
-	// 	const activateVerifiedAccounts = accounts.map((a) => {
-	// 		const credAcc = accountMap[a.identity.id];
-	// 		if (!credAcc) return null;
-	// 		if (a.identity.subtype !== 'USER') return null;
-	// 		const discordAliases = a.identity.aliases.filter((alias) => {
-	// 			const parts = NodeAddress.toParts(alias.address);
-	// 			return parts.indexOf('discord') > 0;
-	// 		});
-	// 		discordAliases.forEach((alias) => {
-	// 			discordId = NodeAddress.toParts(alias.address)[4];
-	// 			if (AddressMap[discordId]) {
-	// 				// ledger.activate(a.identity.id);
-	// 				console.log('a.identity.id: ', a.identity.id);
-	// 			}
-	// 		});
-	// 	});
-	// 	await fs.writeFile(LEDGER_PATH, ledger.serialize());
-	// } catch (err) {
-	// 	console.log('err: ', err);
-	// }
+	// await activateAccounts();
 
 	const activeAccounts = accountsJSON.accounts.filter((acc) => acc.account.active);
 	const activeUserMap = _.keyBy(activeAccounts, 'account.identity.id');
 
-	const discordAcc = accounts
-		.map((a) => {
-			const credAcc = activeUserMap[a.identity.id];
+	try {
+		const discordAcc = accounts
+			.map((a) => {
+				const credAcc = activeUserMap[a.identity.id];
+				if (!credAcc) return null;
+				if (a.identity.subtype !== 'USER') return null;
+				const discordAliases = a.identity.aliases.filter((alias) => {
+					const parts = NodeAddress.toParts(alias.address);
+					return parts.indexOf('discord') > 0;
+				});
+
+				if (!discordAliases.length) return null;
+
+				let user = null;
+				let discordId = null;
+
+				discordAliases.forEach((alias) => {
+					discordId = NodeAddress.toParts(alias.address)[4];
+					if (oldAccountsMap[discordId]) {
+						user = oldAccountsMap[discordId];
+					}
+					if (AddressMap[discordId]) {
+						user = AddressMap[discordId];
+						
+					}
+				});
+				
+				console.log('user: ', user);
+				return {
+					...a,
+					discordId,
+					cred: credAcc.totalCred,
+					ethAddress: user && user.address,
+				};
+			})
+			.filter(Boolean);
+
+		const discordAccWithAddress = discordAcc.filter((a) => a.ethAddress);
+
+		// // Commented out since transfer was already completed in ledger
+		// deductSeedsAlreadyMinted(discordAccWithAddress, ledger);
+
+		await fs.writeFile(LEDGER_PATH, ledger.serialize());
+
+		discordAccWithAddress.forEach((acc) => {
+			const amountToMint = G.format(acc.balance, 18, '').replace('.', '').replace(',', '');
+			newMintAmounts.push([acc.ethAddress, amountToMint]);
+		});
+
+		console.log(newMintAmounts.map((e) => e.join(',')).join('\n'));
+	} catch (err) {
+		console.log(err);
+	}
+}
+async function activateAccounts() {
+	try {
+		accounts.map((a) => {
+			const credAcc = accountMap[a.identity.id];
 			if (!credAcc) return null;
 			if (a.identity.subtype !== 'USER') return null;
-
 			const discordAliases = a.identity.aliases.filter((alias) => {
 				const parts = NodeAddress.toParts(alias.address);
 				return parts.indexOf('discord') > 0;
 			});
-
-			if (!discordAliases.length) return null;
-
-			let user = null;
-			let discordId = null;
-
 			discordAliases.forEach((alias) => {
 				discordId = NodeAddress.toParts(alias.address)[4];
-				if (oldAccountsMap[discordId]) {
-					user = oldAccountsMap[discordId];
-				}
 				if (AddressMap[discordId]) {
-					user = AddressMap[discordId];
+					ledger.activate(a.identity.id);
+					console.log('a.identity.id: ', a.identity.id);
 				}
 			});
-
-			return {
-				...a,
-				discordId,
-				cred: credAcc.totalCred,
-				ethAddress: user && user.address,
-			};
-		})
-		.filter(Boolean);
-
-	const discordAccWithAddress = discordAcc.filter((a) => a.ethAddress);
-
-	// // Commented out since transfer was already completed in ledger
-	// deductSeedsAlreadyMinted(discordAccWithAddress, ledger);
-
-	await fs.writeFile(LEDGER_PATH, ledger.serialize());
-
-	discordAccWithAddress.forEach((acc) => {
-		const amountToMint = G.format(acc.balance, 18, '').replace('.', '').replace(',', '');
-		newMintAmounts.push([acc.ethAddress, amountToMint]);
-	});
-
-	console.log(newMintAmounts.map((e) => e.join(',')).join('\n'));
+		});
+		await fs.writeFile(LEDGER_PATH, ledger.serialize());
+	} catch (err) {
+		console.log('err: ', err);
+	}
 }
 
 function mintSettings(tx) {
 	const settings = tx;
 
-	settings[0].mints = newMintAmounts;
+	const splits = _.chunk(newMintAmounts, 50);
+	settings[0].mints = splits[0];
+	console.log(settings[0].mints.length);
 
 	return JSON.stringify(settings, null, 2);
 }
