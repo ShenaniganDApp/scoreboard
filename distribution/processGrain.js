@@ -31,12 +31,71 @@ async function processGrain() {
 
 	const accountMap = _.keyBy(accountsJSON.accounts, 'account.identity.id');
 
-
-
 	const ledger = Ledger.parse(ledgerJSON);
 	let accounts = ledger.accounts();
+	const collapsedParticles = accounts.find((a) => a.identity.name === 'CollapsedParticles');
+	console.log('collapsedParticles: ', collapsedParticles);
 
-	// await activateAccounts();
+	// Activate new accounts
+
+	// try {
+	// 	accounts.map((a) => {
+	// 		const credAcc = accountMap[a.identity.id];
+	// 		if (!credAcc) return null;
+	// 		if (a.identity.subtype !== 'USER') return null;
+	// 		const discordAliases = a.identity.aliases.filter((alias) => {
+	// 			const parts = NodeAddress.toParts(alias.address);
+	// 			return parts.indexOf('discord') > 0;
+	// 		});
+	// 		discordAliases.forEach((alias) => {
+	// 			discordId = NodeAddress.toParts(alias.address)[4];
+	// 			if (AddressMap[discordId]) {
+	// 				ledger.activate(a.identity.id);
+	// 				console.log('a.identity.id: ', a.identity.id);
+	// 			}
+	// 		});
+	// 	});
+	// 	await fs.writeFile(LEDGER_PATH, ledger.serialize());
+	// } catch (err) {
+	// 	console.log('err: ', err);
+	// }
+
+	//Remove last weeks Grain
+
+	// try {
+	// 	accounts.map((a) => {
+	// 		const credAcc = accountMap[a.identity.id];
+	// 		if (!credAcc) return null;
+	// 		if (a.identity.subtype !== 'USER') return null;
+	// 		const discordAliases = a.identity.aliases.filter((alias) => {
+	// 			const parts = NodeAddress.toParts(alias.address);
+	// 			return parts.indexOf('discord') > 0;
+	// 		});
+	// 		discordAliases.forEach((alias) => {
+	// 			discordId = NodeAddress.toParts(alias.address)[4];
+	// 			if (AddressMap[discordId] && a.balance > 0) {
+	// 				ledger.transferGrain({
+	// 					from: a.identity.id,
+	// 					to: collapsedParticles.identity.id,
+	// 					amount: a.balance,
+	// 					memo: '',
+	// 				});
+	// 			}
+
+	// 			if (oldAccountsMap[discordId] && a.balance > 0) {
+	// 				ledger.transferGrain({
+	// 					from: a.identity.id,
+	// 					to: collapsedParticles.identity.id,
+	// 					amount: a.balance,
+	// 					memo: '',
+	// 				});
+	// 			}
+	// 		});
+	// 	});
+	// 	await fs.writeFile(LEDGER_PATH, ledger.serialize());
+	// } catch (err) {
+	// 	console.log('err: ', err);
+	// }
 
 	const activeAccounts = accountsJSON.accounts.filter((acc) => acc.account.active);
 	const activeUserMap = _.keyBy(activeAccounts, 'account.identity.id');
@@ -64,11 +123,9 @@ async function processGrain() {
 					}
 					if (AddressMap[discordId]) {
 						user = AddressMap[discordId];
-						
 					}
 				});
-				
-				console.log('user: ', user);
+
 				return {
 					...a,
 					discordId,
@@ -95,36 +152,14 @@ async function processGrain() {
 		console.log(err);
 	}
 }
-async function activateAccounts() {
-	try {
-		accounts.map((a) => {
-			const credAcc = accountMap[a.identity.id];
-			if (!credAcc) return null;
-			if (a.identity.subtype !== 'USER') return null;
-			const discordAliases = a.identity.aliases.filter((alias) => {
-				const parts = NodeAddress.toParts(alias.address);
-				return parts.indexOf('discord') > 0;
-			});
-			discordAliases.forEach((alias) => {
-				discordId = NodeAddress.toParts(alias.address)[4];
-				if (AddressMap[discordId]) {
-					ledger.activate(a.identity.id);
-					console.log('a.identity.id: ', a.identity.id);
-				}
-			});
-		});
-		await fs.writeFile(LEDGER_PATH, ledger.serialize());
-	} catch (err) {
-		console.log('err: ', err);
-	}
-}
 
 function mintSettings(tx) {
 	const settings = tx;
 
 	const splits = _.chunk(newMintAmounts, 50);
-	settings[0].mints = splits[0];
-	console.log(settings[0].mints.length);
+	console.log('newMintAmounts: ', newMintAmounts.length);
+	console.log('splits: ', splits.length);
+	settings[0].mints = splits[2];
 
 	return JSON.stringify(settings, null, 2);
 }
