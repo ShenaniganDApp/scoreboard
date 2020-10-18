@@ -36,7 +36,7 @@ async function processGrain() {
 	const collapsedParticles = accounts.find((a) => a.identity.name === 'CollapsedParticles');
 	console.log('collapsedParticles: ', collapsedParticles);
 
-	// Activate new accounts
+	// // Activate new accounts
 
 	// try {
 	// 	accounts.map((a) => {
@@ -60,7 +60,7 @@ async function processGrain() {
 	// 	console.log('err: ', err);
 	// }
 
-	//Remove last weeks Grain
+	// // Remove last weeks Grain
 
 	// try {
 	// 	accounts.map((a) => {
@@ -159,7 +159,7 @@ function mintSettings(tx) {
 	const splits = _.chunk(newMintAmounts, 50);
 	console.log('newMintAmounts: ', newMintAmounts.length);
 	console.log('splits: ', splits.length);
-	settings[0].mints = splits[2];
+	settings[0].mints = splits[4];
 
 	return JSON.stringify(settings, null, 2);
 }
