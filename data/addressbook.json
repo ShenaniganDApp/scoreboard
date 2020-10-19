@@ -480,12 +480,6 @@
     "discordId": "536812183397597195"
   },
   {
-    "name": "Hoang Trung",
-    "createdAt": 1601884719874,
-    "address": "0xd312862706Fa2Ae22AC4E93ec7252C0e1A58A788",
-    "discordId": "746524219290157076"
-  },
-  {
     "name": "Anh Ngo",
     "createdAt": 1601887921080,
     "address": "0x6Fd9650A23Cc60AEc98C4229559d57bDF06e2060",
@@ -1138,5 +1132,11 @@
     "createdAt": 1603044583339,
     "address": "0xFcD991Ba83bb0C10132Ed03989e616916591A399",
     "discordId": "339099197443670016"
+  },
+  {
+    "name": "Hoang Trung",
+    "createdAt": 1603090988834,
+    "address": "0xB5d592f85ab2D955c25720EbE6FF8D4d1E1Be300",
+    "discordId": "746524219290157076"
   }
 ]
