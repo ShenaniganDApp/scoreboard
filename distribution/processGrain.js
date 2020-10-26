@@ -143,7 +143,7 @@ async function processGrain() {
 		await fs.writeFile(LEDGER_PATH, ledger.serialize());
 
 		discordAccWithAddress.forEach((acc) => {
-			const amountToMint = G.format(acc.balance, 18, '').replace('.', '').replace(',', '');
+			const amountToMint = G.format(acc.balance, 18, '').replace(',', '');
 			newMintAmounts.push([acc.ethAddress, amountToMint]);
 		});
 
@@ -156,10 +156,7 @@ async function processGrain() {
 function mintSettings(tx) {
 	const settings = tx;
 
-	const splits = _.chunk(newMintAmounts, 50);
-	console.log('newMintAmounts: ', newMintAmounts.length);
-	console.log('splits: ', splits.length);
-	settings[0].mints = splits[4];
+	settings[0].mints = newMintAmounts;
 
 	return JSON.stringify(settings, null, 2);
 }

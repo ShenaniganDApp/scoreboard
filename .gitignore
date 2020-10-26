@@ -2,3 +2,5 @@ node_modules/
 site/
 output/
 cache/
+.yalc/
+yalc.lock

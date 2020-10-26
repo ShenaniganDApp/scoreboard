@@ -3,31 +3,27 @@ const { encodeActCall } = require("@aragon/toolkit");
 
 const {
   daoAddress,
-  tokenManagerAddress,
+  financeAddress,
   votingAddress,
+  tokenAddress,
   mints,
   burns,
   environment,
 } = require("./transactionSettings.json")[0];
 
 async function main() {
-  // Encode a bunch of token mints and burns.
-  const mintSignature = "mint(address,uint256)";
-  const burnSignature = "burn(address,uint256)";
+  // Encode a bunch of token transfers
+  const transferSignature = "newImmediatePayment(address, address, uint256, string)";
   const calldatum = await Promise.all([
     ...mints.map(([receiverAddress, amount]) =>
-      encodeActCall(mintSignature, [receiverAddress, amount])
-    ),
-    ...burns.map(([holderAddress, amount]) =>
-      encodeActCall(burnSignature, [holderAddress, amount])
-    ),
+      encodeActCall(transferSignature, [tokenAddress, receiverAddress, amount, "Transfer4"])
+    )
   ]);
 
   const actions = calldatum.map((calldata) => ({
-    to: tokenManagerAddress,
+    to: financeAddress,
     calldata,
   }));
-
   // Encode all actions into a single EVM script.
   const script = encodeCallScript(actions);
   console.log(

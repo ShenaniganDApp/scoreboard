@@ -1,8 +1,16 @@
 {
 	"guildId": "696853831476314204",
 	"reactionWeights": {
-		":Shenaniganold:697181109481635960:": 8,
-		":shenanigan:756710702236041288": 8,
-		":shenanigan2D:746747079879295026": 8	
-	}
+		"Shenaniganold:697181109481635960": 4,
+		"shenanigan:756710702236041288": 4,
+		"shenanigan2D:746747079879295026": 4	
+	},
+	"roleWeightConfig": {
+        "defaultWeight": 0,
+        "roleWeights": {
+			"708467176935522305":1,
+			"727719429026349107":1,
+			"759132992336953344":0.25
+        }
+      }
 }
