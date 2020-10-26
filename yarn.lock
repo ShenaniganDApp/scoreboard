@@ -5393,9 +5393,10 @@ source-map@^0.6.0, source-map@^0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-sourcecred@sourcecred/sourcecred#refs/pull/2390/head:
+sourcecred@^0.7.1:
   version "0.7.1"
-  resolved "https://codeload.github.com/sourcecred/sourcecred/tar.gz/3210a5438c7cecca07a7404dc3a947523f790c09"
+  resolved "https://registry.yarnpkg.com/sourcecred/-/sourcecred-0.7.1.tgz#d601d35bae7a98eecec482ca2e088a9f82e8ab79"
+  integrity sha512-ILznb62gm8fTnd5IXWFVvLnCWTlvhFTPEisHzt4Nh/dj9roCCuN41aYJGNdoLcvDz28qvu8coWJYyijbttg4BA==
   dependencies:
     "@material-ui/lab" "^4.0.0-alpha.56"
     aphrodite "^2.4.0"
