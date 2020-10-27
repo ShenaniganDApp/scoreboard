@@ -1564,5 +1564,11 @@
     "createdAt": 1603797426869,
     "address": "0x3252fBb1F762D56B495F943305639f2edE03Bf0d",
     "discordId": "362683524802805781"
+  },
+  {
+    "name": "supernova",
+    "createdAt": 1603803143506,
+    "address": "0x374dab41636c0E2d951dA591a0FE5336a0Ff4177",
+    "discordId": "770622566334332959"
   }
 ]
