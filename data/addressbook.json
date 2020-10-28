@@ -324,12 +324,6 @@
     "discordId": "758955273355264031"
   },
   {
-    "name": "alisamiei",
-    "createdAt": 1601841838419,
-    "address": "0x4eF0e71c7BB105Aa375B2E40888e22752B6156a0",
-    "discordId": "758954282615308288"
-  },
-  {
     "name": "rhizobtc",
     "createdAt": 1601842361986,
     "address": "0xD790B013eCAe56e768eD184C45bE7894b7F1fc3a",
@@ -1612,5 +1606,11 @@
     "createdAt": 1603915159539,
     "address": "0x84a84c5e9851aAB22A2f140CBBAad3594078095c",
     "discordId": "771094649003573269"
+  },
+  {
+    "name": "alisamiei",
+    "createdAt": 1603918488416,
+    "address": "0x13d61eD019e2938DFDC07b6df10C94C8700510b7",
+    "discordId": "758954282615308288"
   }
 ]
