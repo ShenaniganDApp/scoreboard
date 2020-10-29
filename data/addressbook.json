@@ -1218,12 +1218,6 @@
     "discordId": "238875517959405568"
   },
   {
-    "name": "nicoll16",
-    "createdAt": 1603372772900,
-    "address": "0x1021e61f2cDd8bB295b0e64A20eBB7D8ec3734bf",
-    "discordId": "768818207279677440"
-  },
-  {
     "name": "llealg2",
     "createdAt": 1603380666110,
     "address": "0xEFb5Cce75A7eD764584771b43d54D355001C89ED",
@@ -1612,5 +1606,11 @@
     "createdAt": 1603918488416,
     "address": "0x13d61eD019e2938DFDC07b6df10C94C8700510b7",
     "discordId": "758954282615308288"
+  },
+  {
+    "name": "nicoll16",
+    "createdAt": 1603934360041,
+    "address": "0x03351328843940bb13B014D3AcF3DEBf9FA75525",
+    "discordId": "768818207279677440"
   }
 ]
