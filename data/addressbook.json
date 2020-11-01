@@ -318,6 +318,18 @@
     "discordId": "403896834625634304"
   },
   {
+    "name": "saeed1111",
+    "createdAt": 1601841616022,
+    "address": "0x3cB90AEd82789276Fb9F1491aed234F6bFA1AC13",
+    "discordId": "758955273355264031"
+  },
+  {
+    "name": "alisamiei",
+    "createdAt": 1601841838419,
+    "address": "0x4eF0e71c7BB105Aa375B2E40888e22752B6156a0",
+    "discordId": "758954282615308288"
+  },
+  {
     "name": "rhizobtc",
     "createdAt": 1601842361986,
     "address": "0xD790B013eCAe56e768eD184C45bE7894b7F1fc3a",
@@ -1212,6 +1224,12 @@
     "discordId": "238875517959405568"
   },
   {
+    "name": "nicoll16",
+    "createdAt": 1603372772900,
+    "address": "0x1021e61f2cDd8bB295b0e64A20eBB7D8ec3734bf",
+    "discordId": "768818207279677440"
+  },
+  {
     "name": "llealg2",
     "createdAt": 1603380666110,
     "address": "0xEFb5Cce75A7eD764584771b43d54D355001C89ED",
@@ -1516,119 +1534,5 @@
     "createdAt": 1603665797280,
     "address": "0x3E4b6bd1D7FC70974b0541D046914e62eb7C8C4E",
     "discordId": "665411274447912970"
-  },
-  {
-    "name": "jrcolivert",
-    "createdAt": 1603723072229,
-    "address": "0x26316Cfc7018DFD4Ef745Cd89f4E0482f2d9dE00",
-    "discordId": "514985454228209678"
-  },
-  {
-    "name": "alejandraquin",
-    "createdAt": 1603732901050,
-    "address": "0xb2F28F45403eAdCA11654De0deaf4F8604eA9184",
-    "discordId": "768592892045295616"
-  },
-  {
-    "name": "Eucarifp",
-    "createdAt": 1603753940484,
-    "address": "0xE665222F3c051E9639846b8aFc69Bd5F35697853",
-    "discordId": "608025397443035185"
-  },
-  {
-    "name": "Oliver_30",
-    "createdAt": 1603793017445,
-    "address": "0xf3975d17f2B108B9C2622b11Ca0e831663266777",
-    "discordId": "770550950720045066"
-  },
-  {
-    "name": "Rockstar",
-    "createdAt": 1603797426869,
-    "address": "0x3252fBb1F762D56B495F943305639f2edE03Bf0d",
-    "discordId": "362683524802805781"
-  },
-  {
-    "name": "supernova",
-    "createdAt": 1603803143506,
-    "address": "0x374dab41636c0E2d951dA591a0FE5336a0Ff4177",
-    "discordId": "770622566334332959"
-  },
-  {
-    "name": "Leidy duran",
-    "createdAt": 1603803899825,
-    "address": "0xF94A4825B37aba496CDd381eA6f09fD7E2Bc4C25",
-    "discordId": "769726835206389810"
-  },
-  {
-    "name": "miguele800",
-    "createdAt": 1603823664948,
-    "address": "0x5F5d509cb5A48dED0C807470F88e13f4443d2B75",
-    "discordId": "567896253023780882"
-  },
-  {
-    "name": "Veki",
-    "createdAt": 1603826462827,
-    "address": "0x2374dA9a66e6321612fB9cCA715359db1Ae5eE8A",
-    "discordId": "752342433286717471"
-  },
-  {
-    "name": "Luis D.",
-    "createdAt": 1603844534676,
-    "address": "0x98B121e0F53e61D6d964FcD268f5A6f3cbC3Ef11",
-    "discordId": "518208611768467466"
-  },
-  {
-    "name": "nancyGR",
-    "createdAt": 1603845847534,
-    "address": "0xc23aEF15742495c821921E69F2e3b4d25cD8C124",
-    "discordId": "770799448225873950"
-  },
-  {
-    "name": "meganautas",
-    "createdAt": 1603858562442,
-    "address": "0x698aA14C5ad7A6936614a5696EBE212A62cdeB96",
-    "discordId": "450513378562146305"
-  },
-  {
-    "name": "murakami",
-    "createdAt": 1603915159539,
-    "address": "0x84a84c5e9851aAB22A2f140CBBAad3594078095c",
-    "discordId": "771094649003573269"
-  },
-  {
-    "name": "alisamiei",
-    "createdAt": 1603918488416,
-    "address": "0x13d61eD019e2938DFDC07b6df10C94C8700510b7",
-    "discordId": "758954282615308288"
-  },
-  {
-    "name": "nicoll16",
-    "createdAt": 1603973218679,
-    "address": "0x1021e61f2cDd8bB295b0e64A20eBB7D8ec3734bf",
-    "discordId": "768818207279677440"
-  },
-  {
-    "name": "saeed1111",
-    "createdAt": 1604059315377,
-    "address": "0x95BF9e4B2Cde18d495cD8A6772ac9D1767c1af07",
-    "discordId": "758955273355264031"
-  },
-  {
-    "name": "Ross",
-    "createdAt": 1604074962522,
-    "address": "0xCAD24f5eCfC5Ef0259Ad4B05eC332D3EF4518774",
-    "discordId": "589237676855656455"
-  },
-  {
-    "name": "zemo25",
-    "createdAt": 1604080735912,
-    "address": "0x0256A8F76066168b51050B8abB5Ebc48c0205B32",
-    "discordId": "762670935974608896"
-  },
-  {
-    "name": "Mirela",
-    "createdAt": 1604102900461,
-    "address": "0x8c0e25160774E1d3eD92f57E800708117d8DE31f",
-    "discordId": "771853316266655784"
   }
 ]
