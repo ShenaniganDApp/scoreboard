@@ -1416,12 +1416,6 @@
     "discordId": "389539800853774336"
   },
   {
-    "name": "jesustecnico",
-    "createdAt": 1603511224601,
-    "address": "0x381E13Df132E9b5959856F6E5464e2510374E651",
-    "discordId": "768594020301275146"
-  },
-  {
     "name": "IsaacSebastian",
     "createdAt": 1603512674202,
     "address": "0x47e2d7D79c95E52Df1e3D701a5f94d184D03ed6E",
@@ -1518,12 +1512,6 @@
     "discordId": "536772758080847872"
   },
   {
-    "name": "Yisuserious",
-    "createdAt": 1603665795371,
-    "address": "0x2B8EeFaA7CBCE70FA3fcE8Cf6f5500E8025e1452",
-    "discordId": "769918191337340928"
-  },
-  {
     "name": "JGomez125",
     "createdAt": 1603665797280,
     "address": "0x3E4b6bd1D7FC70974b0541D046914e62eb7C8C4E",
@@ -1606,5 +1594,17 @@
     "createdAt": 1604304171794,
     "address": "0x92ef45CD7B12329C0fA6ba2a7751cfE38ecBe322",
     "discordId": "402926377147564063"
+  },
+  {
+    "name": "Yisuserious",
+    "createdAt": 1604323046915,
+    "address": "0xa1d762cD823D6989992b6F2919F35230dd81015C",
+    "discordId": "769918191337340928"
+  },
+  {
+    "name": "jesustecnico",
+    "createdAt": 1604325196675,
+    "address": "0x381E13Df132E9b5959856F6E5464e2510374E651",
+    "discordId": "768594020301275146"
   }
 ]
