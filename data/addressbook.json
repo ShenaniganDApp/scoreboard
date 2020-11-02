@@ -1518,12 +1518,6 @@
     "discordId": "536772758080847872"
   },
   {
-    "name": "freeblackstyle",
-    "createdAt": 1603663262644,
-    "address": "0x5BFDA9c2B452BCb6a1cDaF20C0e1E4529D1b4c47",
-    "discordId": "754215380045660202"
-  },
-  {
     "name": "Yisuserious",
     "createdAt": 1603665795371,
     "address": "0x2B8EeFaA7CBCE70FA3fcE8Cf6f5500E8025e1452",
@@ -1546,5 +1540,65 @@
     "createdAt": 1604242363841,
     "address": "0xcdfB994e5A0A0f1570D7251cACE5c9c978c5eBA3",
     "discordId": "758075656813674596"
+  },
+  {
+    "name": "jrcolivert",
+    "createdAt": 1604288777997,
+    "address": "0x26316Cfc7018DFD4Ef745Cd89f4E0482f2d9dE00",
+    "discordId": "514985454228209678"
+  },
+  {
+    "name": "Oliver_30",
+    "createdAt": 1604288951494,
+    "address": "0xf3975d17f2B108B9C2622b11Ca0e831663266777",
+    "discordId": "770550950720045066"
+  },
+  {
+    "name": "alejandraquin",
+    "createdAt": 1604289626478,
+    "address": "0xb2F28F45403eAdCA11654De0deaf4F8604eA9184",
+    "discordId": "768592892045295616"
+  },
+  {
+    "name": "Mirela",
+    "createdAt": 1604289711229,
+    "address": "0x8c0e25160774E1d3eD92f57E800708117d8DE31f",
+    "discordId": "771853316266655784"
+  },
+  {
+    "name": "meganautas",
+    "createdAt": 1604290408164,
+    "address": "0x698aA14C5ad7A6936614a5696EBE212A62cdeB96",
+    "discordId": "450513378562146305"
+  },
+  {
+    "name": "zemo25",
+    "createdAt": 1604290749294,
+    "address": "0x0256A8F76066168b51050B8abB5Ebc48c0205B32",
+    "discordId": "762670935974608896"
+  },
+  {
+    "name": "supernova",
+    "createdAt": 1604290995630,
+    "address": "0x374dab41636c0E2d951dA591a0FE5336a0Ff4177",
+    "discordId": "770622566334332959"
+  },
+  {
+    "name": "freeblackstyle",
+    "createdAt": 1604291635182,
+    "address": "0x4Fe702D1D08cBF17ee729bF1f16FA5B8E4eABE7C",
+    "discordId": "754215380045660202"
+  },
+  {
+    "name": "Rockstar",
+    "createdAt": 1604295766638,
+    "address": "0x3252fBb1F762D56B495F943305639f2edE03Bf0d",
+    "discordId": "362683524802805781"
+  },
+  {
+    "name": "ishoboy",
+    "createdAt": 1604296035510,
+    "address": "0xDf5f6D4e0C1138077f58b20C0e9aE33b1a0d44D3",
+    "discordId": "733273196320784494"
   }
 ]
