@@ -1654,5 +1654,29 @@
     "createdAt": 1604429597917,
     "address": "0x9DFC2AEd70597a0c4C8ebf3A2d5A7E91F931D981",
     "discordId": "752393472987627621"
+  },
+  {
+    "name": "blackhawk",
+    "createdAt": 1604519236384,
+    "address": "0x5ca04aD0DD0BF8C36F7a652F31AeD25061A06218",
+    "discordId": "773271743699484734"
+  },
+  {
+    "name": "Marvel",
+    "createdAt": 1604519394313,
+    "address": "0x90CE32edf7D7ea93D53C39528488dfa018670544",
+    "discordId": "773099925129920543"
+  },
+  {
+    "name": "joelmonges",
+    "createdAt": 1604526129809,
+    "address": "0xD54B8521020Ff3cadBE3A21f1Ac0262F454617AA",
+    "discordId": "771527099353268224"
+  },
+  {
+    "name": "santiago02",
+    "createdAt": 1604532619182,
+    "address": "0xFc367FeA7D6Bd4da270f9D5d79d8bCaB078d4162",
+    "discordId": "773686333591257149"
   }
 ]
