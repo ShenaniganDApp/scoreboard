@@ -1702,5 +1702,11 @@
     "createdAt": 1604580780837,
     "address": "0x67BB8AEA3EfE7EfC3a00DFfB6259949e46F8be14",
     "discordId": "773298009743687701"
+  },
+  {
+    "name": "designer",
+    "createdAt": 1604597571425,
+    "address": "0x7741Df7AFca7Ac27324eFbcDD117372C5984B017",
+    "discordId": "773910191569240084"
   }
 ]
