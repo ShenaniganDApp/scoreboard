@@ -15,12 +15,15 @@ const NodeAddress = sc.core.address.makeAddressModule({
 });
 
 const LEDGER_PATH = 'data/ledger.json';
+const DEPENDENCIES_PATH = 'config/dependencies.json';
 const address_book_file = 'https://raw.githubusercontent.com/ShenaniganDApp/scoreboard/master/data/addressbook.json';
 const newMintAmounts = [];
 
 async function processGrain() {
 	const ledgerJSON = (await fs.readFile(LEDGER_PATH)).toString();
 	const accountsJSON = JSON.parse((await fs.readFile('output/accounts.json')).toString());
+	const dependenciesJSON = JSON.parse(await (await fs.readFile(DEPENDENCIES_PATH)).toString());
+	console.log('dependenciesJSON: ', dependenciesJSON);
 
 	const oldAccounts = JSON.parse(await (await fs.readFile('distribution/oldAccounts.json')).toString());
 	const oldAccountsMap = _.keyBy(oldAccounts, 'discordId');
@@ -31,10 +34,12 @@ async function processGrain() {
 
 	const accountMap = _.keyBy(accountsJSON.accounts, 'account.identity.id');
 
+	const dependenciesMap = _.keyBy(dependenciesJSON, 'id');
+
 	const ledger = Ledger.parse(ledgerJSON);
 	let accounts = ledger.accounts();
+
 	const collapsedParticles = accounts.find((a) => a.identity.name === 'CollapsedParticles');
-	console.log('collapsedParticles: ', collapsedParticles);
 
 	// // Activate new accounts
 
@@ -110,12 +115,8 @@ async function processGrain() {
 					const parts = NodeAddress.toParts(alias.address);
 					return parts.indexOf('discord') > 0;
 				});
-
-				if (!discordAliases.length) return null;
-
 				let user = null;
 				let discordId = null;
-
 				discordAliases.forEach((alias) => {
 					discordId = NodeAddress.toParts(alias.address)[4];
 					if (oldAccountsMap[discordId]) {
@@ -180,6 +181,6 @@ const rewards = () => {
 	}
 };
 processGrain().then(() => {
-	console.log(mintSettings(transaction));
-	console.log(rewards());
+	// console.log(mintSettings(transaction));
+	// console.log(rewards());
 });
