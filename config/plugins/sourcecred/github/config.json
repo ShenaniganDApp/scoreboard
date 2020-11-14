@@ -5,6 +5,7 @@
 		"ShenaniganDApp/server",
 		"ShenaniganDapp/wiki",
 		"ShenaniganDapp/shenanigan-monorepo",
-		"ShenaniganDapp/ParticleAccelerator"
+		"ShenaniganDapp/ParticleAccelerator",
+		"ShenaniganDapp/prtcle-staking"
 	]
 }
