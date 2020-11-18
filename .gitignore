@@ -4,3 +4,5 @@ output/
 cache/
 .yalc/
 yalc.lock
+data/addressbook.json
+data/messageIds.json
