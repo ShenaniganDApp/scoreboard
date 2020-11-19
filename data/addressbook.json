@@ -558,12 +558,6 @@
     "discordId": "318386082485895178"
   },
   {
-    "name": "Aurelouzou",
-    "createdAt": 1601973764413,
-    "address": "0x60C8EeD11cccAb1e6D75a825dd9f36d85d855c53",
-    "discordId": "663335250637619221"
-  },
-  {
     "name": "dydymoon",
     "createdAt": 1601974978942,
     "address": "0x6Cf5Ba860C43DbECA7193dd0fe9024cedc8e5315",
@@ -1774,5 +1768,11 @@
     "createdAt": 1605773366855,
     "address": "0xb41a6FDf7CF8A207F1Dc637e941B8a053Ea1694b",
     "discordId": "774174158023294987"
+  },
+  {
+    "name": "Aurelouzou",
+    "createdAt": 1605793377649,
+    "address": "0x60c8eed11cccab1e6d75a825dd9f36d85d855c53",
+    "discordId": "663335250637619221"
   }
 ]
