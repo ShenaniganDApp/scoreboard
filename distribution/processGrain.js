@@ -56,7 +56,6 @@ async function processGrain() {
 	// 			discordId = NodeAddress.toParts(alias.address)[4];
 	// 			if (AddressMap[discordId]) {
 	// 				ledger.activate(a.identity.id);
-	// 				console.log('a.identity.id: ', a.identity.id);
 	// 			}
 	// 		});
 	// 	});
