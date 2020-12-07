@@ -1,5 +1,7 @@
 {
-  "immediatePerWeek": 15000,
+  "immediatePerWeek": 0,
+  "recentPerWeek": 15000,
+  "recentWeeklyDecayRate": 0.3,
   "balancedPerWeek": 5000,
   "maxSimultaneousDistributions": 100
 }
