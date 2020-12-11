@@ -1650,12 +1650,6 @@
     "discordId": "773099925129920543"
   },
   {
-    "name": "joelmonges",
-    "createdAt": 1604526129809,
-    "address": "0xD54B8521020Ff3cadBE3A21f1Ac0262F454617AA",
-    "discordId": "771527099353268224"
-  },
-  {
     "name": "santiago02",
     "createdAt": 1604532619182,
     "address": "0xFc367FeA7D6Bd4da270f9D5d79d8bCaB078d4162",
@@ -1822,5 +1816,17 @@
     "createdAt": 1607477612070,
     "address": "0x2418e5454B75e18a2C7a849aeCCFCD03f67731C3",
     "discordId": "737822744963711039"
+  },
+  {
+    "name": "joelmonges",
+    "createdAt": 1607621268111,
+    "address": "0x3eC269Fa04127D2a9f6C37D2461eb3442373483c",
+    "discordId": "771527099353268224"
+  },
+  {
+    "name": "santigs",
+    "createdAt": 1607638341889,
+    "address": "0x9194b1713A8E07Bc47B90Fb7937E28e09b6cd100",
+    "discordId": "434632218246381569"
   }
 ]
