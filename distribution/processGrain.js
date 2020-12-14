@@ -23,8 +23,6 @@ async function processGrain() {
 	const ledgerJSON = (await fs.readFile(LEDGER_PATH)).toString();
 	const accountsJSON = JSON.parse((await fs.readFile('output/accounts.json')).toString());
 	const dependenciesJSON = JSON.parse(await (await fs.readFile(DEPENDENCIES_PATH)).toString());
-	console.log('dependenciesJSON: ', dependenciesJSON);
-
 	const oldAccounts = JSON.parse(await (await fs.readFile('distribution/oldAccounts.json')).toString());
 	const oldAccountsMap = _.keyBy(oldAccounts, 'discordId');
 
