@@ -1,0 +1,25 @@
+[
+	{
+		"type": "sourcecred/initiativeFile",
+		"version": "0.2.0"
+	},
+	{
+		"title": "Building Website",
+		"timestampIso": "2020-01-22T10:00:00.000Z",
+		"weight": {
+			"incomplete": 20,
+			"complete": 20
+		},
+		"completed": true,
+		"champions": ["@youngkidwarrior"],
+		"dependencies": {},
+		"references": {},
+		"contributions": {
+			"urls": [
+				"https://github.com/ShenaniganDApp/ShenaniganDApp.github.io/commit/f4e2207a99b855daed8df7844572b9fd699dcb45",
+				"https://github.com/ShenaniganDApp/ShenaniganDApp.github.io/commit/abd9178650615e249206842938dc14bab443c262",
+				"https://github.com/ShenaniganDApp/ShenaniganDApp.github.io/commit/153ba1e6e14a78624d53b290aef400d05b239a14"
+			]
+		}
+	}
+]
