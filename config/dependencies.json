@@ -9,5 +9,16 @@
                 "weight": 0.05
             }
         ]
+    },
+    {
+        "autoActivateOnIdentityCreation": true,
+        "id": "YJFlIJaywRBz6Pgkqg0ZSg",
+        "name": "SHE",
+        "periods": [
+            {
+                "startTime": "2020-01-10T08:45:34.676Z",
+                "weight": 0.025
+            }
+        ]
     }
 ]

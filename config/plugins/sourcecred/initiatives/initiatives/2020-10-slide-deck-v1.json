@@ -1,0 +1,34 @@
+[
+	{
+		"type": "sourcecred/initiativeFile",
+		"version": "0.2.0"
+	},
+	{
+		"title": "Slide Deck v1",
+		"timestampIso": "2020-09-22T10:00:00.000Z",
+		"weight": {
+			"incomplete": 20,
+			"complete": 20
+		},
+		"completed": true,
+		"champions": ["@youngkidwarrior, @malikvprice, wo8Z4WVi4xl2Vud4jEGwVQ"],
+		"dependencies": {},
+		"references": {},
+		"contributions": {
+			"entries": [
+        {
+          "title": "Drawing and Organizing",
+          "timestampIso": "2020-09-15T10:00:00.000Z",
+          "weight": 20,
+          "contributors": ["wo8Z4WVi4xl2Vud4jEGwVQ"]
+        },
+        {
+          "title": "Writing",
+          "timestampIso": "2020-09-15T10:00:00.000Z",
+          "weight": 10,
+          "contributors": ["@malikvprice, @youngkidwarrior"]
+        }
+      ]
+		}
+	}
+]
