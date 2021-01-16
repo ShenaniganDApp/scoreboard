@@ -1876,5 +1876,23 @@
     "createdAt": 1610647714842,
     "address": "0x0Cfd1A3641be438AecA7f688Fb78d6cD9D652b06",
     "discordId": "773271743699484734"
+  },
+  {
+    "name": "carlos garcia",
+    "createdAt": 1610744845130,
+    "address": "0xE76ab9Ac0BF2d986fa186c5Daa49738757EBee97",
+    "discordId": "799740127319818270"
+  },
+  {
+    "name": "Genesis",
+    "createdAt": 1610745926797,
+    "address": "0xf4AbEE72Da02Bd284Fb6D2b5d27e414b3b58E416",
+    "discordId": "799739616668287016"
+  },
+  {
+    "name": "Mayerling",
+    "createdAt": 1610749383412,
+    "address": "0x9af431Df56ED8480bB11e07366141bd8F74E4Acc",
+    "discordId": "799750310448726067"
   }
 ]
