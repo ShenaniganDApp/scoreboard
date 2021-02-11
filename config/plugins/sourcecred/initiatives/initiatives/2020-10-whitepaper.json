@@ -7,11 +7,11 @@
 		"title": "Whitepaper",
 		"timestampIso": "2020-05-15T10:00:00.000Z",
 		"weight": {
-			"incomplete": 21,
-			"complete": 21
+			"incomplete": 0,
+			"complete": 0
 		},
 		"completed": true,
-		"champions": ["@youngkidwarrior", "@malikvprice"],
+		"champions": [],
 		"dependencies": {},
 		"references": {},
 		"contributions": {
@@ -19,14 +19,14 @@
 				{
 					"title": "Whitepaper Alpha",
 					"timestampIso": "2020-05-15T10:00:00.000Z",
-					"weight": 20,
-					"contributors": ["@youngkidwarrior", "@malikvprice"]
+					"weight": 5,
+					"contributors": ["https://github.com/youngkidwarrior", "https://github.com/malikvprice"]
 				},
 				{
 					"title": "Whitepaper Beta",
 					"timestampIso": "2020-06-15T10:00:00.000Z",
-					"weight": 10,
-					"contributors": ["@youngkidwarrior"]
+					"weight": 3,
+					"contributors": ["https://github.com/youngkidwarrior"]
 				}
 			]
 		}

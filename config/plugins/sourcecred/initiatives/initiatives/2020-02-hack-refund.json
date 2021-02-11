@@ -1,0 +1,28 @@
+[
+	{
+		"type": "sourcecred/initiativeFile",
+		"version": "0.2.0"
+	},
+	{
+		"title": "Hack Refund",
+		"timestampIso": "2021-02-07T10:00:00.000Z",
+		"weight": {
+			"incomplete": 0,
+			"complete": 0
+		},
+		"completed": true,
+		"champions": [],
+		"dependencies": {},
+		"references": {},
+		"contributions": {
+			"entries": [
+				{
+					"title": "$1000 donation",
+					"timestampIso": "2021-01-15:00:00.000Z",
+					"weight": 34,
+					"contributors": ["https://github.com/chair28980", "https://github.com/youngkidwarrior"]
+				}
+			]
+		}
+	}
+]

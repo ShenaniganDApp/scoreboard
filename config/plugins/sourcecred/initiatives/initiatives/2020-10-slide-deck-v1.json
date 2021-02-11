@@ -7,28 +7,28 @@
 		"title": "Slide Deck v1",
 		"timestampIso": "2020-09-22T10:00:00.000Z",
 		"weight": {
-			"incomplete": 20,
-			"complete": 20
+			"incomplete": 0,
+			"complete": 0
 		},
 		"completed": true,
-		"champions": ["@youngkidwarrior, @malikvprice, wo8Z4WVi4xl2Vud4jEGwVQ"],
+		"champions": [],
 		"dependencies": {},
 		"references": {},
 		"contributions": {
 			"entries": [
-        {
-          "title": "Drawing and Organizing",
-          "timestampIso": "2020-09-15T10:00:00.000Z",
-          "weight": 20,
-          "contributors": ["wo8Z4WVi4xl2Vud4jEGwVQ"]
-        },
-        {
-          "title": "Writing",
-          "timestampIso": "2020-09-15T10:00:00.000Z",
-          "weight": 10,
-          "contributors": ["@malikvprice, @youngkidwarrior"]
-        }
-      ]
+				{
+					"title": "Drawing and Organizing",
+					"timestampIso": "2020-09-15T10:00:00.000Z",
+					"weight": 8,
+					"contributors": ["@seace1---Shenanigan"]
+				},
+				{
+					"title": "Writing",
+					"timestampIso": "2020-09-15T10:00:00.000Z",
+					"weight": 5,
+					"contributors": ["https://github.com/malikvprice", "https://github.com/youngkidwarrior"]
+				}
+			]
 		}
 	}
 ]
