@@ -1,0 +1,27 @@
+[
+  {
+    "type": "sourcecred/initiativeFile",
+    "version": "0.2.0"
+  },
+  {
+    "title": "App Design Sprint",
+    "timestampIso": "2021-02-07T10:00:00.000Z",
+    "weight": {
+      "incomplete": 0,
+      "complete": 0
+    },
+    "completed": true,
+    "champions": [],
+    "dependencies": {},
+    "references": {},
+    "contributions":{ 
+      "entries": [
+        {
+					"title": "Sprint",
+					"timestampIso": "2021-01-30:00:00.000Z",
+					"weight": 13,
+					"contributors": ["@vexxed", "https://github.com/youngkidwarrior"]
+				}
+      ]
+  }
+}]

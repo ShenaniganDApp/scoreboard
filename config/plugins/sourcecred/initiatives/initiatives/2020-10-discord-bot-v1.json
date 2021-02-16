@@ -7,11 +7,11 @@
 		"title": "Discord Bot v1",
 		"timestampIso": "2020-11-22T10:00:00.000Z",
 		"weight": {
-			"incomplete": 20,
-			"complete": 20
+			"incomplete": 8,
+			"complete": 8
 		},
 		"completed": true,
-		"champions": ["@youngkidwarrior"],
+		"champions": [],
 		"dependencies": {},
 		"references": {},
 		"contributions": {
