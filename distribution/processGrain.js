@@ -38,6 +38,10 @@ async function processGrain() {
 	let accounts = ledger.accounts();
 
 	const collapsedParticles = accounts.find((a) => a.identity.name === 'CollapsedParticles');
+	const activeAccounts = accountsJSON.accounts.filter(
+		(acc) => acc.account.active &&  new BigNumber('1000000000000000000').lte(acc.account.balance)
+	);
+	const activeUserMap = _.keyBy(activeAccounts, 'account.identity.id');
 
 	// // Activate new accounts
 
@@ -66,7 +70,7 @@ async function processGrain() {
 
 	// try {
 	// 	accounts.map((a) => {
-	// 		const credAcc = accountMap[a.identity.id];
+	// 		const credAcc = activeUserMap[a.identity.id];
 	// 		if (!credAcc) return null;
 	// 		if (a.identity.subtype !== 'USER') return null;
 	// 		const discordAliases = a.identity.aliases.filter((alias) => {
@@ -84,7 +88,7 @@ async function processGrain() {
 	// 				});
 	// 			}
 
-	// 			if (oldAccountsMap[discordId] && a.balance > 0) {
+	// 			if (oldAccountsMap[discordId] && new BigNumber('1000000000000000000').lte(a.balance) {
 	// 				ledger.transferGrain({
 	// 					from: a.identity.id,
 	// 					to: collapsedParticles.identity.id,
@@ -98,9 +102,6 @@ async function processGrain() {
 	// } catch (err) {
 	// 	console.log('err: ', err);
 	// }
-
-	const activeAccounts = accountsJSON.accounts.filter((acc) => acc.account.active);
-	const activeUserMap = _.keyBy(activeAccounts, 'account.identity.id');
 
 	try {
 		const discordAcc = accounts
