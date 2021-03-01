@@ -39,11 +39,11 @@ async function processGrain() {
 
 	const collapsedParticles = accounts.find((a) => a.identity.name === 'CollapsedParticles');
 	const activeAccounts = accountsJSON.accounts.filter(
-		(acc) => acc.account.active &&  new BigNumber('1000000000000000000').lte(acc.account.balance)
+		(acc) => acc.account.active && new BigNumber('1000000000000000000').lte(acc.account.balance)
 	);
 	const activeUserMap = _.keyBy(activeAccounts, 'account.identity.id');
 
-	// // Activate new accounts
+	// // // Activate new accounts
 
 	// try {
 	// 	accounts.map((a) => {
@@ -79,7 +79,7 @@ async function processGrain() {
 	// 		});
 	// 		discordAliases.forEach((alias) => {
 	// 			discordId = NodeAddress.toParts(alias.address)[4];
-	// 			if (AddressMap[discordId] && a.balance > 0) {
+	// 			if (AddressMap[discordId] && new BigNumber('1000000000000000000').lte(a.balance)) {
 	// 				ledger.transferGrain({
 	// 					from: a.identity.id,
 	// 					to: collapsedParticles.identity.id,
@@ -88,7 +88,7 @@ async function processGrain() {
 	// 				});
 	// 			}
 
-	// 			if (oldAccountsMap[discordId] && new BigNumber('1000000000000000000').lte(a.balance) {
+	// 			if (oldAccountsMap[discordId] && new BigNumber('1000000000000000000').lte(a.balance)) {
 	// 				ledger.transferGrain({
 	// 					from: a.identity.id,
 	// 					to: collapsedParticles.identity.id,
