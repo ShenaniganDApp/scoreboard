@@ -1,0 +1,28 @@
+[
+	{
+		"type": "sourcecred/initiativeFile",
+		"version": "0.2.0"
+	},
+	{
+		"title": "Dripp",
+		"timestampIso": "2021-02-28T10:00:00.000Z",
+		"weight": {
+			"incomplete": 0,
+			"complete": 0
+		},
+		"completed": true,
+		"champions": [],
+		"dependencies": {},
+		"references": {},
+		"contributions": {
+			"entries": [
+				{
+					"title": "Dripp Dev",
+					"timestampIso": "2021-02-20:00:00.000Z",
+					"weight": 21,
+					"contributors": ["https://github.com/youngkidwarrior"]
+				}
+			]
+		}
+	}
+]

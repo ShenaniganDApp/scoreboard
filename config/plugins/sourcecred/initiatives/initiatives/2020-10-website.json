@@ -7,11 +7,11 @@
 		"title": "Building Website",
 		"timestampIso": "2020-01-22T10:00:00.000Z",
 		"weight": {
-			"incomplete": 8,
-			"complete": 8
+			"incomplete": 13,
+			"complete": 13
 		},
 		"completed": true,
-		"champions": ["https://github.com/youngkidwarrior"],
+		"champions": [""],
 		"dependencies": {},
 		"references": {},
 		"contributions": {
