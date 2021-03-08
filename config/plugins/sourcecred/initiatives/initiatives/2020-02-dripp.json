@@ -21,6 +21,12 @@
 					"timestampIso": "2021-02-20:00:00.000Z",
 					"weight": 21,
 					"contributors": ["https://github.com/youngkidwarrior"]
+				},
+				{
+					"title": "Dripp Fixes",
+					"timestampIso": "2021-02-20:00:00.000Z",
+					"weight": 8,
+					"contributors": ["https://github.com/youngkidwarrior"]
 				}
 			]
 		}
