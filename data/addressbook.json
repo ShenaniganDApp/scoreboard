@@ -2236,5 +2236,41 @@
     "createdAt": 1615427523659,
     "address": "0xB1e672404E2F97Db0CC3998b4Df8C3CF96232589",
     "discordId": "754485307126054994"
+  },
+  {
+    "name": "Johangelys",
+    "createdAt": 1615511782349,
+    "address": "0xdbe961d15D720352AD3c8637262e2d7B3DdCC7c0",
+    "discordId": "819694092891324465"
+  },
+  {
+    "name": "alabra",
+    "createdAt": 1615519117246,
+    "address": "0x58e6e67037D166420783C6da19CF1446EB242193",
+    "discordId": "819707258531217408"
+  },
+  {
+    "name": "khanhuy",
+    "createdAt": 1615556431737,
+    "address": "0xEb0b664f1C5f171BBc1C45E332a753f45bBc56D2",
+    "discordId": "709787668027801631"
+  },
+  {
+    "name": "José Colmenares",
+    "createdAt": 1615579808322,
+    "address": "0x0e8f8bF8AA07fA2913e4F12CB4C366600ceAD3e2",
+    "discordId": "818946537685123083"
+  },
+  {
+    "name": "FranciscoCastillo",
+    "createdAt": 1615583553407,
+    "address": "0x3e89f4450D5D4846Cf442b0C342c1b8Eecda6DAa",
+    "discordId": "819997339342077952"
+  },
+  {
+    "name": "RicharCaceres",
+    "createdAt": 1615584729353,
+    "address": "0x24F785cd029703F0A0d5BC0669c4335D848155Fb",
+    "discordId": "819997321197518938"
   }
 ]
