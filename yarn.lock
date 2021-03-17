@@ -983,6 +983,19 @@ axios@^0.19.0:
   dependencies:
     follow-redirects "1.5.10"
 
+babel-plugin-syntax-flow@^6.18.0:
+  version "6.18.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-flow/-/babel-plugin-syntax-flow-6.18.0.tgz#4c3ab20a2af26aa20cd25995c398c4eb70310c8d"
+  integrity sha1-TDqyCiryaqIM0lmVw5jE63AxDI0=
+
+babel-plugin-transform-flow-strip-types@^6.22.0:
+  version "6.22.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-flow-strip-types/-/babel-plugin-transform-flow-strip-types-6.22.0.tgz#84cb672935d43714fdc32bce84568d87441cf7cf"
+  integrity sha1-hMtnKTXUNxT9wyvOhFaNh0Qc988=
+  dependencies:
+    babel-plugin-syntax-flow "^6.18.0"
+    babel-runtime "^6.22.0"
+
 babel-runtime@^6.22.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
@@ -1574,6 +1587,13 @@ cross-fetch@^2.1.0, cross-fetch@^2.1.1:
   dependencies:
     node-fetch "2.1.2"
     whatwg-fetch "2.0.4"
+
+cross-fetch@^3.0.6:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.0.tgz#6447c13cc8887fa2a66caef92888d7fdaab6e0d1"
+  integrity sha512-a+yso9lSpXQI9DH+YjAu/m0dVfP8IVoZDPBLLFcvGpeq3KHNdikkekTOdkHiXEuTq4GBOeO0MfWkE40yzF1w7g==
+  dependencies:
+    node-fetch "2.6.1"
 
 crypto-browserify@3.12.0:
   version "3.12.0"
@@ -4095,7 +4115,7 @@ node-fetch@2.1.2:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
   integrity sha1-q4hOjn5X44qUR1POxwb3iNF2i7U=
 
-node-fetch@^2.6.0, node-fetch@^2.6.1:
+node-fetch@2.6.1, node-fetch@^2.6.0, node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
@@ -5237,13 +5257,14 @@ source-map@^0.6.0, source-map@^0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-sourcecred@^0.7.6:
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/sourcecred/-/sourcecred-0.7.6.tgz#9d2e90ceb73aecf788ed5d70221d56f785c76cae"
-  integrity sha512-flW4xol9T6tZhdzumwqW8WujVbKwQn5vX3/n0zIFj9NuJe55utRxrOjW4YJrVstx6jCYN2GCdn8qrGCLl9AzJg==
+sourcecred@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/sourcecred/-/sourcecred-0.8.0.tgz#9117ac32ea96eab739e9d8d12405eb0148a508de"
+  integrity sha512-hT5bdxc4UfhZh/4tXrA0yS5LCCvySuvF3eHNvisUltVbi4jGXrnsKsXDEZzDUp0Kbr4l6Tuod35RrAQpqEap+w==
   dependencies:
     "@material-ui/lab" "^4.0.0-alpha.56"
     aphrodite "^2.4.0"
+    babel-plugin-transform-flow-strip-types "^6.22.0"
     base-64 "^1.0.0"
     base64url "^3.0.1"
     better-sqlite3 "^7.0.0"
@@ -5251,6 +5272,7 @@ sourcecred@^0.7.6:
     bottleneck "^2.19.5"
     chalk "^4.0.0"
     commonmark "0.29.1"
+    cross-fetch "^3.0.6"
     d3-array "^2.4.0"
     d3-format "^2.0.0"
     d3-scale "^3.2.1"
