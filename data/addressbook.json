@@ -1,11 +1,5 @@
 [
   {
-    "name": "YoungKidWarrior",
-    "createdAt": 1601536931107,
-    "address": "0xE8aDaeA0bA507a28d1309051BecEb4db7Fe377AF",
-    "discordId": "683892894767251489"
-  },
-  {
     "name": "Carlos110",
     "createdAt": 1601565082724,
     "address": "0xF8f12505822D80070cf852566F281cCBb10F3E61",
@@ -2290,5 +2284,17 @@
     "createdAt": 1615843241827,
     "address": "0xc49FE6DC82d7a8B535d1ae1534a0E1Fc0AdD37cC",
     "discordId": "820928802996748309"
+  },
+  {
+    "name": "YoungKidWarrior",
+    "createdAt": 1615868199692,
+    "address": "0xa69656dee6721FF43506477Fb522eFef151E4477",
+    "discordId": "683892894767251489"
+  },
+  {
+    "name": "Milita",
+    "createdAt": 1615936432034,
+    "address": "0x016c25603b8B8798880c0FB90b9412F0699a5298",
+    "discordId": "597506764413468672"
   }
 ]
