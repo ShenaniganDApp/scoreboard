@@ -2332,5 +2332,11 @@
     "createdAt": 1616127102244,
     "address": "0x861FE68B2eD28f609C08F66A1C0bCc940b9BdC80",
     "discordId": "821811249981030401"
+  },
+  {
+    "name": "alv_crosslifting",
+    "createdAt": 1616159667760,
+    "address": "0x625a6Bf859Bac8329F73e12A7a8775678f47b387",
+    "discordId": "709099251321536542"
   }
 ]
