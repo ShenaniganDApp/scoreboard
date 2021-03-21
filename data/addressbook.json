@@ -1962,12 +1962,6 @@
     "discordId": "553802369192820739"
   },
   {
-    "name": "Alvarado",
-    "createdAt": 1613599393251,
-    "address": "0xDA9C4277df1dCfD73988a3ebEBa29DDF93A80B09",
-    "discordId": "805993553586815037"
-  },
-  {
     "name": "Criptonaut",
     "createdAt": 1613613953482,
     "address": "0x8CBc0249E9f2bd15e198a54e59F583fAed8866F5",
@@ -2356,5 +2350,11 @@
     "createdAt": 1616367645064,
     "address": "0x6aA67c1c3F630CBC736514525b2A0eBF1219705c",
     "discordId": "815227843797057558"
+  },
+  {
+    "name": "Alvarado",
+    "createdAt": 1616367711209,
+    "address": "0xA17eCc15EB93f6217aeB48de56e0556728793e74",
+    "discordId": "805993553586815037"
   }
 ]
