@@ -1890,12 +1890,6 @@
     "discordId": "790340180007190548"
   },
   {
-    "name": "Jesustitodex1",
-    "createdAt": 1612393730716,
-    "address": "0xAd9954156aAAc1e922707a89f535BF057C1cb20E",
-    "discordId": "805874229840707584"
-  },
-  {
     "name": "SunDead",
     "createdAt": 1612563689887,
     "address": "0xF69a7912f963370679FCb721e470623024fFbF76",
@@ -2356,5 +2350,11 @@
     "createdAt": 1616367711209,
     "address": "0xA17eCc15EB93f6217aeB48de56e0556728793e74",
     "discordId": "805993553586815037"
+  },
+  {
+    "name": "Jesustitodex1",
+    "createdAt": 1616369843379,
+    "address": "0xBB615Dc0906bDFE27f7201738F9B32a038C97798",
+    "discordId": "805874229840707584"
   }
 ]
