@@ -876,12 +876,6 @@
     "discordId": "763307160875958272"
   },
   {
-    "name": "cheo0202",
-    "createdAt": 1602631215963,
-    "address": "0xCEDdf9eE6A6Dc59Fc29670e178eAc9aDAE4f92e7",
-    "discordId": "315597737896837121"
-  },
-  {
     "name": "lucklight",
     "createdAt": 1602631287649,
     "address": "0x1b661AF1A366B60DcAf03DA598b5b91b76aBf3A3",
@@ -2356,5 +2350,11 @@
     "createdAt": 1616285183351,
     "address": "0x0D1A255337947c181783E833cF3CFd61650742F4",
     "discordId": "822913472978878526"
+  },
+  {
+    "name": "cheo0202 shenanigan",
+    "createdAt": 1616352784604,
+    "address": "0x9AE494FBAc34682c122A1D4e3D6ae1Eb5404A469",
+    "discordId": "315597737896837121"
   }
 ]
