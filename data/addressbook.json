@@ -2322,12 +2322,6 @@
     "discordId": "815227843797057558"
   },
   {
-    "name": "Alvarado",
-    "createdAt": 1616367711209,
-    "address": "0xA17eCc15EB93f6217aeB48de56e0556728793e74",
-    "discordId": "805993553586815037"
-  },
-  {
     "name": "Jesustitodex1",
     "createdAt": 1616369843379,
     "address": "0xBB615Dc0906bDFE27f7201738F9B32a038C97798",
@@ -2356,5 +2350,11 @@
     "createdAt": 1616446540625,
     "address": "0xC0C10e4c255E5DE1061Df31c324776F5Ad3ad976",
     "discordId": "779459782335529000"
+  },
+  {
+    "name": "Alvarado",
+    "createdAt": 1616451522151,
+    "address": "0x55c1ACBfe984DDBae54C14576C6337fd32B09314",
+    "discordId": "805993553586815037"
   }
 ]
