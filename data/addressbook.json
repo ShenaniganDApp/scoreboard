@@ -2004,12 +2004,6 @@
     "discordId": "814546268210200596"
   },
   {
-    "name": "Male",
-    "createdAt": 1614279425948,
-    "address": "0x4b77a08eA82f008DCAb46013d243c61f57f55bcf",
-    "discordId": "779459782335529000"
-  },
-  {
     "name": "blanca ofelia",
     "createdAt": 1614285741304,
     "address": "0x53A944BBab04095dB8c0C919B9F57eedB8C3f1E8",
@@ -2356,5 +2350,11 @@
     "createdAt": 1616441965650,
     "address": "0xDd4168750F23d72193f8F4F778B60bc745F2f667",
     "discordId": "816692530112495636"
+  },
+  {
+    "name": "Male",
+    "createdAt": 1616446540625,
+    "address": "0xC0C10e4c255E5DE1061Df31c324776F5Ad3ad976",
+    "discordId": "779459782335529000"
   }
 ]
