@@ -1998,12 +1998,6 @@
     "discordId": "806196870829178920"
   },
   {
-    "name": "Gerson Rodríguez",
-    "createdAt": 1614267079104,
-    "address": "0xe5Ad85F899D5145af579e12Db4973bA3Da7D3CC5",
-    "discordId": "814272898327773264"
-  },
-  {
     "name": "Gaboman",
     "createdAt": 1614274495291,
     "address": "0xB057BB59e8E6CEDb30aaD03bfF28e9fBa0b7A1da",
@@ -2356,5 +2350,11 @@
     "createdAt": 1616370768386,
     "address": "0x7212892D13f8f154794314A93DcD3Af3D32238C1",
     "discordId": "783482309423661166"
+  },
+  {
+    "name": "Gerson Rodríguez",
+    "createdAt": 1616441157824,
+    "address": "0x1e40b081e6FCf2739778f968592536b690f1A990",
+    "discordId": "814272898327773264"
   }
 ]
