@@ -2298,12 +2298,6 @@
     "discordId": "801485665879588874"
   },
   {
-    "name": "romel",
-    "createdAt": 1616365648718,
-    "address": "0x2d5de2c405Cc60de3784261C41FeDA684E32667c",
-    "discordId": "787125356599443486"
-  },
-  {
     "name": "Mili",
     "createdAt": 1616366066536,
     "address": "0xaEF4205763517F7b79fd510B1d9ef01aaC0b8A60",
@@ -2356,5 +2350,11 @@
     "createdAt": 1616451522151,
     "address": "0x55c1ACBfe984DDBae54C14576C6337fd32B09314",
     "discordId": "805993553586815037"
+  },
+  {
+    "name": "romel",
+    "createdAt": 1616455305614,
+    "address": "0x10eBE58d7aa1356C53Ec35fCf4e8Fb3B56de137C",
+    "discordId": "787125356599443486"
   }
 ]
