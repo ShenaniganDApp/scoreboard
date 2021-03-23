@@ -1998,22 +1998,10 @@
     "discordId": "806196870829178920"
   },
   {
-    "name": "Gerson Rodríguez",
-    "createdAt": 1614267079104,
-    "address": "0xe5Ad85F899D5145af579e12Db4973bA3Da7D3CC5",
-    "discordId": "814272898327773264"
-  },
-  {
     "name": "Gaboman",
     "createdAt": 1614274495291,
     "address": "0xB057BB59e8E6CEDb30aaD03bfF28e9fBa0b7A1da",
     "discordId": "814546268210200596"
-  },
-  {
-    "name": "Male",
-    "createdAt": 1614279425948,
-    "address": "0x4b77a08eA82f008DCAb46013d243c61f57f55bcf",
-    "discordId": "779459782335529000"
   },
   {
     "name": "blanca ofelia",
@@ -2062,12 +2050,6 @@
     "createdAt": 1614655572536,
     "address": "0x146cfED833cC926B16B0dA9257E8A281c2add9F3",
     "discordId": "379461898707402754"
-  },
-  {
-    "name": "Mr.Pandax",
-    "createdAt": 1614786809202,
-    "address": "0xcE42993591B574BA4124109Cfb4936f99E47f4Dd",
-    "discordId": "816692530112495636"
   },
   {
     "name": "Yuviry",
@@ -2316,34 +2298,16 @@
     "discordId": "801485665879588874"
   },
   {
-    "name": "romel",
-    "createdAt": 1616365648718,
-    "address": "0x2d5de2c405Cc60de3784261C41FeDA684E32667c",
-    "discordId": "787125356599443486"
-  },
-  {
     "name": "Mili",
     "createdAt": 1616366066536,
     "address": "0xaEF4205763517F7b79fd510B1d9ef01aaC0b8A60",
     "discordId": "720107640759386212"
   },
   {
-    "name": "yander",
-    "createdAt": 1616366120215,
-    "address": "0xc7c4cF383a4EA007F28Ff2176FFaA7504E78e550",
-    "discordId": "787121710716420097"
-  },
-  {
     "name": "walmich",
     "createdAt": 1616367645064,
     "address": "0x6aA67c1c3F630CBC736514525b2A0eBF1219705c",
     "discordId": "815227843797057558"
-  },
-  {
-    "name": "Alvarado",
-    "createdAt": 1616367711209,
-    "address": "0xA17eCc15EB93f6217aeB48de56e0556728793e74",
-    "discordId": "805993553586815037"
   },
   {
     "name": "Jesustitodex1",
@@ -2356,5 +2320,41 @@
     "createdAt": 1616370768386,
     "address": "0x7212892D13f8f154794314A93DcD3Af3D32238C1",
     "discordId": "783482309423661166"
+  },
+  {
+    "name": "Gerson Rodríguez",
+    "createdAt": 1616441157824,
+    "address": "0x1e40b081e6FCf2739778f968592536b690f1A990",
+    "discordId": "814272898327773264"
+  },
+  {
+    "name": "Mr.Pandax",
+    "createdAt": 1616441965650,
+    "address": "0xDd4168750F23d72193f8F4F778B60bc745F2f667",
+    "discordId": "816692530112495636"
+  },
+  {
+    "name": "Male",
+    "createdAt": 1616446540625,
+    "address": "0xC0C10e4c255E5DE1061Df31c324776F5Ad3ad976",
+    "discordId": "779459782335529000"
+  },
+  {
+    "name": "Alvarado",
+    "createdAt": 1616451522151,
+    "address": "0x55c1ACBfe984DDBae54C14576C6337fd32B09314",
+    "discordId": "805993553586815037"
+  },
+  {
+    "name": "romel",
+    "createdAt": 1616455305614,
+    "address": "0x10eBE58d7aa1356C53Ec35fCf4e8Fb3B56de137C",
+    "discordId": "787125356599443486"
+  },
+  {
+    "name": "yander",
+    "createdAt": 1616456612141,
+    "address": "0x37B57176E762788C9cE22A13689a4b084076909a",
+    "discordId": "787121710716420097"
   }
 ]
