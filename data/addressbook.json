@@ -1902,12 +1902,6 @@
     "discordId": "808036428646711317"
   },
   {
-    "name": "andrea2510",
-    "createdAt": 1612823883013,
-    "address": "0xD5A6F5C5dA785ae137a314442634998fc98FDc23",
-    "discordId": "808419268676681750"
-  },
-  {
     "name": "Maitte",
     "createdAt": 1612910697038,
     "address": "0x6551DB9e20729C7323a566F9819F8Aea4BBeF79F",
@@ -2374,5 +2368,11 @@
     "createdAt": 1616731920533,
     "address": "0x18d472aC06AcAb547BE3bD714506853d914ABcD5",
     "discordId": "361680260879613954"
+  },
+  {
+    "name": "andrea2510",
+    "createdAt": 1616810079284,
+    "address": "0x8E4c465228Ec53862D7764E01c66aeF971399a74",
+    "discordId": "808419268676681750"
   }
 ]
