@@ -2184,12 +2184,6 @@
     "discordId": "819997321197518938"
   },
   {
-    "name": "temuriko",
-    "createdAt": 1615740925587,
-    "address": "0xbfB1183dE74E12FE52DAEdf8cb36239326ac8A89",
-    "discordId": "702818152114815089"
-  },
-  {
     "name": "Dalas Katski",
     "createdAt": 1615744684894,
     "address": "0xFfB671e6B937ed2670A5f2e0Eecfc42D2b9433B2",
@@ -2380,5 +2374,11 @@
     "createdAt": 1616861671187,
     "address": "0x59927FFeD3b45841a64B392438Aee346E88D0a59",
     "discordId": "817140008136736828"
+  },
+  {
+    "name": "temuriko",
+    "createdAt": 1616878251020,
+    "address": "0xbafA78220C694e94ecf4C8cB559235c8750c053e",
+    "discordId": "702818152114815089"
   }
 ]
