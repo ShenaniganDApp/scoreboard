@@ -2046,12 +2046,6 @@
     "discordId": "379461898707402754"
   },
   {
-    "name": "Yuviry",
-    "createdAt": 1614902948109,
-    "address": "0x9cF2C6c5e3BE4Bb894f3a36ee2d386d920791C79",
-    "discordId": "817140008136736828"
-  },
-  {
     "name": "Leroy Genkins",
     "createdAt": 1615043854144,
     "address": "0x92aE1D2aeDBA6358D8d5717Efca4CF1375a0599F",
@@ -2380,5 +2374,11 @@
     "createdAt": 1616836047173,
     "address": "0xa559f9F0B76E0954078fE8EB1ea3Ff7DC89E118a",
     "discordId": "777546936131387423"
+  },
+  {
+    "name": "Yuviry",
+    "createdAt": 1616861671187,
+    "address": "0x59927FFeD3b45841a64B392438Aee346E88D0a59",
+    "discordId": "817140008136736828"
   }
 ]
