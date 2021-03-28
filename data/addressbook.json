@@ -2106,12 +2106,6 @@
     "discordId": "807363582827298840"
   },
   {
-    "name": "Manu😎",
-    "createdAt": 1615242322819,
-    "address": "0x802849d5BA26958b4fC765855dC8Af8c674AfD71",
-    "discordId": "818565661181476975"
-  },
-  {
     "name": "sabrina0512",
     "createdAt": 1615242841523,
     "address": "0xaf8e5deB42A90322b1b419b31AC248142649C359",
@@ -2380,5 +2374,11 @@
     "createdAt": 1616878251020,
     "address": "0xbafA78220C694e94ecf4C8cB559235c8750c053e",
     "discordId": "702818152114815089"
+  },
+  {
+    "name": "Manu😎",
+    "createdAt": 1616893530800,
+    "address": "0x46e25887040Dd8f335e3ac2BFB057CC20bB0FB6d",
+    "discordId": "818565661181476975"
   }
 ]
