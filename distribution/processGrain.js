@@ -1,4 +1,4 @@
-const sc = require('sourcecred').default;
+const sc = require('sourcecred').sourcecred;
 const fs = require('fs-extra');
 const _ = require('lodash');
 const fetch = require('node-fetch');
@@ -21,27 +21,27 @@ const newMintAmounts = [];
 
 async function processGrain() {
 	const ledgerJSON = (await fs.readFile(LEDGER_PATH)).toString();
-	const accountsJSON = JSON.parse((await fs.readFile('output/accounts.json')).toString());
+	// const accountsJSON = JSON.parse((await fs.readFile('output/accounts.json')).toString());
 	const dependenciesJSON = JSON.parse(await (await fs.readFile(DEPENDENCIES_PATH)).toString());
 	const oldAccounts = JSON.parse(await (await fs.readFile('distribution/oldAccounts.json')).toString());
 	const oldAccountsMap = _.keyBy(oldAccounts, 'discordId');
-
+	const ledger = Ledger.parse(ledgerJSON);
+	let accounts = ledger.accounts();
 	const AddressBook = await (await fetch(address_book_file)).json();
 
 	const AddressMap = _.keyBy(AddressBook, 'discordId');
 
-	const accountMap = _.keyBy(accountsJSON.accounts, 'account.identity.id');
+	const accountMap = _.keyBy(accounts.accounts, 'identity.id');
 
 	const dependenciesMap = _.keyBy(dependenciesJSON, 'id');
 
-	const ledger = Ledger.parse(ledgerJSON);
-	let accounts = ledger.accounts();
+
 
 	const collapsedParticles = accounts.find((a) => a.identity.name === 'CollapsedParticles');
-	const activeAccounts = accountsJSON.accounts.filter(
-		(acc) => acc.account.active && new BigNumber('1000000000000000000').lte(acc.account.balance)
+	const activeAccounts = accounts.filter(
+		(acc) => acc.active && new BigNumber('1000000000000000000').lte(acc.balance)
 	);
-	const activeUserMap = _.keyBy(activeAccounts, 'account.identity.id');
+	const activeUserMap = _.keyBy(activeAccounts, 'identity.id');
 
 	// // // Activate new accounts
 

@@ -1,0 +1,46 @@
+[
+	{
+		"type": "sourcecred/initiativeFile",
+		"version": "0.2.0"
+	},
+	{
+		"title": "Finding Team Members",
+		"timestampIso": "2021-03-21T10:00:00.000Z",
+		"weight": {
+			"incomplete": 0,
+			"complete": 0
+		},
+		"completed": true,
+		"champions": [],
+		"dependencies": {},
+		"references": {},
+		"contributions": {
+			"entries": [
+				{
+					"title": "Kitty",
+					"timestampIso": "2021-03-21T10:00:00.000Z",
+					"weight": 3,
+					"contributors": ["https://github.com/chair28980"]
+				},
+				{
+					"title": "Kilgore",
+					"timestampIso": "2021-03-21T10:00:00.000Z",
+					"weight": 3,
+					"contributors": ["https://github.com/chair28980"]
+				},
+				{
+					"title": "Shax",
+					"timestampIso": "2021-03-21T10:00:00.000Z",
+					"weight": 3,
+					"contributors": ["https://github.com/chair28980"]
+				},
+				{
+					"title": "Tim-tokeneconomics",
+					"timestampIso": "2021-03-21T10:00:00.000Z",
+					"weight": 3,
+					"contributors": ["https://github.com/chair28980"]
+				}
+			]
+		}
+	}
+]
