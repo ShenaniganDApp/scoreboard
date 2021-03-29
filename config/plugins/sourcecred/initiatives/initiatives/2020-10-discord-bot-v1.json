@@ -19,6 +19,14 @@
 				"https://github.com/ShenaniganDApp/bot/commit/f8cbddd899afa0dbba1e34e97146cbd366bf823a",
 				"https://github.com/ShenaniganDApp/bot/commit/ddedfc20ab65482205ffddfeebf3fde7408223bc",
 				"https://github.com/ShenaniganDApp/bot/commit/4025ae759c9e0507ed9571d22ff120221bbdce2c"
+			],
+			"entries": [
+				{
+					"title": "Owed.csv Discord Message",
+					"timestampIso": "2021-03-21:00:00.000Z",
+					"weight": 3,
+					"contributors": ["https://github.com/youngkidwarrior", "https://github.com/chair28980"]
+				}
 			]
 		}
 	}
