@@ -1914,12 +1914,6 @@
     "discordId": "339231024309338115"
   },
   {
-    "name": "Daniela208",
-    "createdAt": 1613089052389,
-    "address": "0xa46ACe3c14B9125579E01129b09B7196CfF316Df",
-    "discordId": "808713966444478506"
-  },
-  {
     "name": "Kittyslasher",
     "createdAt": 1613263787770,
     "address": "0x6d49DEC27E02eFccEF9a5136dDe10A06333cc9f7",
@@ -2386,5 +2380,11 @@
     "createdAt": 1617058503412,
     "address": "0xeeF69B0B393CC8e53d9B68c3F28973711BF4B701",
     "discordId": "449583593472393216"
+  },
+  {
+    "name": "Daniela208",
+    "createdAt": 1617206860038,
+    "address": "0xc4eE973912068F75D0A99f664229BfDEA9a038C6",
+    "discordId": "808713966444478506"
   }
 ]
