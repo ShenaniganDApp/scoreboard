@@ -1800,12 +1800,6 @@
     "discordId": "434632218246381569"
   },
   {
-    "name": "mkbtcguy",
-    "createdAt": 1607651719984,
-    "address": "0xD51aFE8c20A429Fe6555Ca4DB037F6b9D26490A4",
-    "discordId": "763048925229613157"
-  },
-  {
     "name": "FrankArmoton",
     "createdAt": 1607954988486,
     "address": "0xED5Ae901d628FF7c327BE4dCBdbb1A4d596d6252",
@@ -2398,5 +2392,11 @@
     "createdAt": 1617407443557,
     "address": "0xE930218F39cDc5e6D60C774E99fd736A33B1Df3A",
     "discordId": "665209754062422059"
+  },
+  {
+    "name": "mkbtcguy",
+    "createdAt": 1617413077092,
+    "address": "0x66f50DCa36DBC267ACdCCBb38d9a3178730415a4",
+    "discordId": "763048925229613157"
   }
 ]
