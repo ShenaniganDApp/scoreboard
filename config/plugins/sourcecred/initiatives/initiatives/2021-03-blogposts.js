@@ -154,6 +154,12 @@
 					weight: 2,
 					contributors: ['https://github.com/malikvprice'],
 				},
+				{
+					title: 'Blogpost #23',
+					timestampIso: '2021-02-21:00:00.000Z',
+					weight: 2,
+					contributors: ['https://github.com/malikvprice'],
+				},
 			],
 		},
 	},
