@@ -47,7 +47,7 @@ async function processGrain() {
 
 	// try {
 	// 	accounts.map((a) => {
-	// 		const credAcc = accountMap[a.identity.id];			
+	// 		const credAcc = accountMap[a.identity.id];
 	// 		if (!credAcc) return null;
 	// 		if (a.identity.subtype !== 'USER') return null;
 	// 		const discordAliases = a.identity.aliases.filter((alias) => {
