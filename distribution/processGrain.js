@@ -31,7 +31,7 @@ async function processGrain() {
 
 	const AddressMap = _.keyBy(AddressBook, 'discordId');
 
-	const accountMap = _.keyBy(accounts.accounts, 'identity.id');
+	const accountMap = _.keyBy(accounts, 'identity.id');
 
 	const dependenciesMap = _.keyBy(dependenciesJSON, 'id');
 
@@ -47,7 +47,7 @@ async function processGrain() {
 
 	// try {
 	// 	accounts.map((a) => {
-	// 		const credAcc = accountMap[a.identity.id];
+	// 		const credAcc = accountMap[a.identity.id];			
 	// 		if (!credAcc) return null;
 	// 		if (a.identity.subtype !== 'USER') return null;
 	// 		const discordAliases = a.identity.aliases.filter((alias) => {
