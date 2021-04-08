@@ -2388,12 +2388,6 @@
     "discordId": "824476291259957278"
   },
   {
-    "name": "Eugenia Garcia",
-    "createdAt": 1617407443557,
-    "address": "0xE930218F39cDc5e6D60C774E99fd736A33B1Df3A",
-    "discordId": "665209754062422059"
-  },
-  {
     "name": "mkbtcguy",
     "createdAt": 1617413077092,
     "address": "0x66f50DCa36DBC267ACdCCBb38d9a3178730415a4",
@@ -2434,5 +2428,11 @@
     "createdAt": 1617838731137,
     "address": "0xc5B49E78da6B109aE6D04A24C886dEE022750922",
     "discordId": "824028071912931329"
+  },
+  {
+    "name": "Eugenia Garcia",
+    "createdAt": 1617846514948,
+    "address": "0x854DB6AbEEE153af69ddEE32e2Bd774da5aB3f92",
+    "discordId": "665209754062422059"
   }
 ]
