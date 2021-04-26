@@ -1,3 +1,7 @@
+# Commands
+
+- pull: `git pull origin master --rebase`
+
 # SourceCred Template Instance
 
 This repository contains a template for running a SourceCred instance.
