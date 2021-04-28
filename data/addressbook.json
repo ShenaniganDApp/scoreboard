@@ -1920,12 +1920,6 @@
     "discordId": "259782309278908418"
   },
   {
-    "name": "prettyscone shans",
-    "createdAt": 1613424957717,
-    "address": "0x951A80a9518951e4b2fF7ab88bE0970b63b26B74",
-    "discordId": "553802369192820739"
-  },
-  {
     "name": "Criptonaut",
     "createdAt": 1613613953482,
     "address": "0x8CBc0249E9f2bd15e198a54e59F583fAed8866F5",
@@ -2458,5 +2452,11 @@
     "createdAt": 1619052227147,
     "address": "0x6086FeEB8B68A437F590e8ea97Ee2708f28a4541",
     "discordId": "822654754089074688"
+  },
+  {
+    "name": "prettyscone shans",
+    "createdAt": 1619642776017,
+    "address": "0xe5eDa1eabfC23075D010927bd0111E8E36C33Def",
+    "discordId": "553802369192820739"
   }
 ]
