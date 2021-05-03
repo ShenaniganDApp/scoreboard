@@ -2340,12 +2340,6 @@
     "discordId": "777546936131387423"
   },
   {
-    "name": "Yuviry",
-    "createdAt": 1616861671187,
-    "address": "0x59927FFeD3b45841a64B392438Aee346E88D0a59",
-    "discordId": "817140008136736828"
-  },
-  {
     "name": "temuriko",
     "createdAt": 1616878251020,
     "address": "0xbafA78220C694e94ecf4C8cB559235c8750c053e",
@@ -2464,5 +2458,11 @@
     "createdAt": 1619979942126,
     "address": "0xf1B241fbC056a2Be08c71580619Ff1f5C61D0cFE",
     "discordId": "826308511591038996"
+  },
+  {
+    "name": "Yuviry",
+    "createdAt": 1620064436050,
+    "address": "0xA74Be7118Bd8f8072a814E3E602815Aa78e7F188",
+    "discordId": "817140008136736828"
   }
 ]
