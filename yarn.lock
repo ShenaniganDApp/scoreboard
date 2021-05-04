@@ -4658,6 +4658,11 @@ pako@^1.0.4:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
   integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==
 
+pako@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-2.0.3.tgz#cdf475e31b678565251406de9e759196a0ea7a43"
+  integrity sha512-WjR1hOeg+kki3ZIOjaf4b5WVcay1jaliKSYiEaB1XzwhMQZJxRdQRv0V31EKBYlxb4T7SK3hjfc/jxyU64BoSw==
+
 parse-asn1@^5.0.0, parse-asn1@^5.1.5:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/parse-asn1/-/parse-asn1-5.1.6.tgz#385080a3ec13cb62a62d39409cb3e88844cdaed4"
@@ -5657,10 +5662,10 @@ source-map@^0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-sourcecred@0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/sourcecred/-/sourcecred-0.8.1.tgz#f2f0f1173d136c324e601d111749f9acbc05aea8"
-  integrity sha512-Cjtn7wcPTLcEFeXiP26bMcoq1kCDCuxKj6oO4nBn98H1sO6f6cWBTFEZe31WIPohZ7IagqdKtMHaOh+eNsZPYw==
+sourcecred@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/sourcecred/-/sourcecred-0.8.5.tgz#979dd66e286e0daac82858f8069b59deebedae1a"
+  integrity sha512-HsfDTFgyYvTkQUEfhmmhMNDrvLohKF4elLwPUFDIHF/VwbTODdl/cdEnGvTH/6YzSbXpBOsgsAV0oOq5DzgIxg==
   dependencies:
     "@material-ui/lab" "^4.0.0-alpha.56"
     aphrodite "^2.4.0"
@@ -5696,6 +5701,7 @@ sourcecred@0.8.1:
     lodash.sortby "^4.7.0"
     lodash.sortedindex "^4.1.0"
     object-assign "^4.1.1"
+    pako "^2.0.3"
     promise "^8.1.0"
     ra-data-fakerest "^3.6.2"
     react "^16.13.0"
