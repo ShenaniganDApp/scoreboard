@@ -2244,12 +2244,6 @@
     "discordId": "315597737896837121"
   },
   {
-    "name": "Nohelia Coronado",
-    "createdAt": 1616365397378,
-    "address": "0x7FBBF1F843B32Fa640140D36B34333C0B42707e1",
-    "discordId": "801485665879588874"
-  },
-  {
     "name": "Mili",
     "createdAt": 1616366066536,
     "address": "0xaEF4205763517F7b79fd510B1d9ef01aaC0b8A60",
@@ -2482,5 +2476,11 @@
     "createdAt": 1620248170868,
     "address": "0x9778b5bBbd114DcAE5f0dBbD26f72d214A24A880",
     "discordId": "839604863696371733"
+  },
+  {
+    "name": "Nohelia",
+    "createdAt": 1620411003327,
+    "address": "0x6D7a2347b3DF844f88590f7479f7CE862DE61f9D",
+    "discordId": "801485665879588874"
   }
 ]
