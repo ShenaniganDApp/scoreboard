@@ -2484,12 +2484,6 @@
     "discordId": "801485665879588874"
   },
   {
-    "name": "Alank",
-    "createdAt": 1620489762968,
-    "address": "0x1e254d47F9CbA998aC8D3a619dEDe2Fec3e6ce45",
-    "discordId": "733898721661550636"
-  },
-  {
     "name": "s_t_p",
     "createdAt": 1620567352964,
     "address": "0x91e794F884D9e5f9754335be1576676Ca54051b0",
@@ -2500,5 +2494,11 @@
     "createdAt": 1620586675945,
     "address": "0x23AAF411111f01a40889D9E1ED2eccB0191c53C3",
     "discordId": "841007775622627348"
+  },
+  {
+    "name": "Alank",
+    "createdAt": 1621191038994,
+    "address": "0x10E3Dc325420Fb1149F6f86abc7ebfBA6bF246dE",
+    "discordId": "733898721661550636"
   }
 ]
