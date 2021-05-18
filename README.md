@@ -185,3 +185,11 @@ You can also remove its `config/plugins/OWNER/NAME` directory for good measure.
 
 [Yarn]: https://classic.yarnpkg.com/
 
+## Chair's Corner
+
+Important commands
+```console
+node distribution/processGrain.js
+yarn grain
+node distribution/processGrain.js > distribution/distributions/2021-05-17.csv
+```
