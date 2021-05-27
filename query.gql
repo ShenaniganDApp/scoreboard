@@ -1,0 +1,12 @@
+{
+    mints(where: {pair: "0xaaefc56e97624b57ce98374eb4a45b6fd5ffb982"},
+          first:1000,
+          orderBy:timestamp,
+          orderDirection:asc) {
+      timestamp
+      id
+
+      amountUSD
+      to
+    }
+  }
