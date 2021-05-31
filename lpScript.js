@@ -14,16 +14,19 @@ const hnyPrtcleAddress = '0xaaefc56e97624b57ce98374eb4a45b6fd5ffb982'
 
 const hnyMintMap = _.groupBy(hnyMints, 'to')
 
+// console.log(hnyMintMap)
+
 async function liquidityCheck() {
     var output =
         _(hnyMintMap)
             .map((objs, key) => ({
-                'to': key,
-                'amountUSD': _.sumBy(objs, function (o) { return Number(o.amountUSD) })
+                'lp_address': key,
+                'amountUSD': _.sumBy(objs, function (o) { return Number(o.amountUSD) }),
+                'timestamps': _.(objs.timestamp)
 
             })).value()
 
-    console.log('output: ', output);
+    console.log(output);
 }
 
 
