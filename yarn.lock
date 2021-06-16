@@ -3040,6 +3040,15 @@ fs-constants@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs-constants/-/fs-constants-1.0.0.tgz#6be0de9be998ce16af8afc24497b9ee9b7ccd9ad"
   integrity sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==
 
+fs-extra@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-10.0.0.tgz#9ff61b655dde53fb34a82df84bb214ce802e17c1"
+  integrity sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
+
 fs-extra@^4.0.2:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.3.tgz#0d852122e5bc5beb453fb028e9c0c9bf36340c94"
@@ -4938,6 +4947,20 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
+ra-core@^3.13.4:
+  version "3.16.2"
+  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-3.16.2.tgz#e961b9ac9868164d3813c578e82fce8bee06551f"
+  integrity sha512-akovJTEmWs3+nLALvOveevE5YabOUpTXSTm83HqJAgfl2Z+F+FrqXqr9447D38/p9fmsYJ6BH54GhXDBJtIS3A==
+  dependencies:
+    classnames "~2.2.5"
+    date-fns "^1.29.0"
+    eventemitter3 "^3.0.0"
+    inflection "~1.12.0"
+    lodash "~4.17.5"
+    prop-types "^15.6.1"
+    query-string "^5.1.1"
+    reselect "~3.0.0"
+
 ra-core@^3.13.5:
   version "3.13.5"
   resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-3.13.5.tgz#2b938e41e1561690c6a4a3a59830b71651766c6a"
@@ -4973,6 +4996,24 @@ ra-language-english@^3.13.5:
   integrity sha512-KqAgqKbYYnSaq2KJT5BeEjgNLRuQ8/O1MYJqbfPU0noj5LctuVuxAjjtxUGXsiu9bGbd1OHZ7V1/G9weCP7HBQ==
   dependencies:
     ra-core "^3.13.5"
+
+ra-ui-materialui@^3.13.4:
+  version "3.16.2"
+  resolved "https://registry.yarnpkg.com/ra-ui-materialui/-/ra-ui-materialui-3.16.2.tgz#9fbd1a7104cd1a291801101d01212c47e1a724c6"
+  integrity sha512-OxXYBFETN89thmfqbR0iYWWloMqIO6njHNc47i5CGq5Bd5ZKZv7D87eHJrZ8+c73aczspNc9vBDYxGKv1VS4DQ==
+  dependencies:
+    autosuggest-highlight "^3.1.1"
+    classnames "~2.2.5"
+    connected-react-router "^6.5.2"
+    css-mediaquery "^0.1.2"
+    downshift "3.2.7"
+    inflection "~1.12.0"
+    jsonexport "^2.4.1"
+    lodash "~4.17.5"
+    prop-types "^15.7.0"
+    query-string "^5.1.1"
+    react-dropzone "^10.1.7"
+    react-transition-group "^4.4.1"
 
 ra-ui-materialui@^3.13.5:
   version "3.13.5"
@@ -5662,11 +5703,13 @@ source-map@^0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-sourcecred@^0.8.5:
-  version "0.8.5"
-  resolved "https://registry.yarnpkg.com/sourcecred/-/sourcecred-0.8.5.tgz#979dd66e286e0daac82858f8069b59deebedae1a"
-  integrity sha512-HsfDTFgyYvTkQUEfhmmhMNDrvLohKF4elLwPUFDIHF/VwbTODdl/cdEnGvTH/6YzSbXpBOsgsAV0oOq5DzgIxg==
+sourcecred@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/sourcecred/-/sourcecred-0.9.0.tgz#535df433a877b560d0919b62c81c3c79d6c837c6"
+  integrity sha512-3rLQr1EVZNv9x4FD80tycV3MBhZnxoavhX8n8MZGbvqjxRJ/pV5jd78sfcDZ5M7UROznkXh5nAzVfz7zGcvQRQ==
   dependencies:
+    "@material-ui/core" "^4.11.2"
+    "@material-ui/icons" "^4.11.2"
     "@material-ui/lab" "^4.0.0-alpha.56"
     aphrodite "^2.4.0"
     babel-plugin-transform-flow-strip-types "^6.22.0"
@@ -5676,6 +5719,7 @@ sourcecred@^0.8.5:
     big-integer "^1.6.48"
     bottleneck "^2.19.5"
     chalk "^4.0.0"
+    classnames "~2.2.5"
     commonmark "0.29.1"
     cross-fetch "^3.0.6"
     d3-array "^2.4.0"
@@ -5686,8 +5730,9 @@ sourcecred@^0.8.5:
     d3-time "^2.0.0"
     d3-time-format "^3.0.0"
     deep-freeze "^0.0.1"
+    entities "^2.0.0"
     express "^4.17.1"
-    fs-extra "^9.0.0"
+    fs-extra "^10.0.0"
     globby "^11.0.0"
     history "^5.0.0"
     htmlparser2 "^6.0.0"
@@ -5703,7 +5748,9 @@ sourcecred@^0.8.5:
     object-assign "^4.1.1"
     pako "^2.0.3"
     promise "^8.1.0"
+    ra-core "^3.13.4"
     ra-data-fakerest "^3.6.2"
+    ra-ui-materialui "^3.13.4"
     react "^16.13.0"
     react-admin "^3.6.2"
     react-dom "^16.13.0"
