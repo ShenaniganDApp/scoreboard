@@ -32,18 +32,12 @@ const burns = (pair) => {
   `;
 };
 
-const txSender = (fragments) => {
+const txSender = (hashes) => {
 	query = '{';
-
-	fragments.forEach((hashes, index) => {
-		query += `fragment transaction${index} on Transaction {`;
-		hashes.forEach((hash) => {
-			query += `tx${index}: transaction(hash:"${hash}") {fromAddressHash}\n`;
-		});
-		query += '}\n';
+	hashes.forEach((hash,index) => {
+		query += `tx${index}: transaction(hash:"${hash}") {fromAddressHash, hash}\n`;
 	});
 	query += '}';
-	console.log('query: ', query);
 	return query;
 };
 
