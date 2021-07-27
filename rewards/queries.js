@@ -7,6 +7,7 @@ const mints = (pair) => {
     orderDirection:asc) {,
       timestamp
       amountUSD
+      liquidity
       transaction {
         id
       }
@@ -24,6 +25,7 @@ const burns = (pair) => {
           orderDirection:asc) {
       timestamp
       amountUSD
+      liquidity
       transaction {
         id
       }
