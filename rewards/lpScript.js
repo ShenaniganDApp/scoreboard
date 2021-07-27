@@ -6,6 +6,10 @@ const fetch = require('node-fetch');
 const queries = require('./queries');
 const { fromPairs } = require('lodash');
 
+let hnyMintsAndBurns;
+let xdaiMintsAndBurns;
+let hausMintsAndBurns;
+
 const fetchMintsandBurns = async (address) => {
   console.log('Fetching Mints and Burns...');
   const {
@@ -92,44 +96,94 @@ const fetchMintsandBurns = async (address) => {
   return { mints: finalMints, burns: finalBurns };
 };
 
-(async (startTimestamp) => {
+const getAccountTotalsBeforeTimestamp = (totalMints, totalBurns, timestamp) => {
+  const totalAccountMint = Object.keys(totalMints).forEach((account) => {
+    totalMints[account]
+      .filter((mint) => {
+        return mint.timestamp < timestamp;
+      })
+      .reduce(
+        (acc, mint) => {
+          console.log('acc: ', acc);
+          if (mint.liquidity)
+            return acc.liquidity.plus(new BigNumber(mint.liquidity));
+        },
+        { liquidity: new BigNumber(0) }
+      );
+  });
+  const totalAccountBurn = Object.keys(totalBurns).forEach((account) => {
+    totalBurns[account]
+      .filter((burn) => {
+        return burn.timestamp < timestamp;
+      })
+      .reduce(
+        (acc, burn) => {
+          if (burn.liquidity)
+            return burn.acc.liquidity.plus(new BigNumber(burn.liquidity));
+        },
+        { liquidity: new BigNumber(0) }
+      );
+  });
+
+  return { totalAccountMint, totalAccountBurn };
+};
+
+// const getTotalLiquidityAtTimestamp = (timestamp) => {
+//   if (!xdaiMintsAndBurns || !hnyMintsAndBurns) return;
+//   const totalMints = _.reduce(
+//     xdaiMintsAndBurns.mints,
+//     (acc, mint) => {
+//       if (mint.timestamp < timestamp) {
+//         acc[mint.fromAddressHash] = acc[mint.fromAddressHash] || 0;
+//         acc[mint.fromAddressHash] += mint.value;
+//       }
+//       return acc;
+//     },
+//     {}
+//   );
+//   const totalBurns = _.reduce(
+//     burns,
+//     (acc, burn) => {
+//       if (burn.timestamp < timestamp) {
+//         acc[burn.fromAddressHash] = acc[burn.fromAddressHash] || 0;
+//         acc[burn.fromAddressHash] -= burn.value;
+//       }
+//       return acc;
+//     },
+//     {}
+//   );
+//   return { mints, burns, totalMints, totalBurns };
+// };
+
+(async () => {
+  const startTimestamp = 1614585600;
   const endTimestamp = startTimestamp + 604800;
-  const hnyMintsAndBurns = await fetchMintsandBurns(
+  hnyMintsAndBurns = await fetchMintsandBurns(
     '0xaaefc56e97624b57ce98374eb4a45b6fd5ffb982'
   );
-  const xdaiMintsAndBurns = await fetchMintsandBurns(
+  xdaiMintsAndBurns = await fetchMintsandBurns(
     '0xa527dbc7cdb07dd5fdc2d837c7a2054e6d66daf4'
   );
-  const accountMintsAndBurns = {
-    mints: _.groupBy(
-      [...hnyMintsAndBurns.mints, ...xdaiMintsAndBurns.mints],
-      'fromAddressHash'
-    ),
-    burns: _.groupBy(
-      [...hnyMintsAndBurns.burns, ...xdaiMintsAndBurns.burns],
-      'fromAddressHash'
-    ),
+  const accountMintsAndBurnsHNY = {
+    mints: _.groupBy(hnyMintsAndBurns.mints, 'fromAddressHash'),
+    burns: _.groupBy(hnyMintsAndBurns.burns, 'fromAddressHash'),
   };
-  const accountsMintsBeforeTimestamp = Object.keys(
-    accountMintsAndBurns.mints
-  ).forEach((account) => {
-    return accountMintsAndBurns.mints[account].map((entry) => {
-      if (Number(entry.timestamp) < endTimestamp) {
-        return entry;
-      } else {
-        return;
-      }
-    });
-  });
-  const accountsBurnsBeforeTimestamp = Object.keys(
-    accountMintsAndBurns.burns
-  ).forEach((account) => {
-    const before = new BigNumber(0);
-    accountMintsAndBurns.burns[account].map((entry) => {
-      if (Number(entry.timestamp) < endTimestamp) {
-        return entry;
-      }
-    });
-  });
+  const accountMintsAndBurnsXDAI = {
+    mints: _.groupBy(xdaiMintsAndBurns.mints, 'fromAddressHash'),
+    burns: _.groupBy(xdaiMintsAndBurns.burns, 'fromAddressHash'),
+  };
+
+  const hnyLiquidityTotals = getAccountTotalsBeforeTimestamp(
+    accountMintsAndBurnsHNY.mints,
+    accountMintsAndBurnsHNY.burns,
+    startTimestamp
+  );
+  console.log('hnyLiquidityTotals: ', hnyLiquidityTotals);
+  const xdaiLiquidityTotals = getAccountTotalsBeforeTimestamp(
+    accountMintsAndBurnsXDAI.mints,
+    accountMintsAndBurnXDAI.burns,
+    startTimestamp
+  );
+
   console.log('accountsMintsBeforeTimestamp: ', accountsMintsBeforeTimestamp);
 })();
