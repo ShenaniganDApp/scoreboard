@@ -2160,12 +2160,6 @@
     "discordId": "820928802996748309"
   },
   {
-    "name": "YoungKidWarrior",
-    "createdAt": 1615868199692,
-    "address": "0xa69656dee6721FF43506477Fb522eFef151E4477",
-    "discordId": "683892894767251489"
-  },
-  {
     "name": "Milita",
     "createdAt": 1615936432034,
     "address": "0x016c25603b8B8798880c0FB90b9412F0699a5298",
@@ -2500,5 +2494,29 @@
     "createdAt": 1621291434479,
     "address": "0x073cba88a9790749cFA0a500d546dAB2E99045Ef",
     "discordId": "818642221565345802"
+  },
+  {
+    "name": "vip",
+    "createdAt": 1627444888572,
+    "address": "0xE760d7F7910dE454EAf95532e08dB67F0194AAdc",
+    "discordId": "856383276230115358"
+  },
+  {
+    "name": "YoungKidWarrior",
+    "createdAt": 1627445588959,
+    "address": "0xa69656dee6721FF43506477Fb522eFef151E4477",
+    "discordId": "683892894767251489"
+  },
+  {
+    "name": "dw",
+    "createdAt": 1627478630135,
+    "address": "0x03734CED01098F27F16f96e7e254b0a4Bb0266dC",
+    "discordId": "746154317668548679"
+  },
+  {
+    "name": "Albany",
+    "createdAt": 1627480490838,
+    "address": "0x08c038e8903f6336D3Cc2A48858EE79dDAD37897",
+    "discordId": "834858269863444551"
   }
 ]
