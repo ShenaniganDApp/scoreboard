@@ -342,12 +342,6 @@
     "discordId": "749852526492385341"
   },
   {
-    "name": "John1",
-    "createdAt": 1601847049489,
-    "address": "0xEC4A914814710b5A842320A2124E03B2FB87a6E3",
-    "discordId": "723007362390294578"
-  },
-  {
     "name": "Ashar",
     "createdAt": 1601848066303,
     "address": "0xE5c633F7dE58a618E86B2dA5eef6dDac1D6AB23E",
@@ -2518,5 +2512,11 @@
     "createdAt": 1627480490838,
     "address": "0x08c038e8903f6336D3Cc2A48858EE79dDAD37897",
     "discordId": "834858269863444551"
+  },
+  {
+    "name": "John1",
+    "createdAt": 1627533786756,
+    "address": "0x002Ae93263Adc8F954f3830d943a93E7468e72bD",
+    "discordId": "723007362390294578"
   }
 ]
