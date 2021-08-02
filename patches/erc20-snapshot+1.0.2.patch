@@ -1,0 +1,91 @@
+diff --git a/node_modules/erc20-snapshot/balances.js b/node_modules/erc20-snapshot/balances.js
+index e781348..7fd62d7 100644
+--- a/node_modules/erc20-snapshot/balances.js
++++ b/node_modules/erc20-snapshot/balances.js
+@@ -10,6 +10,7 @@ module.exports.createBalances = async data => {
+     const wallet = event.to;
+ 
+     let deposits = (balances.get(wallet) || {}).deposits || new BigNumber(0);
++    
+     let withdrawals = (balances.get(wallet) || {}).withdrawals || new BigNumber(0);
+ 
+     if (event.value) {
+@@ -35,6 +36,7 @@ module.exports.createBalances = async data => {
+     setWithdrawals(event);
+   }
+   
++
+   for (const [key, value] of balances.entries()) {
+     if (key === "0x0000000000000000000000000000000000000000") {
+       continue;
+@@ -44,7 +46,7 @@ module.exports.createBalances = async data => {
+ 
+     closingBalances.push({
+       wallet: key,
+-      balance: balance.div(10 ** parseInt(data.decimals)).toFixed(data.decimals)
++      balance: balance.div(10 ** parseInt(data.decimals)).toFixed(18)
+     });
+   }
+ 
+diff --git a/node_modules/erc20-snapshot/contract.js b/node_modules/erc20-snapshot/contract.js
+index abea66b..bf47db2 100644
+--- a/node_modules/erc20-snapshot/contract.js
++++ b/node_modules/erc20-snapshot/contract.js
+@@ -9,6 +9,6 @@ const web3 = new Web3(new Web3.providers.HttpProvider((Config || {}).provider ||
+ const contractAddress = (Config || {}).contractAddress;
+ 
+ module.exports.getContract = () => {
+-  const contract = web3.eth.Contract(Parameters.abi, contractAddress);
++  const contract = new web3.eth.Contract(Parameters.abi, contractAddress);
+   return contract;
+ };
+diff --git a/node_modules/erc20-snapshot/events/block-by-block.js b/node_modules/erc20-snapshot/events/block-by-block.js
+index 25100d7..352cb53 100644
+--- a/node_modules/erc20-snapshot/events/block-by-block.js
++++ b/node_modules/erc20-snapshot/events/block-by-block.js
+@@ -11,6 +11,7 @@ const range = (start, end) => {
+ 
+ module.exports.tryBlockByBlock = async (contract, start, end, symbol) => {
+   const blocks = range(start, end);
++  console.log('blocks: ', blocks);
+ 
+   let counter = 0;
+   for await (const i of blocks) {
+diff --git a/node_modules/erc20-snapshot/events/block-reader.js b/node_modules/erc20-snapshot/events/block-reader.js
+index cccc91b..b4daaaa 100644
+--- a/node_modules/erc20-snapshot/events/block-reader.js
++++ b/node_modules/erc20-snapshot/events/block-reader.js
+@@ -16,7 +16,7 @@ const getMinimal = pastEvents => {
+       transactionHash: tx.transactionHash,
+       from: tx.returnValues["0"],
+       to: tx.returnValues["1"],
+-      value: tx.returnValues["2"]._hex
++      value: tx.returnValues["2"]
+     };
+   });
+ };
+diff --git a/node_modules/erc20-snapshot/events/blockchain.js b/node_modules/erc20-snapshot/events/blockchain.js
+index 3756939..c0ad4c4 100644
+--- a/node_modules/erc20-snapshot/events/blockchain.js
++++ b/node_modules/erc20-snapshot/events/blockchain.js
+@@ -61,7 +61,7 @@ module.exports.get = async () => {
+   var fromBlock = parseInt(Config.fromBlock) || 0;
+   const blocksPerBatch = parseInt(Config.blocksPerBatch) || 0;
+   const delay = parseInt(Config.delay) || 0;
+-  const toBlock = blockHeight;
++  const toBlock = parseInt(Config.toBlock) || blockHeight;
+ 
+   const lastDownloadedBlock = await LastDownloadedBlock.get(symbol);
+ 
+diff --git a/node_modules/erc20-snapshot/index.js b/node_modules/erc20-snapshot/index.js
+index bce42cf..107fac5 100755
+--- a/node_modules/erc20-snapshot/index.js
++++ b/node_modules/erc20-snapshot/index.js
+@@ -10,6 +10,7 @@ const start = async () => {
+   await Config.checkConfig();
+   const format = Config.getConfig().format;
+   const result = await Events.get();
++  console.log('result: ', result);
+ 
+   console.log("Calculating balances of %s (%s)", result.name, result.symbol);
+   const balances = await Balances.createBalances(result);

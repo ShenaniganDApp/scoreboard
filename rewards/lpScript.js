@@ -5,10 +5,13 @@ const BigNumber = require('bignumber.js');
 const fetch = require('node-fetch');
 const queries = require('./queries');
 const { fromPairs } = require('lodash');
+const snapshot = require('erc20snapshot');
 
 let hnyMintsAndBurns;
 let xdaiMintsAndBurns;
 let hausMintsAndBurns;
+
+snapshot.start()
 
 const fetchMintsandBurns = async (address) => {
   console.log('Fetching Mints and Burns...');
