@@ -10,6 +10,7 @@
 		"@aragon/test-helpers": "^2.1.0",
 		"@aragon/toolkit": "^0.0.7-beta.1",
 		"discord.js": "^12.3.1",
+		"erc20-snapshot": "^1.0.2",
 		"fs-extra": "^9.0.1",
 		"lodash": "^4.17.20",
 		"sourcecred": "^0.9.1"
@@ -23,6 +24,7 @@
 	},
 	"devDependencies": {
 		"dotenv-cli": "^4.0.0",
+		"patch-package": "^6.4.7",
 		"rimraf": "^3.0.2"
 	}
 }
