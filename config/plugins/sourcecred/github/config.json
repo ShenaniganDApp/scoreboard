@@ -6,6 +6,7 @@
 		"ShenaniganDapp/docs",
 		"ShenaniganDapp/shenanigan-monorepo",
 		"ShenaniganDapp/ParticleAccelerator",
-		"ShenaniganDapp/prtcle-shtaking"
+		"ShenaniganDapp/prtcle-shtaking",
+		"ShenaniganDapp/SHEiP"
 	]
 }
