@@ -7,4 +7,6 @@ yalc.lock
 data/addressbook.json
 data/messageIds.json
 .env
-rewards/tx/
+rewards/tx
+rewards/.cache
+rewards/balances
