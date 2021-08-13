@@ -4,10 +4,9 @@
     "0xa527dbc7cdb07dd5fdc2d837c7a2054e6d66daf4",
     "0xaaefc56e97624b57ce98374eb4a45b6fd5ffb982"
   ],
-  "fromBlock": "15000000",
-  "toBlock": "15055373",
-  "blocksPerBatch": 1500,
-  "delay": 2,
+  "fromBlock": "12234318",
+  "blocksPerBatch":1500,
+  "delay": 1,
   "format": "json",
   "checkIfContract": "no"
 }
