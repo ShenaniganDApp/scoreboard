@@ -240,12 +240,6 @@
     "discordId": "416481791285657601"
   },
   {
-    "name": "Yalor (EST)",
-    "createdAt": 1601685935768,
-    "address": "0x66b1De0f14a0ce971F7f248415063D44CAF19398",
-    "discordId": "360481131029856256"
-  },
-  {
     "name": "Shaz",
     "createdAt": 1601692140998,
     "address": "0xE221f2fb3833CF228cc32dFf0241aa2A45695CD1",
@@ -2524,5 +2518,11 @@
     "createdAt": 1628766392603,
     "address": "0xC1F52fEfb87aCbe3033d8A0652c3A6E706A29174",
     "discordId": "843997597135929365"
+  },
+  {
+    "name": "Yalor (MST)",
+    "createdAt": 1630450354790,
+    "address": "0x219b4B0A498566C412391219Ea3d936176719ca6",
+    "discordId": "360481131029856256"
   }
 ]
