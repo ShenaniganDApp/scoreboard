@@ -11,22 +11,22 @@
 		"@aragon/toolkit": "^0.0.7-beta.1",
 		"discord.js": "^12.3.1",
 		"erc20-snapshot": "^1.0.2",
+		"ethers": "^5.4.6",
 		"fs-extra": "^9.0.1",
 		"lodash": "^4.17.20",
 		"sourcecred": "^0.9.1"
 	},
-
 	"devDependencies": {
 		"dotenv-cli": "^4.0.0",
 		"patch-package": "^6.4.7",
 		"rimraf": "^3.0.2"
 	},
-  "scripts": {
-    "clean": "rimraf cache site",
-    "clean-all": "yarn clean && rimraf output",
-    "load": "dotenv sourcecred load",
-    "start": "dotenv sourcecred go --no-load && sourcecred serve",
-    "grain": "sourcecred grain",
-    "postinstall": "patch-package"
-  }
+	"scripts": {
+		"clean": "rimraf cache site",
+		"clean-all": "yarn clean && rimraf output",
+		"load": "dotenv sourcecred load",
+		"start": "dotenv sourcecred go --no-load && sourcecred serve",
+		"grain": "sourcecred grain",
+		"postinstall": "patch-package"
+	}
 }

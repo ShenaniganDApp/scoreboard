@@ -1,11 +1,263 @@
 diff --git a/node_modules/erc20-snapshot/abi.js b/node_modules/erc20-snapshot/abi.js
-index 367d5fd..5fef9e7 100644
+index 367d5fd..9cca906 100644
 --- a/node_modules/erc20-snapshot/abi.js
 +++ b/node_modules/erc20-snapshot/abi.js
-@@ -15,6 +15,90 @@ const abi = [
+@@ -15,6 +15,342 @@ const abi = [
      stateMutability: "view",
      type: "function"
    },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
 +  {
 +    constant: true,
 +    inputs: [],
@@ -94,7 +346,7 @@ index 367d5fd..5fef9e7 100644
      constant: true,
      inputs: [],
 diff --git a/node_modules/erc20-snapshot/balances.js b/node_modules/erc20-snapshot/balances.js
-index e781348..61b1bd8 100644
+index e781348..63beca3 100644
 --- a/node_modules/erc20-snapshot/balances.js
 +++ b/node_modules/erc20-snapshot/balances.js
 @@ -2,7 +2,8 @@
@@ -107,7 +359,13 @@ index e781348..61b1bd8 100644
    const balances = new Map();
    const closingBalances = [];
  
-@@ -31,6 +32,11 @@ module.exports.createBalances = async data => {
+@@ -26,11 +27,16 @@ module.exports.createBalances = async data => {
+ 
+     if (event.value) {
+       withdrawals = withdrawals.plus(new BigNumber(event.value));
+-      balances.set(wallet, { deposits, withdrawals });
++      balances.set(wallet, { deposits, withdrawals, blockNumber:event.blockNumber });
+     }
    };
  
    for (const event of data.events) {
@@ -119,7 +377,7 @@ index e781348..61b1bd8 100644
      setDeposits(event);
      setWithdrawals(event);
    }
-@@ -41,11 +47,12 @@ module.exports.createBalances = async data => {
+@@ -41,11 +47,13 @@ module.exports.createBalances = async data => {
      }
  
      const balance = value.deposits.minus(value.withdrawals);
@@ -128,6 +386,7 @@ index e781348..61b1bd8 100644
      closingBalances.push({
        wallet: key,
 -      balance: balance.div(10 ** parseInt(data.decimals)).toFixed(data.decimals)
++      blockNumber: value.blockNumber,
 +      balance: balance.div(10 ** parseInt(data.decimals)).toFixed(parseInt(data.decimals))
      });
 +    }
