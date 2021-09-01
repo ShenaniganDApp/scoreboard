@@ -120,15 +120,15 @@ const getTimeData = async (blockNumber) => {
       }
       rewardsPairs.forEach((address) => {
         liquidityWeights[dayCount] = {
-          [address]: reserveUSDJSON[dayCount][address].dividedBy(
-            reserveUSDSums[dayCount]
-          ).toString(),
+          [address]: reserveUSDJSON[dayCount][address]
+            .dividedBy(reserveUSDSums[dayCount])
+            .toString(),
           ...liquidityWeights[dayCount],
         };
       }),
-      console.log(
-        `Calculating rewards for blocks ${i} to ${i + oneDayInBlocks}`
-      );
+        console.log(
+          `Calculating rewards for blocks ${i} to ${i + oneDayInBlocks}`
+        );
       const balances = await snapshot.takeSnapshot(i);
 
       rewardsPairs.forEach((address) => {
@@ -150,7 +150,6 @@ const getTimeData = async (blockNumber) => {
       rewardsPairs.forEach((address) => {
         if (balances[address]) {
           weightedReward[address] = balances[address]
-
             .filter(({ wallet }) => {
               return addressbook.find(
                 ({ address: userAddress }) => userAddress === wallet
@@ -181,106 +180,111 @@ const getTimeData = async (blockNumber) => {
   for (let i = 0; i < weightedRewardsPerEpoch.length; i++) {
     rewardsPairs.forEach((address) => {
       const dayRewards = weightedRewardsPerEpoch[i][address];
-      for (let j = 0; j < dayRewards.length; j++) {
-        const { wallet, blockNumber, balance } = dayRewards[j];
-        if (
-          wallet in timeDataByAddresses &&
-          address in timeDataByAddresses[wallet]
-        ) {
-          const { startBlockNumber, endBlockNumber, previousBalance, weight } =
-            timeDataByAddresses[wallet][address];
-          if (!timeWeightPeriods[wallet]) timeWeightPeriods[wallet] = [];
-
-          // when balance is 0 rewards timer starts over for future rewards
-          if (i === weightedRewardsPerEpoch.length - 1) {
-            timeWeightPeriods = [
-              {
-                wallet,
-                startBlockNumber,
-                endBlockNumber,
-                weight,
-                tokenAddress: address,
-              },
-              ...timeWeightPeriods,
-            ];
-          } else if (balance.eq(0) && !previousBalance.eq(0)) {
-            timeWeightPeriods = [
-              {
-                wallet,
-                startBlockNumber,
-                endBlockNumber,
-                weight,
-                tokenAddress: address,
-              },
-              ...timeWeightPeriods,
-            ];
-
-            timeDataByAddresses[wallet][address] = {
-              startBlockNumber: blockNumber,
-              endBlockNumber: blockNumber,
-              previousBalance,
-              weight: 1,
-              ...timeDataByAddresses[wallet][address],
-            };
-          } else if (balance < previousBalance) {
-            timeWeightPeriods = [
-              {
-                wallet,
-                startBlockNumber,
-                endBlockNumber,
-                weight,
-                tokenAddress: address,
-              },
-              ...timeWeightPeriods,
-            ];
-            // when balance is less than previous epoch, rewards are calculated at current weight, then continue
-            timeDataByAddresses[wallet][address] = {
-              startBlockNumber: blockNumber,
-              endBlockNumber: blockNumber,
-              previousBalance,
-              ...timeDataByAddresses[wallet][address],
-            };
-          } else {
-            // If balance is greater than or equal to the previous epoch, continue
-            const daysStaked = (endBlockNumber - startBlockNumber) / 17284;
-            const monthsStaked = daysStaked / 30;
-            let weight = 0;
-            if (monthsStaked >= 1 && monthsStaked < 2) {
-              weight = 2;
-            } else if (monthsStaked >= 2) {
-              weight = 3;
-            } else {
-              weight = 1;
-            }
-            timeDataByAddresses[wallet][address] = {
+      if (dayRewards) {
+        for (let j = 0; j < dayRewards.length; j++) {
+          const { wallet, blockNumber, balance } = dayRewards[j];
+          if (
+            wallet in timeDataByAddresses &&
+            address in timeDataByAddresses[wallet]
+          ) {
+            const {
               startBlockNumber,
-              endBlockNumber: blockNumber,
-              previousBalance: balance,
+              endBlockNumber,
+              previousBalance,
               weight,
-            };
-          }
-        } else {
-          if (wallet in timeDataByAddresses) {
-            timeDataByAddresses[wallet][address] = {
-              startBlockNumber: blockNumber,
-              endBlockNumber: blockNumber,
-              previousBalance: new BigNumber(0),
-              weight: 1,
-            };
+            } = timeDataByAddresses[wallet][address];
+            if (!timeWeightPeriods[wallet]) timeWeightPeriods[wallet] = [];
+
+            // when balance is 0 rewards timer starts over for future rewards
+            if (i === weightedRewardsPerEpoch.length - 1) {
+              timeWeightPeriods = [
+                {
+                  wallet,
+                  startBlockNumber,
+                  endBlockNumber,
+                  weight,
+                  tokenAddress: address,
+                },
+                ...timeWeightPeriods,
+              ];
+            } else if (balance.eq(0) && !previousBalance.eq(0)) {
+              timeWeightPeriods = [
+                {
+                  wallet,
+                  startBlockNumber,
+                  endBlockNumber,
+                  weight,
+                  tokenAddress: address,
+                },
+                ...timeWeightPeriods,
+              ];
+
+              timeDataByAddresses[wallet][address] = {
+                startBlockNumber: blockNumber,
+                endBlockNumber: blockNumber,
+                previousBalance,
+                weight: 1,
+                ...timeDataByAddresses[wallet][address],
+              };
+            } else if (balance < previousBalance) {
+              timeWeightPeriods = [
+                {
+                  wallet,
+                  startBlockNumber,
+                  endBlockNumber,
+                  weight,
+                  tokenAddress: address,
+                },
+                ...timeWeightPeriods,
+              ];
+              // when balance is less than previous epoch, rewards are calculated at current weight, then continue
+              timeDataByAddresses[wallet][address] = {
+                startBlockNumber: blockNumber,
+                endBlockNumber: blockNumber,
+                previousBalance,
+                ...timeDataByAddresses[wallet][address],
+              };
+            } else {
+              // If balance is greater than or equal to the previous epoch, continue
+              const daysStaked = (endBlockNumber - startBlockNumber) / 17284;
+              const monthsStaked = daysStaked / 30;
+              let weight = 0;
+              if (monthsStaked >= 1 && monthsStaked < 2) {
+                weight = 2;
+              } else if (monthsStaked >= 2) {
+                weight = 3;
+              } else {
+                weight = 1;
+              }
+              timeDataByAddresses[wallet][address] = {
+                startBlockNumber,
+                endBlockNumber: blockNumber,
+                previousBalance: balance,
+                weight,
+              };
+            }
           } else {
-            timeDataByAddresses[wallet] = {};
-            timeDataByAddresses[wallet][address] = {
-              startBlockNumber: blockNumber,
-              endBlockNumber: blockNumber,
-              previousBalance: new BigNumber(0),
-              weight: 1,
-            };
+            if (wallet in timeDataByAddresses) {
+              timeDataByAddresses[wallet][address] = {
+                startBlockNumber: blockNumber,
+                endBlockNumber: blockNumber,
+                previousBalance: new BigNumber(0),
+                weight: 1,
+              };
+            } else {
+              timeDataByAddresses[wallet] = {};
+              timeDataByAddresses[wallet][address] = {
+                startBlockNumber: blockNumber,
+                endBlockNumber: blockNumber,
+                previousBalance: new BigNumber(0),
+                weight: 1,
+              };
+            }
           }
         }
       }
     });
   }
-
   // Multiply rewards by weight
   timeWeightPeriods.forEach((period) => {
     const { wallet, startBlockNumber, endBlockNumber, weight, tokenAddress } =
@@ -295,13 +299,12 @@ const getTimeData = async (blockNumber) => {
         // This is a O(n)^2 problem since we search all addresses for every epoch
         // it would be better to restructure so we can do a single search for
         // every address in a given time period and update its value
-        const position = epoch[tokenAddress].find(
-          (position) => position.wallet === wallet
+        epoch[tokenAddress].map((position) =>
+          position.wallet === wallet
+            ? { ...position, balance: position.balance.multipliedBy(weight) }
+            : position
         );
-
-        epoch[tokenAddress][position.wallet].balance =
-          epoch[tokenAddress][position].balance.multipliedBy(weight);
-  }
+      }
     });
   });
 
@@ -318,22 +321,24 @@ const getTimeData = async (blockNumber) => {
       const epochBlock = epoch.epochBlock;
       if (epochBlock >= k && epochBlock < k + oneWeekInBlocks) {
         rewardsPairs.forEach((address) => {
-          epoch[address].forEach((position) => {
-            const { wallet, balance } = position;
-            if (weekTotalRewards[wallet] !== undefined) {
-              const previousMax = weekTotalRewards[wallet];
-              weekTotalRewards[wallet] = previousMax.plus(balance);
-              weekSum = weekSum.plus(balance);
-            } else {
-              weekTotalRewards[wallet] = balance;
-              weekSum = weekSum.plus(balance);
-            }
-          });
+          if (epoch[address]) {
+            epoch[address].forEach((position) => {
+              const { wallet, balance } = position;
+              if (weekTotalRewards[wallet] !== undefined) {
+                const previousMax = weekTotalRewards[wallet];
+                weekTotalRewards[wallet] = previousMax.plus(balance);
+                weekSum = weekSum.plus(balance);
+              } else {
+                weekTotalRewards[wallet] = balance;
+                weekSum = weekSum.plus(balance);
+              }
+            });
+          }
         });
       }
     });
-    Object.keys(weekTotalRewards).forEach((address) => {
-      weekTotalRewards[address] = weekTotalRewards[address]
+    Object.keys(weekTotalRewards).forEach((wallet) => {
+      weekTotalRewards[wallet] = weekTotalRewards[wallet]
         .dividedBy(weekSum)
         .multipliedBy(13)
         .toString();
