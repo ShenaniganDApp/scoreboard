@@ -19,392 +19,434 @@
         {
           "title": "Liquidity Provider: @Victor---Shenanigan",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.21356372737896254396,
+          "weight": 3.30281867059004144583,
           "contributors": ["@Victor---Shenanigan"]
+        },
+        {
+          "title": "Liquidity Provider: @Yalor--EST-",
+          "timestampIso": "2021-05-11T14:54:40.000Z",
+          "weight": 5.55937782734333768561,
+          "contributors": ["@Yalor--EST-"]
         },
         {
           "title": "Liquidity Provider: @BigHappyTrees",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.46304475779832525372,
+          "weight": 0.01529659249648382892,
           "contributors": ["@BigHappyTrees"]
         },
         {
           "title": "Liquidity Provider: @FunctionalBen",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.41192784668099867062,
+          "weight": 0.01360795539203077718,
           "contributors": ["@FunctionalBen"]
         },
         {
           "title": "Liquidity Provider: @Fluchtzwerg",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.22217623207512468541,
+          "weight": 0.00733954812622585307,
           "contributors": ["@Fluchtzwerg"]
         },
         {
           "title": "Liquidity Provider: @shani",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01128936951056462405,
+          "weight": 0.00037294210124834013,
           "contributors": ["@shani"]
         },
         {
           "title": "Liquidity Provider: @tbull666",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00132422003063369968,
+          "weight": 0.00920259532346017721,
           "contributors": ["@tbull666"]
         },
         {
           "title": "Liquidity Provider: @abdullah",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00493401736394757177,
+          "weight": 0.00016299429313430042,
           "contributors": ["@abdullah"]
+        },
+        {
+          "title": "Liquidity Provider: @mdf",
+          "timestampIso": "2021-05-11T14:54:40.000Z",
+          "weight": 0.05603134492445270131,
+          "contributors": ["@mdf"]
         },
         {
           "title": "Liquidity Provider: @pzoisme",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.25620348682435279448,
+          "weight": 0.00846363179396426575,
           "contributors": ["@pzoisme"]
         },
         {
           "title": "Liquidity Provider: @ahmad097",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00491427582993964357,
+          "weight": 0.00016234213544135808,
           "contributors": ["@ahmad097"]
         },
         {
           "title": "Liquidity Provider: @borisblock",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.09781159044978378876,
+          "weight": 0.00640187214425186259,
           "contributors": ["@borisblock"]
         },
         {
           "title": "Liquidity Provider: @probspot",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.0004645403287728788,
+          "weight": 0.00322829783436984876,
           "contributors": ["@probspot"]
         },
         {
           "title": "Liquidity Provider: @xyo",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.39429483471435839821,
+          "weight": 0.01302545230999222548,
           "contributors": ["@xyo"]
         },
         {
           "title": "Liquidity Provider: @Farrar1983",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.08379508060138531602,
+          "weight": 0.00276815400581141019,
           "contributors": ["@Farrar1983"]
         },
         {
           "title": "Liquidity Provider: @Merlo",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01995168001049538601,
+          "weight": 0.13865311875088786892,
           "contributors": ["@Merlo"]
         },
         {
           "title": "Liquidity Provider: @Shaz",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.02699818839474671811,
+          "weight": 0.18762244681081941195,
           "contributors": ["@Shaz"]
         },
         {
           "title": "Liquidity Provider: @anh",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.0001519924625423399,
+          "weight": 0.00105626337967715175,
           "contributors": ["@anh"]
         },
         {
           "title": "Liquidity Provider: @F-THV",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.04141771536916654121,
+          "weight": 0.00242792491032424008,
           "contributors": ["@F-THV"]
         },
         {
           "title": "Liquidity Provider: @Hoang-Trung",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00946499520659426149,
+          "weight": 0.00031267425495723612,
           "contributors": ["@Hoang-Trung"]
         },
         {
           "title": "Liquidity Provider: @sommi",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 8.47244346238274600733,
+          "weight": 0.27988550331459150641,
           "contributors": ["@sommi"]
         },
         {
           "title": "Liquidity Provider: @Daniel-Derzic",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.36039160471243994493,
+          "weight": 0.01190546577538646224,
           "contributors": ["@Daniel-Derzic"]
         },
         {
           "title": "Liquidity Provider: @khoapham91",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00326656501675309,
+          "weight": 0.00010791033281993159,
           "contributors": ["@khoapham91"]
         },
         {
           "title": "Liquidity Provider: @tuanairdrop",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01418194410834185088,
+          "weight": 0.00046849773413847638,
           "contributors": ["@tuanairdrop"]
         },
         {
           "title": "Liquidity Provider: @vnida",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00585761479780296391,
+          "weight": 0.04070717652495904371,
           "contributors": ["@vnida"]
         },
         {
           "title": "Liquidity Provider: @dydymoon",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00091202293834435004,
+          "weight": 0.00003012849838022674,
           "contributors": ["@dydymoon"]
         },
         {
           "title": "Liquidity Provider: @juanospy94",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00188107136727267771,
+          "weight": 0.01307240350327158806,
           "contributors": ["@juanospy94"]
         },
         {
           "title": "Liquidity Provider: @nata7q",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.05485557488261250998,
+          "weight": 0.0018121431265725307,
           "contributors": ["@nata7q"]
         },
         {
           "title": "Liquidity Provider: @cheo0202",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.52650086450284276252,
+          "weight": 0.01739285250013376208,
           "contributors": ["@cheo0202"]
         },
         {
           "title": "Liquidity Provider: @mAcKz88",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01146827808736810343,
+          "weight": 0.07969817692944111628,
           "contributors": ["@mAcKz88"]
         },
         {
           "title": "Liquidity Provider: @diegoleal88",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.0088169965164872357,
+          "weight": 0.06127323936548616815,
           "contributors": ["@diegoleal88"]
         },
         {
           "title": "Liquidity Provider: @unstatesloth",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.0010387138003114041,
+          "weight": 0.00721848525171826884,
           "contributors": ["@unstatesloth"]
         },
         {
           "title": "Liquidity Provider: @Pepo",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00791755421061511972,
+          "weight": 0.00026155484602494559,
           "contributors": ["@Pepo"]
         },
         {
           "title": "Liquidity Provider: @Willydmq",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.03850266550222664572,
+          "weight": 0.0012719279816844458,
           "contributors": ["@Willydmq"]
         },
         {
           "title": "Liquidity Provider: @sanchote",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01496018058695564612,
+          "weight": 0.10396496407153363351,
           "contributors": ["@sanchote"]
         },
         {
           "title": "Liquidity Provider: @llealg2",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.03606386417683071828,
+          "weight": 0.02185886190185768499,
           "contributors": ["@llealg2"]
         },
         {
           "title": "Liquidity Provider: @lizandro16",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00162749167799433267,
+          "weight": 0.01131016519793448041,
           "contributors": ["@lizandro16"]
         },
         {
           "title": "Liquidity Provider: @My-name-is-Sylar---",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01492376959696811331,
+          "weight": 0.00049300379324381068,
           "contributors": ["@My-name-is-Sylar---"]
         },
         {
           "title": "Liquidity Provider: @Lewiii",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01835283970808663778,
+          "weight": 0.00060628244989258765,
           "contributors": ["@Lewiii"]
         },
         {
           "title": "Liquidity Provider: @Juan-david",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00897549462293712293,
+          "weight": 0.00029650369945716624,
           "contributors": ["@Juan-david"]
+        },
+        {
+          "title": "Liquidity Provider: @joche",
+          "timestampIso": "2021-05-11T14:54:40.000Z",
+          "weight": 0.0133807845696166434,
+          "contributors": ["@joche"]
         },
         {
           "title": "Liquidity Provider: @JuanBerbesi",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.08218621673150337878,
+          "weight": 0.00271500550432115316,
           "contributors": ["@JuanBerbesi"]
         },
         {
           "title": "Liquidity Provider: @jesiigh",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.04425071011250076122,
+          "weight": 0.00146181350478817238,
           "contributors": ["@jesiigh"]
         },
         {
           "title": "Liquidity Provider: @Angeles",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00662919385444321304,
+          "weight": 0.0002189941150694947,
           "contributors": ["@Angeles"]
         },
         {
           "title": "Liquidity Provider: @Ismary-Mujica",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.03430205512795428861,
+          "weight": 0.01416004122430353391,
           "contributors": ["@Ismary-Mujica"]
         },
         {
           "title": "Liquidity Provider: @sappu7",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01029681955207095229,
+          "weight": 0.00034015340859653322,
           "contributors": ["@sappu7"]
         },
         {
           "title": "Liquidity Provider: @shax",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.03328938638136300904,
+          "weight": 0.23134278620403308696,
           "contributors": ["@shax"]
+        },
+        {
+          "title": "Liquidity Provider: @ishoboy",
+          "timestampIso": "2021-05-11T14:54:40.000Z",
+          "weight": 0.01431455456909395307,
+          "contributors": ["@ishoboy"]
         },
         {
           "title": "Liquidity Provider: @blackhawk",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00769926887484228552,
+          "weight": 0.00025434383289275623,
           "contributors": ["@blackhawk"]
         },
         {
           "title": "Liquidity Provider: @santiago02",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00403395692962171481,
+          "weight": 0.00013326097372139097,
           "contributors": ["@santiago02"]
+        },
+        {
+          "title": "Liquidity Provider: @fabio90",
+          "timestampIso": "2021-05-11T14:54:40.000Z",
+          "weight": 0.00253080589918349271,
+          "contributors": ["@fabio90"]
         },
         {
           "title": "Liquidity Provider: @MariaEstrada",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.04130344445780448038,
+          "weight": 0.00136445116359003023,
           "contributors": ["@MariaEstrada"]
         },
         {
           "title": "Liquidity Provider: @FrankArmoton",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01370237172690506406,
+          "weight": 0.09522388957821922039,
           "contributors": ["@FrankArmoton"]
         },
         {
           "title": "Liquidity Provider: @romel",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.02412185441554903586,
+          "weight": 0.00079686071603227037,
           "contributors": ["@romel"]
         },
         {
           "title": "Liquidity Provider: @Criptonaut",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00023191648431536143,
+          "weight": 0.00161169103670221816,
           "contributors": ["@Criptonaut"]
         },
         {
           "title": "Liquidity Provider: @Genesis",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00011973330758890631,
+          "weight": 0.00083208013093775622,
           "contributors": ["@Genesis"]
         },
         {
           "title": "Liquidity Provider: @carlos-garcia",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00014746864820486331,
+          "weight": 0.00102482537715249445,
           "contributors": ["@carlos-garcia"]
         },
         {
           "title": "Liquidity Provider: @Mayerling",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.13699165502644586562,
+          "weight": 0.00750500110656384374,
           "contributors": ["@Mayerling"]
         },
         {
           "title": "Liquidity Provider: @Kilgore",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.13259587527496283883,
+          "weight": 0.92146784785572836189,
           "contributors": ["@Kilgore"]
         },
         {
           "title": "Liquidity Provider: @Noe",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.10665487753606639109,
+          "weight": 0.03601212698606184103,
           "contributors": ["@Noe"]
+        },
+        {
+          "title": "Liquidity Provider: @charingane",
+          "timestampIso": "2021-05-11T14:54:40.000Z",
+          "weight": 0.00257737468131750737,
+          "contributors": ["@charingane"]
         },
         {
           "title": "Liquidity Provider: @Maiker-Mu-oz",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.10734399128547012243,
+          "weight": 0.00652613300107401906,
           "contributors": ["@Maiker-Mu-oz"]
         },
         {
           "title": "Liquidity Provider: @Kitty",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.22661409189397703452,
+          "weight": 1.57484234798631671775,
           "contributors": ["@Kitty"]
         },
         {
           "title": "Liquidity Provider: @Yessire",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.02507811080304464675,
+          "weight": 0.02378840484948793294,
           "contributors": ["@Yessire"]
         },
         {
           "title": "Liquidity Provider: @Arnaldo",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00922570916649659823,
+          "weight": 0.00030476948768835491,
           "contributors": ["@Arnaldo"]
         },
         {
           "title": "Liquidity Provider: @Yudimar",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.0198996736833660636,
+          "weight": 0.00935957485917233884,
           "contributors": ["@Yudimar"]
         },
         {
           "title": "Liquidity Provider: @Gerson-Rodr-guez",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01487914829054155086,
+          "weight": 0.00049152973716268097,
           "contributors": ["@Gerson-Rodr-guez"]
         },
         {
           "title": "Liquidity Provider: @SurFlowCrypto-ypvqy-wam",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.00566429026531117997,
+          "weight": 0.03936367816557564037,
           "contributors": ["@SurFlowCrypto-ypvqy-wam"]
         },
         {
           "title": "Liquidity Provider: @Erick-Hern-ndez",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01557623897658200528,
+          "weight": 0.00382900239091667596,
           "contributors": ["@Erick-Hern-ndez"]
         },
         {
           "title": "Liquidity Provider: @yelimar-labrador",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01859149833400279459,
+          "weight": 0.00389993863982392189,
           "contributors": ["@yelimar-labrador"]
         },
         {
           "title": "Liquidity Provider: @Mr-Pandax-discord",
           "timestampIso": "2021-05-11T14:54:40.000Z",
-          "weight": 0.01190331863243324074,
+          "weight": 0.00039322378973014475,
           "contributors": ["@Mr-Pandax-discord"]
+        },
+        {
+          "title": "Liquidity Provider: @JuanSaez",
+          "timestampIso": "2021-05-11T14:54:40.000Z",
+          "weight": 0.00596480893568599286,
+          "contributors": ["@JuanSaez"]
         }]
       }
     }]
