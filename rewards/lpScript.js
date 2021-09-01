@@ -337,7 +337,7 @@ const getTimeData = async (blockNumber) => {
         });
       }
     });
-    Object.keys(weekTotalRewards).forEach((wallet) => {
+    Object.keys(weekTotalRewards).forEach((wallet) => {    
       weekTotalRewards[wallet] = weekTotalRewards[wallet]
         .dividedBy(weekSum)
         .multipliedBy(13)
@@ -401,7 +401,7 @@ const getTimeData = async (blockNumber) => {
           "title": "Liquidity Provider: @${a.identity.name}",
           "timestampIso": "${endDateISO}",
           "weight": ${a.amount},
-          "contributors": ["@${a.identity.name}"]
+          "contributors": ["${a.identity.name}"]
         }`;
     });
 
@@ -428,7 +428,7 @@ const getTimeData = async (blockNumber) => {
     fs.writeFileSync(
       `../config/plugins/sourcecred/initiatives/initiatives/${endDateYear}-${endDateMonth}-liquidity-rewards-${
         endDateISO.split('T')[0]
-      }`,
+      }.json`,
       fileJson
     );
   }
