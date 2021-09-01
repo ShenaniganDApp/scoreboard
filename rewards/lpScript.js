@@ -11,7 +11,7 @@ const { forEach } = require('lodash');
 const readFile = util.promisify(fs.readFile);
 const EPOCHS_PATH = './lastRewardEpoch.json';
 const Ledger = sc.ledger.ledger.Ledger;
-
+//17814800
 const ethers = require('ethers');
 
 const ADDRESS_BOOK_PATH = '../data/addressbook.json';
@@ -26,6 +26,7 @@ const NodeAddress = sc.core.address.makeAddressModule({
 const rewardsPairs = [
   '0xa527dbc7cdb07dd5fdc2d837c7a2054e6d66daf4',
   '0xaaefc56e97624b57ce98374eb4a45b6fd5ffb982',
+  '0x37251b86f97813f6cfda3d2074b0929dbf7b7854',
 ];
 const oneWeekInBlocks = 120992;
 const oneDayInBlocks = 17284;
@@ -43,7 +44,7 @@ const getTimeData = async (blockNumber) => {
 };
 
 (async () => {
-  const data = await JSON.parse((await readFile(EPOCHS_PATH)).toString());
+  const epochData = await JSON.parse((await readFile(EPOCHS_PATH)).toString());
   const ledgerJSON = (await readFile(LEDGER_PATH)).toString();
   const addressbook = await JSON.parse(
     (await readFile(ADDRESS_BOOK_PATH)).toString()
@@ -64,7 +65,11 @@ const getTimeData = async (blockNumber) => {
   let timeDataByAddresses = {};
   let timeWeightPeriods = [];
   let weekCount = 0;
-  for (let k = data.startBlock; k < data.endBlock; k += oneWeekInBlocks) {
+  for (
+    let k = epochData.startBlock;
+    k < epochData.endBlock;
+    k += oneWeekInBlocks
+  ) {
     let dayCount = 0;
     let reserveUSDJSON = [];
 
@@ -72,17 +77,15 @@ const getTimeData = async (blockNumber) => {
     let reserveUSDSums = [];
     let liquidityTotals = [];
     let liquidityWeights = [];
-    let blockWeekCounter = data.startBlock + oneWeekInBlocks * weekCount;
+    let blockWeekCounter = epochData.startBlock + oneWeekInBlocks * weekCount;
     for (
       let i = blockWeekCounter;
       i < oneWeekInBlocks + blockWeekCounter;
       i += oneDayInBlocks
     ) {
-      rewardsPairs.map(async (address) => {
-        const {
-          data: {
-            pair: { reserveUSD },
-          },
+      for (let j = 0; j < rewardsPairs.length; j++) {
+        let {
+          data: { pair: reserveUSD },
         } = await (
           await fetch(
             'https://api.thegraph.com/subgraphs/name/1hive/uniswap-v2',
@@ -93,36 +96,51 @@ const getTimeData = async (blockNumber) => {
                 Accept: 'application/json',
               },
               body: JSON.stringify({
-                query: queries.usdReserveAtBlock(address, i),
+                query: queries.usdReserveAtBlock(rewardsPairs[j], i),
               }),
             }
           )
         ).json();
+
+        reserveUSD =
+          reserveUSD && reserveUSD.reserveUSD
+            ? new BigNumber(reserveUSD.reserveUSD)
+            : new BigNumber(0);
+
         reserveUSDJSON[dayCount] = {
-          [address]: reserveUSD,
+          [rewardsPairs[j]]: reserveUSD,
           ...reserveUSDJSON[dayCount],
         };
-        reserveUSDSums[dayCount] += reserveUSD;
-      });
+
+        if (reserveUSDSums[dayCount]) {
+          reserveUSDSums[dayCount] = reserveUSD.plus(reserveUSDSums[dayCount]);
+        } else {
+          reserveUSDSums.push(reserveUSD);
+        }
+      }
       rewardsPairs.forEach((address) => {
         liquidityWeights[dayCount] = {
-          [address]: reserveUSDJSON[address] / reserveUSDSums[dayCount],
+          [address]: reserveUSDJSON[dayCount][address].dividedBy(
+            reserveUSDSums[dayCount]
+          ).toString(),
           ...liquidityWeights[dayCount],
         };
       }),
-        console.log(
-          `Calculating rewards for blocks ${i} to ${i + oneDayInBlocks}`
-        );
+      console.log(
+        `Calculating rewards for blocks ${i} to ${i + oneDayInBlocks}`
+      );
       const balances = await snapshot.takeSnapshot(i);
 
-      rewardsPairs.map((address) => {
-        const total = balances[address].reduce((acc, { balance }) => {
-          return acc.plus(new BigNumber(balance));
-        }, new BigNumber(0));
-        liquidityTotals[dayCount] = {
-          [address]: total,
-          ...liquidityTotals[dayCount],
-        };
+      rewardsPairs.forEach((address) => {
+        if (balances[address]) {
+          const total = balances[address].reduce((acc, { balance }) => {
+            return acc.plus(new BigNumber(balance));
+          }, new BigNumber(0));
+          liquidityTotals[dayCount] = {
+            [address]: total.toString(),
+            ...liquidityTotals[dayCount],
+          };
+        }
       });
       weightedReward = {};
 
@@ -130,23 +148,28 @@ const getTimeData = async (blockNumber) => {
       // multiply each token balance by the reserveUSD of the pool
       // then divide it by the total amount of tokens
       rewardsPairs.forEach((address) => {
-        weightedReward[address] = balances[address]
+        if (balances[address]) {
+          weightedReward[address] = balances[address]
 
-          .filter(({ wallet }) => {
-            return addressbook.find(
-              ({ address: userAddress }) => userAddress === wallet
-            );
-          })
-          .map(({ wallet, balance }) => {
-            return {
-              wallet,
-              blockNumber: i,
-              balance: new BigNumber(balance)
-                .multipliedBy(new BigNumber(reserveUSDJSON[dayCount][address]))
-                .dividedBy(new BigNumber(liquidityTotals[dayCount][address])),
-            };
-          });
+            .filter(({ wallet }) => {
+              return addressbook.find(
+                ({ address: userAddress }) => userAddress === wallet
+              );
+            })
+            .map(({ wallet, balance }) => {
+              return {
+                wallet,
+                blockNumber: i + oneDayInBlocks,
+                balance: new BigNumber(balance)
+                  .multipliedBy(
+                    new BigNumber(reserveUSDJSON[dayCount][address])
+                  )
+                  .dividedBy(new BigNumber(liquidityTotals[dayCount][address])),
+              };
+            });
+        }
       });
+
       weightedRewardsPerEpoch.push({ epochBlock: i, ...weightedReward });
       dayCount++;
     }
@@ -272,16 +295,23 @@ const getTimeData = async (blockNumber) => {
         // This is a O(n)^2 problem since we search all addresses for every epoch
         // it would be better to restructure so we can do a single search for
         // every address in a given time period and update its value
-        epoch[tokenAddress]
-          .find((position) => position.wallet === wallet)
-          .balance.multipliedBy(weight);
-      }
+        const position = epoch[tokenAddress].find(
+          (position) => position.wallet === wallet
+        );
+
+        epoch[tokenAddress][position.wallet].balance =
+          epoch[tokenAddress][position].balance.multipliedBy(weight);
+  }
     });
   });
 
   // Calculate weekly maximums and normalize
 
-  for (let k = data.startBlock; k < data.endBlock; k += oneWeekInBlocks) {
+  for (
+    let k = epochData.startBlock;
+    k < epochData.endBlock;
+    k += oneWeekInBlocks
+  ) {
     let weekTotalRewards = {};
     let weekSum = new BigNumber(0);
     weightedRewardsPerEpoch.forEach((epoch) => {
