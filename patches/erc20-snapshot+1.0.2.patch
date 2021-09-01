@@ -346,7 +346,7 @@ index 367d5fd..9cca906 100644
      constant: true,
      inputs: [],
 diff --git a/node_modules/erc20-snapshot/balances.js b/node_modules/erc20-snapshot/balances.js
-index e781348..63beca3 100644
+index e781348..b208b75 100644
 --- a/node_modules/erc20-snapshot/balances.js
 +++ b/node_modules/erc20-snapshot/balances.js
 @@ -2,7 +2,8 @@
@@ -377,7 +377,7 @@ index e781348..63beca3 100644
      setDeposits(event);
      setWithdrawals(event);
    }
-@@ -41,11 +47,13 @@ module.exports.createBalances = async data => {
+@@ -41,11 +47,12 @@ module.exports.createBalances = async data => {
      }
  
      const balance = value.deposits.minus(value.withdrawals);
@@ -386,7 +386,6 @@ index e781348..63beca3 100644
      closingBalances.push({
        wallet: key,
 -      balance: balance.div(10 ** parseInt(data.decimals)).toFixed(data.decimals)
-+      blockNumber: value.blockNumber,
 +      balance: balance.div(10 ** parseInt(data.decimals)).toFixed(parseInt(data.decimals))
      });
 +    }
@@ -434,10 +433,10 @@ index 25100d7..3763f6f 100644
      }
    }
 diff --git a/node_modules/erc20-snapshot/events/block-reader.js b/node_modules/erc20-snapshot/events/block-reader.js
-index cccc91b..329d5a9 100644
+index cccc91b..2c54354 100644
 --- a/node_modules/erc20-snapshot/events/block-reader.js
 +++ b/node_modules/erc20-snapshot/events/block-reader.js
-@@ -16,13 +16,13 @@ const getMinimal = pastEvents => {
+@@ -16,20 +16,17 @@ const getMinimal = pastEvents => {
        transactionHash: tx.transactionHash,
        from: tx.returnValues["0"],
        to: tx.returnValues["1"],
@@ -454,8 +453,15 @@ index cccc91b..329d5a9 100644
    const files = await readdirAsync(directory);
    let events = [];
  
+-  console.log("Parsing files.");
+-
+   for await (const file of files) {
+-    console.log("Parsing ", file);
+ 
+     const contents = await readFileAsync(path.join(directory, file));
+     const parsed = JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/events/blockchain.js b/node_modules/erc20-snapshot/events/blockchain.js
-index 3756939..ba0e1e8 100644
+index 3756939..a2c85cc 100644
 --- a/node_modules/erc20-snapshot/events/blockchain.js
 +++ b/node_modules/erc20-snapshot/events/blockchain.js
 @@ -5,7 +5,7 @@ const Web3 = require("web3");
@@ -467,15 +473,14 @@ index 3756939..ba0e1e8 100644
  const FileHelper = require("../file-helper");
  const LastDownloadedBlock = require("./last-downloaded-block");
  const Parameters = require("../parameters").get();
-@@ -27,82 +27,97 @@ const groupBy = (objectArray, property) => {
+@@ -27,82 +27,95 @@ const groupBy = (objectArray, property) => {
    }, {});
  };
  
 -const tryGetEvents = async (start, end, symbol) => {
 -  try {
 -    const pastEvents = await Contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
-+const tryGetEvents = async (start, end, symbol, token0, token1) => {
-+  for (const [index, contract] of Contracts.entries()) {
++const tryGetEvents = async (start, end, symbol, token0, token1, contract) => {
 +    try {
 +      const pastEvents = await contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
  
@@ -516,7 +521,7 @@ index 3756939..ba0e1e8 100644
 -  } catch (e) {
 -    console.log("Could not get events due to an error. Now checking block by block.");
 -    await BlockByBlock.tryBlockByBlock(Contract, start, end, symbol);
-   }
+-  }
  };
  
 -module.exports.get = async () => {
@@ -582,7 +587,7 @@ index 3756939..ba0e1e8 100644
 +        console.log("Batch", i + 1, " From", start, "to", end);
  
 -    await tryGetEvents(start, end, symbol);
-+        await tryGetEvents(start, end, symbol, token0, token1);
++        await tryGetEvents(start, end, symbol, token0, token1, contract);
  
 -    start = end + 1;
 -    end = start + blocksPerBatch;
@@ -713,10 +718,10 @@ index 237a727..571ae0b 100644
      const contents = await readFileAsync(filePath);
      return JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/index.js b/node_modules/erc20-snapshot/index.js
-index bce42cf..08c08d2 100755
+index bce42cf..0856cbf 100755
 --- a/node_modules/erc20-snapshot/index.js
 +++ b/node_modules/erc20-snapshot/index.js
-@@ -6,22 +6,29 @@ const Config = require("./config");
+@@ -6,22 +6,32 @@ const Config = require("./config");
  const Events = require("./events/blockchain");
  const Export = require("./export");
  
@@ -727,8 +732,10 @@ index bce42cf..08c08d2 100755
 -  const result = await Events.get();
 +  const resultArray = await Events.get(blockNumber);
 +  const balancesJSON = {};
-+  for (const [index, result] of resultArray.entries()) {
-+    console.log("Calculating balances of %s (%s)", resultArray[index].name, resultArray[index].symbol);
++  for (let i = 0; i < resultArray.entries().length; i++) {
++    const result = resultArray.entries()[i];
++    console.log('result: ', result);
++    console.log("Calculating balances of %s (%s)", resultArray[i].name, resultArray[i].symbol);
 +    const balance = await Balances.createBalances(result, blockNumber);
  
 -  console.log("Calculating balances of %s (%s)", result.name, result.symbol);
@@ -736,10 +743,11 @@ index bce42cf..08c08d2 100755
 -
 -  console.log("Exporting balances");
 -  await Export.exportBalances(result.symbol, balances, format);
-+    console.log(`Exporting balances for ${resultArray[index].token0}<>${resultArray[index].token1} `);
-+    // await Export.exportBalances(resultArray[index].symbol, resultArray[index].token0, resultArray[index].token1, balance, format);
-+    const contractAddress = Config.getConfig().contractAddresses[index];
++    console.log(`Exporting balances for ${resultArray[i].token0}<>${resultArray[i].token1} `);
++    await Export.exportBalances(resultArray[i].symbol, resultArray[i].token0, resultArray[i].token1, balance, format);
++    const contractAddress = Config.getConfig().contractAddresses[i];
 +    balancesJSON[contractAddress] = balance;
++    console.log('balancesJSON[contractAddress]: ', balancesJSON[contractAddress]);
 +  }
 +  return balancesJSON;
  };
