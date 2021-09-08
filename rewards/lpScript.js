@@ -392,8 +392,8 @@ const getTimeData = async (blockNumber) => {
     const startDateLocale = new Date(startUnixTimestamp).toLocaleString();
     const endDateLocale = new Date(endUnixTimestamp).toLocaleString();
 
-    const endDateYear = startDateISO.split('T')[0].split('-')[0];
-    const endDateMonth = startDateISO.split('T')[0].split('-')[1];
+    const endDateYear = endDateISO.split('T')[0].split('-')[0];
+    const endDateMonth = endDateISO.split('T')[0].split('-')[1];
 
     const entries = discordAcc.map((a) => {
       return `
