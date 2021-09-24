@@ -461,7 +461,7 @@ index cccc91b..2c54354 100644
      const contents = await readFileAsync(path.join(directory, file));
      const parsed = JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/events/blockchain.js b/node_modules/erc20-snapshot/events/blockchain.js
-index 3756939..a2c85cc 100644
+index 3756939..9d57103 100644
 --- a/node_modules/erc20-snapshot/events/blockchain.js
 +++ b/node_modules/erc20-snapshot/events/blockchain.js
 @@ -5,7 +5,7 @@ const Web3 = require("web3");
@@ -473,55 +473,37 @@ index 3756939..a2c85cc 100644
  const FileHelper = require("../file-helper");
  const LastDownloadedBlock = require("./last-downloaded-block");
  const Parameters = require("../parameters").get();
-@@ -27,82 +27,95 @@ const groupBy = (objectArray, property) => {
+@@ -27,9 +27,9 @@ const groupBy = (objectArray, property) => {
    }, {});
  };
  
 -const tryGetEvents = async (start, end, symbol) => {
--  try {
--    const pastEvents = await Contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
 +const tryGetEvents = async (start, end, symbol, token0, token1, contract) => {
-+    try {
-+      const pastEvents = await contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
+   try {
+-    const pastEvents = await Contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
++    const pastEvents = await contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
  
--    if (pastEvents.length) {
--      console.info("Successfully imported ", pastEvents.length, " events");
--    }
-+      if (pastEvents.length) {
-+        console.info("Successfully imported ", pastEvents.length, " events");
-+      }
- 
--    const group = groupBy(pastEvents, "blockNumber");
-+      const group = groupBy(pastEvents, "blockNumber");
- 
--    for (let key in group) {
--      if (group.hasOwnProperty(key)) {
--        const blockNumber = key;
--        const data = group[key];
-+      for (let key in group) {
-+        if (group.hasOwnProperty(key)) {
-+          const blockNumber = key;
-+          const data = group[key];
+     if (pastEvents.length) {
+       console.info("Successfully imported ", pastEvents.length, " events");
+@@ -42,67 +42,94 @@ const tryGetEvents = async (start, end, symbol) => {
+         const blockNumber = key;
+         const data = group[key];
  
 -        const file = Parameters.eventsDownloadFilePath.replace(/{token}/g, symbol).replace(/{blockNumber}/g, blockNumber);
-+          const file = Parameters.eventsDownloadFilePath
-+            .replace(/{token}/g, symbol)
-+            .replace("{token0}", token0)
-+            .replace("{token1}", token1)
-+            .replace(/{blockNumber}/g, blockNumber);
++        const file = Parameters.eventsDownloadFilePath
++          .replace(/{token}/g, symbol)
++          .replace("{token0}", token0)
++          .replace("{token1}", token1)
++          .replace(/{blockNumber}/g, blockNumber);
  
--        FileHelper.writeFile(file, data);
-+          FileHelper.writeFile(file, data);
-+        }
+         FileHelper.writeFile(file, data);
        }
-+    } catch (e) {
-+      console.log("Could not get events due to an error. Now checking block by block.");
-+      await BlockByBlock.tryBlockByBlock(contract, start, end, symbol, token0, token1);
      }
--  } catch (e) {
--    console.log("Could not get events due to an error. Now checking block by block.");
+   } catch (e) {
+     console.log("Could not get events due to an error. Now checking block by block.");
 -    await BlockByBlock.tryBlockByBlock(Contract, start, end, symbol);
--  }
++    await BlockByBlock.tryBlockByBlock(contract, start, end, symbol, token0, token1);
+   }
  };
  
 -module.exports.get = async () => {
@@ -540,62 +522,76 @@ index 3756939..a2c85cc 100644
 -    console.log("Resuming from the last downloaded block #", lastDownloadedBlock);
 -    fromBlock = lastDownloadedBlock + 1;
 -  }
++const contractData = [];
++
 +module.exports.get = async (blockNumber) => {
 +  const dataArray = [];
 +  for (const [index, contract] of Contracts.entries()) {
-+    const name = await contract.methods.name().call();
-+    const symbol = await contract.methods.symbol().call();
-+    const decimals = await contract.methods.decimals().call();
-+    const token0 = await contract.methods.token0().call();
-+    const token1 = await contract.methods.token1().call();
++    const name = contractData[index] ? contractData[index].name : await contract.methods.name().call();
++    const symbol = contractData[index] ? contractData[index].symbol : await contract.methods.symbol().call();
++    const token0 = contractData[index] ? contractData[index].token0 : await contract.methods.token0().call();
++    const token1 = contractData[index] ? contractData[index].token1 : await contract.methods.token1().call();
++    const decimals = contractData[index] ? contractData[index].decimals: await contract.methods.decimals().call();
 +    const blockHeight = await web3.eth.getBlockNumber();
 +    var fromBlock = parseInt(Config.fromBlock) || 0;
 +    const blocksPerBatch = parseInt(Config.blocksPerBatch) || 0;
 +    const delay = parseInt(Config.delay) || 0;
 +    const toBlock = parseInt(Config.toBlock) || blockHeight;
 +
++    if (!contractData[index]) {
++      contractData[index] = {
++        name,
++        symbol,
++        token0,
++        token1,
++        decimals
++      };
++    }
+ 
+-  console.log("From %d to %d", fromBlock, toBlock);
 +    const lastDownloadedBlock = await LastDownloadedBlock.get(symbol, token0, token1);
 +    if (lastDownloadedBlock < blockNumber) {
++      console.log("lastDownloadedBlock: ", lastDownloadedBlock);
+ 
+-  let start = fromBlock;
+-  let end = fromBlock + blocksPerBatch;
+-  let i = 0;
 +      if (lastDownloadedBlock) {
 +        console.log("Resuming from the last downloaded block #", lastDownloadedBlock);
 +        fromBlock = lastDownloadedBlock + 1;
 +      }
  
--  console.log("From %d to %d", fromBlock, toBlock);
-+      console.log("From %d to %d", fromBlock, toBlock);
- 
--  let start = fromBlock;
--  let end = fromBlock + blocksPerBatch;
--  let i = 0;
-+      let start = fromBlock;
-+      let end = fromBlock + blocksPerBatch;
-+      let i = 0;
- 
 -  while (end < toBlock) {
 -    i++;
-+      while (end < toBlock) {
-+        i++;
++      console.log("From %d to %d", fromBlock, toBlock);
  
 -    if (delay) {
 -      await sleep(delay);
 -    }
++      let start = fromBlock;
++      let end = fromBlock + blocksPerBatch;
++      let i = 0;
++
++      while (end < toBlock) {
++        i++;
+ 
+-    console.log("Batch", i + 1, " From", start, "to", end);
 +        if (delay) {
 +          await sleep(delay);
 +        }
  
--    console.log("Batch", i + 1, " From", start, "to", end);
-+        console.log("Batch", i + 1, " From", start, "to", end);
- 
 -    await tryGetEvents(start, end, symbol);
-+        await tryGetEvents(start, end, symbol, token0, token1, contract);
++        console.log("Batch", i + 1, " From", start, "to", end);
  
 -    start = end + 1;
 -    end = start + blocksPerBatch;
-+        start = end + 1;
-+        end = start + blocksPerBatch;
++        await tryGetEvents(start, end, symbol, token0, token1, contract);
  
 -    if (end > toBlock) {
 -      end = toBlock;
++        start = end + 1;
++        end = start + blocksPerBatch;
++
 +        if (end > toBlock) {
 +          end = toBlock;
 +        }
@@ -718,10 +714,10 @@ index 237a727..571ae0b 100644
      const contents = await readFileAsync(filePath);
      return JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/index.js b/node_modules/erc20-snapshot/index.js
-index bce42cf..0856cbf 100755
+index bce42cf..27484f7 100755
 --- a/node_modules/erc20-snapshot/index.js
 +++ b/node_modules/erc20-snapshot/index.js
-@@ -6,22 +6,32 @@ const Config = require("./config");
+@@ -6,22 +6,29 @@ const Config = require("./config");
  const Events = require("./events/blockchain");
  const Export = require("./export");
  
@@ -732,10 +728,8 @@ index bce42cf..0856cbf 100755
 -  const result = await Events.get();
 +  const resultArray = await Events.get(blockNumber);
 +  const balancesJSON = {};
-+  for (let i = 0; i < resultArray.entries().length; i++) {
-+    const result = resultArray.entries()[i];
-+    console.log('result: ', result);
-+    console.log("Calculating balances of %s (%s)", resultArray[i].name, resultArray[i].symbol);
++  for (const [index, result] of resultArray.entries()) {
++    console.log("Calculating balances of %s (%s)", resultArray[index].name, resultArray[index].symbol);
 +    const balance = await Balances.createBalances(result, blockNumber);
  
 -  console.log("Calculating balances of %s (%s)", result.name, result.symbol);
@@ -743,11 +737,10 @@ index bce42cf..0856cbf 100755
 -
 -  console.log("Exporting balances");
 -  await Export.exportBalances(result.symbol, balances, format);
-+    console.log(`Exporting balances for ${resultArray[i].token0}<>${resultArray[i].token1} `);
-+    await Export.exportBalances(resultArray[i].symbol, resultArray[i].token0, resultArray[i].token1, balance, format);
-+    const contractAddress = Config.getConfig().contractAddresses[i];
++    // console.log(`Exporting balances for ${resultArray[index].token0}<>${resultArray[index].token1} `);
++    // await Export.exportBalances(resultArray[index].symbol, resultArray[index].token0, resultArray[index].token1, balance, format);
++    const contractAddress = Config.getConfig().contractAddresses[index];
 +    balancesJSON[contractAddress] = balance;
-+    console.log('balancesJSON[contractAddress]: ', balancesJSON[contractAddress]);
 +  }
 +  return balancesJSON;
  };
