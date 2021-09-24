@@ -11,11 +11,12 @@ const { forEach } = require('lodash');
 const readFile = util.promisify(fs.readFile);
 const EPOCHS_PATH = './lastRewardEpoch.json';
 const Ledger = sc.ledger.ledger.Ledger;
-//17814800
 const ethers = require('ethers');
+
 
 const ADDRESS_BOOK_PATH = '../data/addressbook.json';
 const LEDGER_PATH = '../data/ledger.json';
+const REWARDS_PAIRS_PATH = './snapshot.config.json'
 
 const NodeAddress = sc.core.address.makeAddressModule({
   name: 'NodeAddress',
@@ -23,11 +24,7 @@ const NodeAddress = sc.core.address.makeAddressModule({
   otherNonces: new Map().set('E', 'EdgeAddress'),
 });
 
-const rewardsPairs = [
-  '0xa527dbc7cdb07dd5fdc2d837c7a2054e6d66daf4',
-  '0xaaefc56e97624b57ce98374eb4a45b6fd5ffb982',
-  '0x37251b86f97813f6cfda3d2074b0929dbf7b7854',
-];
+
 const oneWeekInBlocks = 120992;
 const oneDayInBlocks = 17284;
 
@@ -44,6 +41,7 @@ const getTimeData = async (blockNumber) => {
 };
 
 (async () => {
+  const rewardsPairs = await JSON.parse((await readFile(REWARDS_PAIRS_PATH)).toString()).contractAddresses;
   const epochData = await JSON.parse((await readFile(EPOCHS_PATH)).toString());
   const ledgerJSON = (await readFile(LEDGER_PATH)).toString();
   const addressbook = await JSON.parse(
