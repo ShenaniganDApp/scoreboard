@@ -9,7 +9,6 @@
 	"dependencies": {
 		"@aragon/test-helpers": "^2.1.0",
 		"@aragon/toolkit": "^0.0.7-beta.1",
-		"csvtojson": "^2.0.10",
 		"discord.js": "^12.3.1",
 		"erc20-snapshot": "^1.0.2",
 		"ethers": "^5.4.6",

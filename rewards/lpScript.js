@@ -7,7 +7,6 @@ const BigNumber = require('bignumber.js');
 const fetch = require('node-fetch');
 const queries = require('./queries');
 const snapshot = require('erc20-snapshot');
-const { forEach } = require('lodash');
 const readFile = util.promisify(fs.readFile);
 const EPOCHS_PATH = './lastRewardEpoch.json';
 const Ledger = sc.ledger.ledger.Ledger;
