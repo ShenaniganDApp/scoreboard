@@ -17,12 +17,13 @@ const LEDGER_PATH = '../data/ledger.json';
 const DEPENDENCIES_PATH = '../config/dependencies.json';
 const address_book_file =
   'https://raw.githubusercontent.com/ShenaniganDApp/scoreboard/master/data/addressbook.json';
-const LAST_MINTING_PATH = './distributions/2021-09-20.json';
+const MINT_AMOUNTS_PATH = './distributions/2021-09-20.json';
 const COLLAPSED_PARTICLES_IDENTITY_ID = 'apdevFNjKCe3aRZq8IxqKQ';
 
+const MINT_DATE = "Sep 27 2021";
+
 async function deductParticlesAlreadyMinted(accounts, ledger) {
-  const LAST_MINTING = await converter.fromFile(LAST_MINTING_PATH);
-  console.log('LAST_MINTING: ', LAST_MINTING);
+  const LAST_MINTING =  JSON.parse(await fs.readFile(MINT_AMOUNTS_PATH));
 
   for (const address in LAST_MINTING) {
     const amount = LAST_MINTING[address];
@@ -83,13 +84,16 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
     })
     .filter(Boolean);
 
+
   // const depAccounts = DEPENDENCY_ACCOUNTS.map(dep => ({
   //   ...(ledger.account(dep.identity.id)),
   //   ...dep,
   // }));
 
-//   await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
-//   await fs.writeFile(LEDGER_PATH, ledger.serialize());
+
+  // Uncomment these two lines below and rerun script after distribution is on chain and MINT_DATE is updated.
+  // await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
+  // await fs.writeFile(LEDGER_PATH, ledger.serialize());
 
   const addressAccounts = _.keyBy(accountsWithAddress, 'ethAddress');
   const newMintAmounts = {};
@@ -104,23 +108,16 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
     total += parseFloat(amountToMint);
   });
 
-  // DEPENDENCY_ACCOUNTS.forEach(dep => {
-  //   const acc = ledger.account(dep.identity.id);
-  //   const amountToMint = G.format(acc.balance, 9, '');
-  //   newMintAmounts[dep.ethAddress] = amountToMint;
-  //   total += parseFloat(amountToMint);
-  // });
-
   console.log(
     Object.entries(newMintAmounts)
       .map(([address, amount]) => {
         const acc = addressAccounts[address];
 
-        return `${acc && acc.identity.name},${address},${amount}`;
+        return `${address},${amount}`;
       })
       .join('\n')
   );
   console.log({ total });
   //
-  fs.writeFile('./distributions/2021-09-20.json', JSON.stringify(newMintAmounts));
+  fs.writeFile('./distributions/2021-09-27.json', JSON.stringify(newMintAmounts));
 })();
