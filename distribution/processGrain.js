@@ -20,17 +20,19 @@ const address_book_file =
 const MINT_AMOUNTS_PATH = './distributions/2021-09-20.json';
 const COLLAPSED_PARTICLES_IDENTITY_ID = 'apdevFNjKCe3aRZq8IxqKQ';
 
-const MINT_DATE = "Sep 27 2021";
+const MINT_DATE = 'Sep 27 2021';
 
 async function deductParticlesAlreadyMinted(accounts, ledger) {
-  const LAST_MINTING =  JSON.parse(await fs.readFile(MINT_AMOUNTS_PATH));
+  const LAST_MINTING = JSON.parse(await fs.readFile(MINT_AMOUNTS_PATH));
 
   for (const address in LAST_MINTING) {
     const amount = LAST_MINTING[address];
-  
-    const account = accounts.find(a => a.ethAddress.toLowerCase() === address.toLowerCase());
+
+    const account = accounts.find(
+      (a) => a.ethAddress.toLowerCase() === address.toLowerCase()
+    );
     if (!account) {
-  	console.warn('Missing account for: ', address);
+      console.warn('Missing account for: ', address);
     }
 
     const particlesMinted = G.fromApproximateFloat(amount);
@@ -41,15 +43,20 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
     let transferAmount = particlesMinted;
     // Only transfer up to max balance
     if (G.lt(particlesBalance, particlesMinted)) {
-  	console.log(`Extra PRTCLE Balance for: ${account.ethAddress}: ${G.sub(particlesMinted, particlesBalance)}`);
-  	transferAmount = particlesBalance;
+      console.log(
+        `Extra PRTCLE Balance for: ${account.ethAddress}: ${G.sub(
+          particlesMinted,
+          particlesBalance
+        )}`
+      );
+      transferAmount = particlesBalance;
     }
     ledger.activate(account.identity.id);
     ledger.transferGrain({
-  	from: account.identity.id,
-  	to: COLLAPSED_PARTICLES_IDENTITY_ID,
-  	amount: transferAmount,
-  	memo: `Minted PRTCLE on chain to ${account.ethAddress} on ${MINT_DATE}`,
+      from: account.identity.id,
+      to: COLLAPSED_PARTICLES_IDENTITY_ID,
+      amount: transferAmount,
+      memo: `Minted PRTCLE on chain to ${account.ethAddress} on ${MINT_DATE}`,
     });
   }
 }
@@ -84,12 +91,10 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
     })
     .filter(Boolean);
 
-
   // const depAccounts = DEPENDENCY_ACCOUNTS.map(dep => ({
   //   ...(ledger.account(dep.identity.id)),
   //   ...dep,
   // }));
-
 
   // Uncomment these two lines below and rerun script after distribution is on chain and MINT_DATE is updated.
   // await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
@@ -99,13 +104,15 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   const newMintAmounts = {};
   let total = 0;
   accountsWithAddress.forEach((acc) => {
-    const amountToMint = G.format(acc.balance, 9, '').replace(",","");
-    newMintAmounts[acc.ethAddress] = amountToMint;
-    if (!isValidAddress(acc.ethAddress)) {
-      console.log('INVALID ADD for acc: ', acc);
-    }
+    if (new BigNumber(acc.balance).gt(1e+18)) {
+      const amountToMint = G.format(acc.balance, 9, '').replace(',', '');
+      newMintAmounts[acc.ethAddress] = amountToMint;
+      if (!isValidAddress(acc.ethAddress)) {
+        console.log('INVALID ADD for acc: ', acc);
+      }
 
-    total += parseFloat(amountToMint);
+      total += parseFloat(amountToMint);
+    }
   });
 
   console.log(
@@ -117,7 +124,9 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
       })
       .join('\n')
   );
-  console.log({ total });
   //
-  fs.writeFile('./distributions/2021-09-27.json', JSON.stringify(newMintAmounts));
+  fs.writeFile(
+    './distributions/json/2021-09-27.json',
+    JSON.stringify(newMintAmounts)
+  );
 })();
