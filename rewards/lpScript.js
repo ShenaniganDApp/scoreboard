@@ -8,14 +8,13 @@ const fetch = require('node-fetch');
 const queries = require('./queries');
 const snapshot = require('erc20-snapshot');
 const readFile = util.promisify(fs.readFile);
-const EPOCHS_PATH = './lastRewardEpoch.json';
+const EPOCHS_PATH = 'rewards/lastRewardEpoch.json';
 const Ledger = sc.ledger.ledger.Ledger;
 const ethers = require('ethers');
 
-
-const ADDRESS_BOOK_PATH = '../data/addressbook.json';
-const LEDGER_PATH = '../data/ledger.json';
-const REWARDS_PAIRS_PATH = './snapshot.config.json'
+const ADDRESS_BOOK_PATH = 'data/addressbook.json';
+const LEDGER_PATH = 'data/ledger.json';
+const REWARDS_PAIRS_PATH = 'snapshot.config.json';
 
 const NodeAddress = sc.core.address.makeAddressModule({
   name: 'NodeAddress',
@@ -23,13 +22,14 @@ const NodeAddress = sc.core.address.makeAddressModule({
   otherNonces: new Map().set('E', 'EdgeAddress'),
 });
 
-
 const oneWeekInBlocks = 120992;
 const oneDayInBlocks = 17284;
 
 const provider = new ethers.providers.JsonRpcProvider(
   'https://rpc.xdaichain.com/'
 );
+
+
 const getTimeData = async (blockNumber) => {
   const startUnixTimestamp =
     (await (await provider.getBlock(blockNumber)).timestamp) * 1000;
@@ -40,7 +40,9 @@ const getTimeData = async (blockNumber) => {
 };
 
 (async () => {
-  const rewardsPairs = await JSON.parse((await readFile(REWARDS_PAIRS_PATH)).toString()).contractAddresses;
+  const rewardsPairs = await JSON.parse(
+    (await readFile(REWARDS_PAIRS_PATH)).toString()
+  ).contractAddresses;
   const epochData = await JSON.parse((await readFile(EPOCHS_PATH)).toString());
   const ledgerJSON = (await readFile(LEDGER_PATH)).toString();
   const addressbook = await JSON.parse(
@@ -50,7 +52,7 @@ const getTimeData = async (blockNumber) => {
   const AddressMap = _.keyBy(addressbook, 'discordId');
 
   const accountsJSON = JSON.parse(
-    (await readFile('../output/accounts.json')).toString()
+    (await readFile('output/accounts.json')).toString()
   );
 
   const UserMap = _.keyBy(accountsJSON.accounts, 'account.identity.id');
@@ -334,7 +336,7 @@ const getTimeData = async (blockNumber) => {
         });
       }
     });
-    Object.keys(weekTotalRewards).forEach((wallet) => {    
+    Object.keys(weekTotalRewards).forEach((wallet) => {
       weekTotalRewards[wallet] = weekTotalRewards[wallet]
         .dividedBy(weekSum)
         .multipliedBy(13)
@@ -423,7 +425,7 @@ const getTimeData = async (blockNumber) => {
       }
     }]`;
     fs.writeFileSync(
-      `../config/plugins/sourcecred/initiatives/initiatives/${endDateYear}-${endDateMonth}-liquidity-rewards-${
+      `config/plugins/sourcecred/initiatives/initiatives/${endDateYear}-${endDateMonth}-liquidity-rewards-${
         endDateISO.split('T')[0]
       }.json`,
       fileJson
