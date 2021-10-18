@@ -1,12 +1,10 @@
 node_modules/
 site/
-output/
+output/*
+!output/accounts.json
 cache/
 .yalc/
 yalc.lock
 data/addressbook.json
 data/messageIds.json
 .env
-rewards/tx
-rewards/.cache
-rewards/balances

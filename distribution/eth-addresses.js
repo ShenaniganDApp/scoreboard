@@ -13,7 +13,7 @@ const NodeAddress = sc.core.address.makeAddressModule({
   otherNonces: new Map().set("E", "EdgeAddress"),
 });
 
-const LEDGER_PATH = '../data/ledger.json';
+const LEDGER_PATH = 'data/ledger.json';
 const address_book_file = 'https://raw.githubusercontent.com/ShenaniganDApp/scoreboard/master/data/addressbook.json';
 
 

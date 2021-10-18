@@ -13,14 +13,12 @@ const NodeAddress = sc.core.address.makeAddressModule({
   otherNonces: new Map().set('E', 'EdgeAddress'),
 });
 
-const LEDGER_PATH = '../data/ledger.json';
-const DEPENDENCIES_PATH = '../config/dependencies.json';
+const LEDGER_PATH = 'data/ledger.json';
+const DEPENDENCIES_PATH = 'config/dependencies.json';
 const address_book_file =
   'https://raw.githubusercontent.com/ShenaniganDApp/scoreboard/master/data/addressbook.json';
-const MINT_AMOUNTS_PATH = './distributions/json/2021-10-04.json';
+const MINT_AMOUNTS_PATH = 'distribution/distributions/json/2021-10-04-and-2021-10-12.json';
 const COLLAPSED_PARTICLES_IDENTITY_ID = 'apdevFNjKCe3aRZq8IxqKQ';
-
-const MINT_DATE = 'Oct 04 2021';
 
 async function deductParticlesAlreadyMinted(accounts, ledger) {
   const LAST_MINTING = JSON.parse(await fs.readFile(MINT_AMOUNTS_PATH));
@@ -56,7 +54,6 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
       from: account.identity.id,
       to: COLLAPSED_PARTICLES_IDENTITY_ID,
       amount: transferAmount,
-      memo: `Minted PRTCLE on chain to ${account.ethAddress} on ${MINT_DATE}`,
     });
   }
 }
@@ -96,15 +93,16 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   //   ...dep,
   // }));
 
-  // Uncomment these two lines below and rerun script after distribution is on chain and MINT_DATE is updated.
-  // await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
-  // await fs.writeFile(LEDGER_PATH, ledger.serialize());
+  if (process.env.REMOVE_GRAIN) {
+    await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
+    await fs.writeFile(LEDGER_PATH, ledger.serialize());
+  }
 
   const addressAccounts = _.keyBy(accountsWithAddress, 'ethAddress');
   const newMintAmounts = {};
   let total = 0;
   accountsWithAddress.forEach((acc) => {
-    if (new BigNumber(acc.balance).gt(1e+18)) {
+    if (new BigNumber(acc.balance).gt(1e18)) {
       const amountToMint = G.format(acc.balance, 9, '').replace(',', '');
       newMintAmounts[acc.ethAddress] = amountToMint;
       if (!isValidAddress(acc.ethAddress)) {
@@ -126,7 +124,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   );
   //
   fs.writeFile(
-    './distributions/json/2021-10-04-and-2021-10-12.json',
+    'distribution/distributions/json/2021-10-19.json',
     JSON.stringify(newMintAmounts)
   );
 })();
