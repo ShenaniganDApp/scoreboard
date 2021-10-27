@@ -1,0 +1,60 @@
+[
+  {
+    "address": "0xAaEfC56E97624b57Ce98374EB4a45b6FD5Ffb982",
+    "blockHash": "0x5a980517a8da7f6c7d447db93e404f520672d931a359b66673808ae7455fb704",
+    "blockNumber": 14844428,
+    "logIndex": 19,
+    "removed": false,
+    "transactionHash": "0x4140171d9e8f816d348c0a198bdac5290832ed328492ef4259d8800fe7151bba",
+    "transactionIndex": 3,
+    "transactionLogIndex": "0x0",
+    "id": "log_74132516",
+    "returnValues": {
+      "0": "0x1E35fA8bE194A981e480505B08796170B3eb5227",
+      "1": "0xAaEfC56E97624b57Ce98374EB4a45b6FD5Ffb982",
+      "2": "1796314326845875468",
+      "from": "0x1E35fA8bE194A981e480505B08796170B3eb5227",
+      "to": "0xAaEfC56E97624b57Ce98374EB4a45b6FD5Ffb982",
+      "value": "1796314326845875468"
+    },
+    "event": "Transfer",
+    "signature": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+    "raw": {
+      "data": "0x00000000000000000000000000000000000000000000000018edca5cec97e50c",
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x0000000000000000000000001e35fa8be194a981e480505b08796170b3eb5227",
+        "0x000000000000000000000000aaefc56e97624b57ce98374eb4a45b6fd5ffb982"
+      ]
+    }
+  },
+  {
+    "address": "0xAaEfC56E97624b57Ce98374EB4a45b6FD5Ffb982",
+    "blockHash": "0x5a980517a8da7f6c7d447db93e404f520672d931a359b66673808ae7455fb704",
+    "blockNumber": 14844428,
+    "logIndex": 20,
+    "removed": false,
+    "transactionHash": "0x4140171d9e8f816d348c0a198bdac5290832ed328492ef4259d8800fe7151bba",
+    "transactionIndex": 3,
+    "transactionLogIndex": "0x1",
+    "id": "log_dd4819fd",
+    "returnValues": {
+      "0": "0xAaEfC56E97624b57Ce98374EB4a45b6FD5Ffb982",
+      "1": "0x0000000000000000000000000000000000000000",
+      "2": "1796314326845875468",
+      "from": "0xAaEfC56E97624b57Ce98374EB4a45b6FD5Ffb982",
+      "to": "0x0000000000000000000000000000000000000000",
+      "value": "1796314326845875468"
+    },
+    "event": "Transfer",
+    "signature": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+    "raw": {
+      "data": "0x00000000000000000000000000000000000000000000000018edca5cec97e50c",
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000aaefc56e97624b57ce98374eb4a45b6fd5ffb982",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ]
+    }
+  }
+]
