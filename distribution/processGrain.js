@@ -124,7 +124,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   );
   //
   fs.writeFile(
-    'distribution/distributions/json/2021-10-19.json',
+    'distribution/distributions/json/2021-10-19-and-2021-10-25.json',
     JSON.stringify(newMintAmounts)
   );
 })();
