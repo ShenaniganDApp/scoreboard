@@ -54,6 +54,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
       from: account.identity.id,
       to: COLLAPSED_PARTICLES_IDENTITY_ID,
       amount: transferAmount,
+      memo:""
     });
   }
 }
@@ -93,10 +94,10 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   //   ...dep,
   // }));
 
-  if (process.env.REMOVE_GRAIN) {
-    await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
-    await fs.writeFile(LEDGER_PATH, ledger.serialize());
-  }
+  // if (process.env.REMOVE_GRAIN) {
+    // await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
+    // await fs.writeFile(LEDGER_PATH, ledger.serialize());
+  // }
 
   const addressAccounts = _.keyBy(accountsWithAddress, 'ethAddress');
   const newMintAmounts = {};
@@ -122,7 +123,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
       })
       .join('\n')
   );
-  //
+  
   fs.writeFile(
     'distribution/distributions/json/2021-10-19-and-2021-10-25.json',
     JSON.stringify(newMintAmounts)
