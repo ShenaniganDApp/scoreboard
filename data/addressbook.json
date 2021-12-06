@@ -2406,12 +2406,6 @@
     "discordId": "831261442736783360"
   },
   {
-    "name": "Excuro",
-    "createdAt": 1618597829334,
-    "address": "0x2301Be661bc61195D2dB4967dFfD5083e84Ad077",
-    "discordId": "226656082498551808"
-  },
-  {
     "name": "yarcy escalante",
     "createdAt": 1619052227147,
     "address": "0x6086FeEB8B68A437F590e8ea97Ee2708f28a4541",
@@ -2560,5 +2554,11 @@
     "createdAt": 1633159812156,
     "address": "0x1bb1DF060e066Ca98C197277FE4C8f1dB7705D5F",
     "discordId": "783665773394001933"
+  },
+  {
+    "name": "Excuro",
+    "createdAt": 1638801309174,
+    "address": "0x29F57D915702c45A4ba44B74798BDCe95E76a800",
+    "discordId": "226656082498551808"
   }
 ]
