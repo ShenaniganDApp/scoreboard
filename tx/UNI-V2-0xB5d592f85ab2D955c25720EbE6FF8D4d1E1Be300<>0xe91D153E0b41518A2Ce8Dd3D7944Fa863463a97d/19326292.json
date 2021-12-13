@@ -1,0 +1,60 @@
+[
+  {
+    "address": "0xa527dBc7cdB07dD5fdc2d837C7a2054E6D66DaF4",
+    "blockHash": "0x4cca9e25f5a24971dfe74a458139929fb3e9f26896091726798f18c0fd2950ac",
+    "blockNumber": 19326292,
+    "logIndex": 47,
+    "removed": false,
+    "transactionHash": "0x5c97611cf1e742f3a0d0e20fd0708b9bffc69e9328b8787352a6339f11ce8c67",
+    "transactionIndex": 9,
+    "transactionLogIndex": "0x3",
+    "id": "log_741c82a0",
+    "returnValues": {
+      "0": "0x0000000000000000000000000000000000000000",
+      "1": "0xbA13a6414C677d9e7BD3c0BDE5BA4055BF2e72f7",
+      "2": "17117752350664125",
+      "from": "0x0000000000000000000000000000000000000000",
+      "to": "0xbA13a6414C677d9e7BD3c0BDE5BA4055BF2e72f7",
+      "value": "17117752350664125"
+    },
+    "event": "Transfer",
+    "signature": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+    "raw": {
+      "data": "0x000000000000000000000000000000000000000000000000003cd0814c36e5bd",
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x000000000000000000000000ba13a6414c677d9e7bd3c0bde5ba4055bf2e72f7"
+      ]
+    }
+  },
+  {
+    "address": "0xa527dBc7cdB07dD5fdc2d837C7a2054E6D66DaF4",
+    "blockHash": "0x4cca9e25f5a24971dfe74a458139929fb3e9f26896091726798f18c0fd2950ac",
+    "blockNumber": 19326292,
+    "logIndex": 48,
+    "removed": false,
+    "transactionHash": "0x5c97611cf1e742f3a0d0e20fd0708b9bffc69e9328b8787352a6339f11ce8c67",
+    "transactionIndex": 9,
+    "transactionLogIndex": "0x4",
+    "id": "log_6da11593",
+    "returnValues": {
+      "0": "0x0000000000000000000000000000000000000000",
+      "1": "0xe5eDa1eabfC23075D010927bd0111E8E36C33Def",
+      "2": "10455774311741398141",
+      "from": "0x0000000000000000000000000000000000000000",
+      "to": "0xe5eDa1eabfC23075D010927bd0111E8E36C33Def",
+      "value": "10455774311741398141"
+    },
+    "event": "Transfer",
+    "signature": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+    "raw": {
+      "data": "0x000000000000000000000000000000000000000000000000911a5f56e7001c7d",
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x000000000000000000000000e5eda1eabfc23075d010927bd0111e8e36c33def"
+      ]
+    }
+  }
+]

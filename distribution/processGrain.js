@@ -17,7 +17,7 @@ const LEDGER_PATH = 'data/ledger.json';
 const DEPENDENCIES_PATH = 'config/dependencies.json';
 const address_book_file =
   'https://raw.githubusercontent.com/ShenaniganDApp/scoreboard/master/data/addressbook.json';
-const MINT_AMOUNTS_PATH = 'distribution/distributions/json/2021-11-08.json';
+const MINT_AMOUNTS_PATH = 'distribution/distributions/json/2021-11-15.json';
 const COLLAPSED_PARTICLES_IDENTITY_ID = 'apdevFNjKCe3aRZq8IxqKQ';
 
 async function deductParticlesAlreadyMinted(accounts, ledger) {
@@ -31,6 +31,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
     );
     if (!account) {
       console.warn('Missing account for: ', address);
+      continue;
     }
 
     const particlesMinted = G.fromApproximateFloat(amount);
@@ -95,8 +96,8 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   // }));
 
   // if (process.env.REMOVE_GRAIN) {
-    await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
-    await fs.writeFile(LEDGER_PATH, ledger.serialize());
+    // await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
+    // await fs.writeFile(LEDGER_PATH, ledger.serialize());
   // }
 
   const addressAccounts = _.keyBy(accountsWithAddress, 'ethAddress');
@@ -125,7 +126,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   );
   
   fs.writeFile(
-    'distribution/distributions/json/2021-11-15.json',
+    'distribution/distributions/json/2021-11-21-to-2021-12-13.json',
     JSON.stringify(newMintAmounts)
   );
 })();
