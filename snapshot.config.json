@@ -7,7 +7,7 @@
   ],
   "fromBlock": "12234318",
   "blocksPerBatch":500,
-  "delay": 1.5,
+  "delay": 5,
   "format": "json",
   "checkIfContract": "no"
 }
