@@ -1645,12 +1645,6 @@
     "discordId": "773298009743687701"
   },
   {
-    "name": "designer",
-    "createdAt": 1604597571425,
-    "address": "0x7741Df7AFca7Ac27324eFbcDD117372C5984B017",
-    "discordId": "773910191569240084"
-  },
-  {
     "name": "needhi",
     "createdAt": 1604613101705,
     "address": "0xf1Fa3853CbaAbdB71374D4A3CA9A8cb6ef6D7Cd1",
@@ -2567,5 +2561,11 @@
     "createdAt": 1642630047637,
     "address": "0xAE97b142FD5f777aa1CCFd77d25C9Be1902C465F",
     "discordId": "777255464990933054"
+  },
+  {
+    "name": "mahdiyar",
+    "createdAt": 1642852550313,
+    "address": "0x2e3e22f9f4D2De3DBDeE9cBf350E22aFB1c1D6B9",
+    "discordId": "773910191569240084"
   }
 ]
