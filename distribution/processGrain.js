@@ -17,7 +17,7 @@ const LEDGER_PATH = 'data/ledger.json';
 const DEPENDENCIES_PATH = 'config/dependencies.json';
 const address_book_file =
   'https://raw.githubusercontent.com/ShenaniganDApp/scoreboard/master/data/addressbook.json';
-const MINT_AMOUNTS_PATH = 'distribution/distributions/json/2022-01-10.json';
+const MINT_AMOUNTS_PATH = 'distribution/distributions/json/2022-01-17.json';
 const COLLAPSED_PARTICLES_IDENTITY_ID = 'apdevFNjKCe3aRZq8IxqKQ';
 
 async function deductParticlesAlreadyMinted(accounts, ledger) {
@@ -126,7 +126,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   );
   
   fs.writeFile(
-    'distribution/distributions/json/2022-01-17.json',
+    'distribution/distributions/json/2022-01-24.json',
     JSON.stringify(newMintAmounts)
   );
 })();
