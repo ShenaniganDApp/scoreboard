@@ -1,0 +1,19 @@
+{
+  // Avoid typechecking *.bs.js files,
+  // as they are not well typed
+  "include": ["**/*.gen.tsx"],
+
+  "compilerOptions": {
+    // We are only type-checking
+    "noEmit": true,
+
+    // These settings likely match your environment,
+    // although they may need changing
+    "moduleResolution": "node",
+    "target": "ES2020",
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  }
+}

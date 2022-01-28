@@ -1,0 +1,24 @@
+{
+  "name": "erc20-snapshot",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "commonjs",
+      "in-source": true
+    }
+  ],
+  "suffix": ".bs.js",
+  "bs-dependencies": ["rescript-nodejs", "@ryyppy/rescript-promise"],
+  "bs-dev-dependencies": ["@glennsl/rescript-jest"],
+  "warnings": {
+    "error": "+101"
+  },
+  "gentypeconfig": {
+    "language": "typescript"
+  }
+}
