@@ -18,6 +18,7 @@
 	"devDependencies": {
 		"dotenv-cli": "^4.0.0",
 		"patch-package": "^6.4.7",
+		"rescript": "^9.1.4",
 		"rimraf": "^3.0.2"
 	},
 	"scripts": {
@@ -26,6 +27,9 @@
 		"load": "dotenv sourcecred load",
 		"start": "dotenv sourcecred go --no-load && sourcecred serve",
 		"grain": "sourcecred grain",
-		"postinstall": "patch-package"
+		"postinstall": "patch-package",
+		"re:build": "rescript",
+    "re:clean": "rescript clean -with-deps",
+    "re:start": "rescript build -w"
 	}
 }
