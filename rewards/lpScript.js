@@ -29,6 +29,15 @@ const provider = new ethers.providers.JsonRpcProvider(
   'https://rpc.xdaichain.com/'
 );
 
+function retry(fn, retries = 3, err = null) {
+  if (!retries) {
+    return Promise.reject(err);
+  }
+  return fn().catch((err) => {
+    console.log(`Retrying ${fn.name}...`);
+    return retry(fn, retries - 1, err);
+  });
+}
 
 const getTimeData = async (blockNumber) => {
   const startUnixTimestamp =
@@ -38,6 +47,10 @@ const getTimeData = async (blockNumber) => {
     1000;
   return { startUnixTimestamp, endUnixTimestamp };
 };
+// (async () => {
+//   const retrySnapshot = async () => await snapshot.takeSnapshot(20355632);
+//   await retry(retrySnapshot);
+// })();
 
 (async () => {
   const rewardsPairs = await JSON.parse(
@@ -83,23 +96,26 @@ const getTimeData = async (blockNumber) => {
       i += oneDayInBlocks
     ) {
       for (let j = 0; j < rewardsPairs.length; j++) {
+        const fetchUSDReserve = async () =>
+          await (
+            await fetch(
+              'https://api.thegraph.com/subgraphs/name/1hive/uniswap-v2',
+              {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Accept: 'application/json',
+                },
+                body: JSON.stringify({
+                  query: queries.usdReserveAtBlock(rewardsPairs[j], i),
+                }),
+              }
+            )
+          ).json();
+
         let {
           data: { pair: reserveUSD },
-        } = await (
-          await fetch(
-            'https://api.thegraph.com/subgraphs/name/1hive/uniswap-v2',
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-              },
-              body: JSON.stringify({
-                query: queries.usdReserveAtBlock(rewardsPairs[j], i),
-              }),
-            }
-          )
-        ).json();
+        } = await retry(fetchUSDReserve);
 
         reserveUSD =
           reserveUSD && reserveUSD.reserveUSD
@@ -128,7 +144,8 @@ const getTimeData = async (blockNumber) => {
         console.log(
           `Calculating rewards for blocks ${i} to ${i + oneDayInBlocks}`
         );
-      const balances = await snapshot.takeSnapshot(i);
+      const retrySnapshot = async () => await snapshot.takeSnapshot(i);
+      const balances = await retry(retrySnapshot);
 
       rewardsPairs.forEach((address) => {
         if (balances[address]) {
