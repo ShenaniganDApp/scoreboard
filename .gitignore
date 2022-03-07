@@ -8,3 +8,4 @@ yalc.lock
 data/addressbook.json
 data/messageIds.json
 .env
+tx
