@@ -11,6 +11,7 @@ const readFile = util.promisify(fs.readFile);
 const EPOCHS_PATH = 'rewards/lastRewardEpoch.json';
 const Ledger = sc.ledger.ledger.Ledger;
 const ethers = require('ethers');
+const incrementRewardEpoch = require('./incrementRewardEpoch');
 
 const ADDRESS_BOOK_PATH = 'data/addressbook.json';
 const LEDGER_PATH = 'data/ledger.json';
@@ -47,12 +48,15 @@ const getTimeData = async (blockNumber) => {
     1000;
   return { startUnixTimestamp, endUnixTimestamp };
 };
-// (async () => {
-//   const retrySnapshot = async () => await snapshot.takeSnapshot(20355632);
-//   await retry(retrySnapshot);
-// })();
+
 
 (async () => {
+  const retrySnapshot = async () => await snapshot.takeSnapshot(20979679);
+  await retry(retrySnapshot);
+
+  console.log("Incrementing reward epoch...");
+  await incrementRewardEpoch();
+
   const rewardsPairs = await JSON.parse(
     (await readFile(REWARDS_PAIRS_PATH)).toString()
   ).contractAddresses;

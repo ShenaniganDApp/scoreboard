@@ -411,19 +411,36 @@ index abea66b..4a70158 100644
 +  return contracts;
  };
 diff --git a/node_modules/erc20-snapshot/events/block-by-block.js b/node_modules/erc20-snapshot/events/block-by-block.js
-index 25100d7..3763f6f 100644
+index 25100d7..be258dd 100644
 --- a/node_modules/erc20-snapshot/events/block-by-block.js
 +++ b/node_modules/erc20-snapshot/events/block-by-block.js
-@@ -9,7 +9,7 @@ const range = (start, end) => {
+@@ -9,20 +9,30 @@ const range = (start, end) => {
      .map((_, idx) => start + idx);
  };
  
 -module.exports.tryBlockByBlock = async (contract, start, end, symbol) => {
++function retry(fn, retries = 3, err = null) {
++  if (!retries) {
++    return Promise.reject(err);
++  }
++  return fn().catch((err) => {
++    console.log(`Retrying ${fn.name}...`);
++    return retry(fn, retries - 1, err);
++  });
++}
++
 +module.exports.tryBlockByBlock = async (contract, start, end, symbol,token0, token1) => {
    const blocks = range(start, end);
  
    let counter = 0;
-@@ -22,7 +22,7 @@ module.exports.tryBlockByBlock = async (contract, start, end, symbol) => {
+   for await (const i of blocks) {
+     counter++;
+     console.log("%d% Block %d of %d", Math.floor((counter / (end - start)) * 100), i, end);
+-
+-    const pastEvents = await contract.getPastEvents("Transfer", { fromBlock: i, toBlock: i });
++    const getEventsByBlockRetry = async () => await contract.getPastEvents("Transfer", { fromBlock: i, toBlock: i })
++    const pastEvents = await retry(getEventsByBlockRetry)
+ 
      if (pastEvents.length) {
        console.info("Successfully imported ", pastEvents.length, " events");
  
@@ -461,7 +478,7 @@ index cccc91b..2c54354 100644
      const contents = await readFileAsync(path.join(directory, file));
      const parsed = JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/events/blockchain.js b/node_modules/erc20-snapshot/events/blockchain.js
-index 3756939..9d57103 100644
+index 3756939..0d0bbba 100644
 --- a/node_modules/erc20-snapshot/events/blockchain.js
 +++ b/node_modules/erc20-snapshot/events/blockchain.js
 @@ -5,7 +5,7 @@ const Web3 = require("web3");
@@ -473,7 +490,24 @@ index 3756939..9d57103 100644
  const FileHelper = require("../file-helper");
  const LastDownloadedBlock = require("./last-downloaded-block");
  const Parameters = require("../parameters").get();
-@@ -27,9 +27,9 @@ const groupBy = (objectArray, property) => {
+@@ -16,6 +16,16 @@ const sleep = promisify(setTimeout);
+ 
+ const web3 = new Web3(new Web3.providers.HttpProvider((Config || {}).provider || "http://localhost:8545"));
+ 
++function retry(fn, retries = 3, err = null) {
++  if (!retries) {
++    return Promise.reject(err);
++  }
++  return fn().catch((err) => {
++    console.log(`Retrying ${fn.name}...`);
++    return retry(fn, retries - 1, err);
++  });
++}
++
+ const groupBy = (objectArray, property) => {
+   return objectArray.reduce((acc, obj) => {
+     var key = obj[property];
+@@ -27,9 +37,10 @@ const groupBy = (objectArray, property) => {
    }, {});
  };
  
@@ -481,11 +515,12 @@ index 3756939..9d57103 100644
 +const tryGetEvents = async (start, end, symbol, token0, token1, contract) => {
    try {
 -    const pastEvents = await Contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
-+    const pastEvents = await contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
++    const getPastEventsRetry = async () => await contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
++    const pastEvents = await retry(getPastEventsRetry) 
  
      if (pastEvents.length) {
        console.info("Successfully imported ", pastEvents.length, " events");
-@@ -42,67 +42,94 @@ const tryGetEvents = async (start, end, symbol) => {
+@@ -42,67 +53,93 @@ const tryGetEvents = async (start, end, symbol) => {
          const blockNumber = key;
          const data = group[key];
  
@@ -549,9 +584,8 @@ index 3756939..9d57103 100644
 +    }
  
 -  console.log("From %d to %d", fromBlock, toBlock);
-+    const lastDownloadedBlock = await LastDownloadedBlock.get(symbol, token0, token1);
++    const lastDownloadedBlock = await LastDownloadedBlock.get();
 +    if (lastDownloadedBlock < blockNumber) {
-+      console.log("lastDownloadedBlock: ", lastDownloadedBlock);
  
 -  let start = fromBlock;
 -  let end = fromBlock + blocksPerBatch;
@@ -571,24 +605,24 @@ index 3756939..9d57103 100644
 +      let start = fromBlock;
 +      let end = fromBlock + blocksPerBatch;
 +      let i = 0;
-+
+ 
+-    console.log("Batch", i + 1, " From", start, "to", end);
 +      while (end < toBlock) {
 +        i++;
  
--    console.log("Batch", i + 1, " From", start, "to", end);
+-    await tryGetEvents(start, end, symbol);
 +        if (delay) {
 +          await sleep(delay);
 +        }
  
--    await tryGetEvents(start, end, symbol);
-+        console.log("Batch", i + 1, " From", start, "to", end);
- 
 -    start = end + 1;
 -    end = start + blocksPerBatch;
-+        await tryGetEvents(start, end, symbol, token0, token1, contract);
++        console.log("Batch", i + 1, " From", start, "to", end);
  
 -    if (end > toBlock) {
 -      end = toBlock;
++        await tryGetEvents(start, end, symbol, token0, token1, contract);
++
 +        start = end + 1;
 +        end = start + blocksPerBatch;
 +
@@ -623,20 +657,37 @@ index 3756939..9d57103 100644
 +  return dataArray;
  };
 diff --git a/node_modules/erc20-snapshot/events/last-downloaded-block.js b/node_modules/erc20-snapshot/events/last-downloaded-block.js
-index d4a2b1e..11d8c42 100644
+index d4a2b1e..883da6e 100644
 --- a/node_modules/erc20-snapshot/events/last-downloaded-block.js
 +++ b/node_modules/erc20-snapshot/events/last-downloaded-block.js
-@@ -10,8 +10,8 @@ const { promisify } = require("util");
- const readdirAsync = promisify(fs.readdir);
- const folderExistsAsync = promisify(fs.exists);
+@@ -2,26 +2,5 @@
  
+ const fs = require("fs");
+ 
+-const enumerable = require("linq");
++module.exports.get = async () => fs.readFileSync("./rewards/lastRewardEpoch.json", "utf8").endBlock;
+ 
+-const Parameters = require("../parameters").get();
+-
+-const { promisify } = require("util");
+-const readdirAsync = promisify(fs.readdir);
+-const folderExistsAsync = promisify(fs.exists);
+-
 -module.exports.get = async symbol => {
 -  const downloadFolder = Parameters.eventsDownloadFolder.replace("{token}", symbol);
-+module.exports.get = async (symbol,token0,token1) => {
-+  const downloadFolder = Parameters.eventsDownloadFolder.replace("{token}", symbol).replace("{token0}", token0).replace("{token1}", token1);
- 
-   if (!(await folderExistsAsync(downloadFolder))) {
-     return 0;
+-
+-  if (!(await folderExistsAsync(downloadFolder))) {
+-    return 0;
+-  }
+-  const files = await readdirAsync(downloadFolder);
+-
+-  return enumerable
+-    .from(files)
+-    .select(x => {
+-      return parseInt(x.replace(".json", "")) || 0;
+-    })
+-    .max(x => x);
+-};
 diff --git a/node_modules/erc20-snapshot/export.js b/node_modules/erc20-snapshot/export.js
 index 95da35e..f46c3c4 100644
 --- a/node_modules/erc20-snapshot/export.js
@@ -714,27 +765,37 @@ index 237a727..571ae0b 100644
      const contents = await readFileAsync(filePath);
      return JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/index.js b/node_modules/erc20-snapshot/index.js
-index bce42cf..27484f7 100755
+index bce42cf..a1817ca 100755
 --- a/node_modules/erc20-snapshot/index.js
 +++ b/node_modules/erc20-snapshot/index.js
-@@ -6,22 +6,29 @@ const Config = require("./config");
+@@ -6,22 +6,39 @@ const Config = require("./config");
  const Events = require("./events/blockchain");
  const Export = require("./export");
  
 -const start = async () => {
++function retry(fn, retries=3, err=null) {
++  if (!retries) {
++    return Promise.reject(err);
++  }
++  return fn().catch(err => {
++      return retry(fn, (retries - 1), err);
++    });
++}
++
 +const start = async (blockNumber) => {
    await Config.checkConfig();
    const format = Config.getConfig().format;
 -  const result = await Events.get();
-+  const resultArray = await Events.get(blockNumber);
+-
+-  console.log("Calculating balances of %s (%s)", result.name, result.symbol);
+-  const balances = await Balances.createBalances(result);
++  const getRetry = async () => await Events.get(blockNumber);
++  const resultArray = await retry(getRetry)
 +  const balancesJSON = {};
 +  for (const [index, result] of resultArray.entries()) {
 +    console.log("Calculating balances of %s (%s)", resultArray[index].name, resultArray[index].symbol);
 +    const balance = await Balances.createBalances(result, blockNumber);
  
--  console.log("Calculating balances of %s (%s)", result.name, result.symbol);
--  const balances = await Balances.createBalances(result);
--
 -  console.log("Exporting balances");
 -  await Export.exportBalances(result.symbol, balances, format);
 +    // console.log(`Exporting balances for ${resultArray[index].token0}<>${resultArray[index].token1} `);
