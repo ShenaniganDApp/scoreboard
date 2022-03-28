@@ -8,4 +8,10 @@ yalc.lock
 data/addressbook.json
 data/messageIds.json
 .env
+lib/
+.bsb.lock
+.merlin
+.DS_Store
+.vscode
 tx
+distribution/chat
