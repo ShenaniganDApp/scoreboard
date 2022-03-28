@@ -2,8 +2,11 @@
   "name": "scoreboard",
   "sources": [
     {
-      "dir": "rewards", 
+      "dir": "rewards",
       "subdirs": true
+    },
+    {
+      "dir": "distribution"
     }
   ],
   "package-specs": [
@@ -13,5 +16,5 @@
     }
   ],
   "suffix": ".bs.js",
-  "bs-dependencies": []
+  "bs-dependencies": ["@ryyppy/rescript-promise", "rescript-js"]
 }
