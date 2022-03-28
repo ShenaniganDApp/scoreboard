@@ -6,8 +6,8 @@
     "0x37251b86f97813f6cfda3d2074b0929dbf7b7854"
   ],
   "fromBlock": "12234318",
-  "blocksPerBatch":500,
-  "delay": 5,
+  "blocksPerBatch": 5000,
+  "delay": 1,
   "format": "json",
   "checkIfContract": "no"
 }
