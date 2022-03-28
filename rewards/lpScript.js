@@ -49,18 +49,18 @@ const getTimeData = async (blockNumber) => {
   return { startUnixTimestamp, endUnixTimestamp };
 };
 
-
 (async () => {
-  const retrySnapshot = async () => await snapshot.takeSnapshot(20979679);
+  const epochData = await JSON.parse((await readFile(EPOCHS_PATH)).toString());
+  const retrySnapshot = async () =>
+    await snapshot.takeSnapshot(epochData.endBlock);
   await retry(retrySnapshot);
 
-  console.log("Incrementing reward epoch...");
+  console.log('Incrementing reward epoch...');
   await incrementRewardEpoch();
 
   const rewardsPairs = await JSON.parse(
     (await readFile(REWARDS_PAIRS_PATH)).toString()
   ).contractAddresses;
-  const epochData = await JSON.parse((await readFile(EPOCHS_PATH)).toString());
   const ledgerJSON = (await readFile(LEDGER_PATH)).toString();
   const addressbook = await JSON.parse(
     (await readFile(ADDRESS_BOOK_PATH)).toString()
@@ -441,7 +441,7 @@ const getTimeData = async (blockNumber) => {
         "champions": [],
         "dependencies": {},
         "references": {},
-        "contributions":{ 
+        "contributions":{
           "entries": [${entries}]
       }
     }]`;
