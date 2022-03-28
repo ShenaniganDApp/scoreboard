@@ -1,35 +1,37 @@
 {
-	"name": "template-instance",
-	"version": "0.1.0",
-	"description": "A template repo for creating a SourceCred instance",
-	"repository": "git@github.com:sourcecred/template-instance.git",
-	"author": "SourceCred Team <contact@sourcecred.io>",
-	"license": "MIT",
-	"private": true,
-	"dependencies": {
-		"discord.js": "^12.3.1",
-		"erc20-snapshot": "^1.0.2",
-		"ethers": "^5.4.6",
-		"fs-extra": "^9.0.1",
-		"lodash": "^4.17.20",
-		"sourcecred": "^0.10.2",
-		"web3-utils": "^1.5.3"
-	},
-	"devDependencies": {
-		"dotenv-cli": "^4.0.0",
-		"patch-package": "^6.4.7",
-		"rescript": "^9.1.4",
-		"rimraf": "^3.0.2"
-	},
-	"scripts": {
-		"clean": "rimraf cache site",
-		"clean-all": "yarn clean && rimraf output",
-		"load": "dotenv sourcecred load",
-		"start": "dotenv sourcecred go --no-load && sourcecred serve",
-		"grain": "sourcecred grain",
-		"postinstall": "patch-package",
-		"re:build": "rescript",
+  "name": "template-instance",
+  "version": "0.1.0",
+  "description": "A template repo for creating a SourceCred instance",
+  "repository": "git@github.com:sourcecred/template-instance.git",
+  "author": "SourceCred Team <contact@sourcecred.io>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "erc20-snapshot": "^1.0.2",
+    "ethers": "^5.4.6",
+    "fs-extra": "^9.0.1",
+    "lodash": "^4.17.20",
+    "sourcecred": "^0.10.2",
+    "web3-utils": "^1.5.3",
+    "@ryyppy/rescript-promise": "^2.1.0",
+    "rescript-js": "^0.6.2"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^4.0.0",
+    "patch-package": "^6.4.7",
+    "rescript": "^9.1.4",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "clean": "rimraf cache site",
+    "clean-all": "yarn clean && rimraf output",
+    "load": "dotenv sourcecred load",
+    "start": "dotenv sourcecred go --no-load && sourcecred serve",
+    "grain": "sourcecred grain",
+    "postinstall": "patch-package",
+    "re:build": "rescript",
     "re:clean": "rescript clean -with-deps",
     "re:start": "rescript build -w"
-	}
+  }
 }
