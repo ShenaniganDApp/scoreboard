@@ -1,9 +1,12 @@
 const sc = require('sourcecred').sourcecred;
 const fs = require('fs-extra');
 const _ = require('lodash');
+const dotenv = require('dotenv');
 const isValidAddress = require('web3-utils').isAddress;
 const Ledger = sc.ledger.ledger.Ledger;
 const G = sc.ledger.grain;
+
+dotenv.config('../.env');
 
 const BigNumber = require('bignumber.js');
 
@@ -17,7 +20,7 @@ const LEDGER_PATH = 'data/ledger.json';
 const DEPENDENCIES_PATH = 'config/dependencies.json';
 const address_book_file =
   'https://raw.githubusercontent.com/ShenaniganDApp/scoreboard/master/data/addressbook.json';
-const MINT_AMOUNTS_PATH = 'distribution/distributions/json/2022-03-14.json';
+const MINT_AMOUNTS_PATH = 'distribution/distributions/json/2022-03-21.json';
 const COLLAPSED_PARTICLES_IDENTITY_ID = 'apdevFNjKCe3aRZq8IxqKQ';
 
 async function deductParticlesAlreadyMinted(accounts, ledger) {
@@ -55,7 +58,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
       from: account.identity.id,
       to: COLLAPSED_PARTICLES_IDENTITY_ID,
       amount: transferAmount,
-      memo:""
+      memo: '',
     });
   }
 }
@@ -94,11 +97,10 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   //   ...(ledger.account(dep.identity.id)),
   //   ...dep,
   // }));
-
-  // if (process.env.REMOVE_GRAIN) {
-    // await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
-    // await fs.writeFile(LEDGER_PATH, ledger.serialize());
-  // }
+  if (process.env.LAST_WEEKS_GRAIN === 'remove') {
+    await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
+    await fs.writeFile(LEDGER_PATH, ledger.serialize());
+  }
 
   const addressAccounts = _.keyBy(accountsWithAddress, 'ethAddress');
   const newMintAmounts = {};
@@ -126,7 +128,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   );
 
   fs.writeFile(
-    'distribution/distributions/json/2022-03-21.json',
+    'distribution/distributions/json/2022-03-28.json',
     JSON.stringify(newMintAmounts)
   );
 })();
