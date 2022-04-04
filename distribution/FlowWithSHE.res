@@ -12,6 +12,17 @@ module Addressbook = {
   type addressbook = array<entry>
   @scope("JSON") @val
   external parseIntoAddressbook: string => addressbook = "parse"
+
+  let rec makeAddressBookMap = (~map=Belt.Map.String.empty, addressbook: list<entry>) => {
+  switch addressbook {
+  | list{} => map
+  | list{entry, ...rest} => {
+      let address = entry.address->Js.String2.toLowerCase
+      let map = map->Belt.Map.String.set(address, entry)
+      makeAddressBookMap(~map, rest)
+    }
+  }
+}
 }
 
 module Sourcecred = {
@@ -56,11 +67,6 @@ module Sourcecred = {
   external parseIntoAccounts: string => accountsJSON = "parse"
 }
 
-module AddressCmp = Belt.Id.MakeComparable({
-  type t = Addressbook.entry
-  let cmp = (a: Addressbook.entry, b: Addressbook.entry) => Pervasives.compare(a.address, b.address)
-})
-
 @module("fs")
 external appendFileSync: (
   ~name: string,
@@ -74,7 +80,7 @@ external appendFileSync: (
 let chatDir = "data/fws-chat"
 
 // Update value to desired Flow with SHE week
-let dateOfYoga = "2022-03-18"
+let dateOfYoga = "2022-04-01"
 let lastChatWeek = `${chatDir}/${dateOfYoga}`
 
 let instructorAddress = ""
@@ -99,16 +105,7 @@ let addressbook =
 
 let accountsJSON = Node.Fs.readFileSync("output/accounts.json", #utf8)->Sourcecred.parseIntoAccounts
 
-let rec makeAddressBookMap = (~map=Belt.Map.String.empty, addressbook: list<Addressbook.entry>) => {
-  switch addressbook {
-  | list{} => map
-  | list{entry, ...rest} => {
-      let address = entry.address->Js.String2.toLowerCase
-      let map = map->Belt.Map.String.set(address, entry)
-      makeAddressBookMap(~map, rest)
-    }
-  }
-}
+
 
 let rec makeUserMap = (~map=Belt.Map.String.empty, accounts: list<Sourcecred.accountJSON>) => {
   switch accounts {
@@ -120,7 +117,7 @@ let rec makeUserMap = (~map=Belt.Map.String.empty, accounts: list<Sourcecred.acc
   }
 }
 
-let addressBookMap = addressbook->makeAddressBookMap
+let addressBookMap = addressbook->Addressbook.makeAddressBookMap
 let userMap = accountsJSON.accounts->Belt.List.fromArray->makeUserMap
 
 let ledger = Sourcecred.ledgerObj->Sourcecred.parseLedger(ledgerJSON)
