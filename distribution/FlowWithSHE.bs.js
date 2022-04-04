@@ -2,8 +2,6 @@
 'use strict';
 
 var Fs = require("fs");
-var Caml = require("rescript/lib/js/caml.js");
-var Belt_Id = require("rescript/lib/js/belt_Id.js");
 var Belt_List = require("rescript/lib/js/belt_List.js");
 var Belt_Array = require("rescript/lib/js/belt_Array.js");
 var Caml_array = require("rescript/lib/js/caml_array.js");
@@ -16,7 +14,26 @@ var CredError = /* @__PURE__ */Caml_exceptions.create("FlowWithSHE.CredError");
 
 var CSVReadError = /* @__PURE__ */Caml_exceptions.create("FlowWithSHE.CSVReadError");
 
-var Addressbook = {};
+function makeAddressBookMap(_mapOpt, _addressbook) {
+  while(true) {
+    var mapOpt = _mapOpt;
+    var addressbook = _addressbook;
+    var map = mapOpt !== undefined ? Caml_option.valFromOption(mapOpt) : undefined;
+    if (!addressbook) {
+      return map;
+    }
+    var entry = addressbook.hd;
+    var address = entry.address.toLowerCase();
+    var map$1 = Belt_MapString.set(map, address, entry);
+    _addressbook = addressbook.tl;
+    _mapOpt = Caml_option.some(map$1);
+    continue ;
+  };
+}
+
+var Addressbook = {
+  makeAddressBookMap: makeAddressBookMap
+};
 
 var nodeAddress = Sourcecred.sourcecred.core.address.makeAddressModule({
       name: "NodeAddress",
@@ -28,17 +45,9 @@ var Sourcecred$1 = {
   nodeAddress: nodeAddress
 };
 
-function cmp(a, b) {
-  return Caml.caml_string_compare(a.address, b.address);
-}
-
-var AddressCmp = Belt_Id.MakeComparable({
-      cmp: cmp
-    });
-
 var chatDir = "data/fws-chat";
 
-var dateOfYoga = "2022-03-18";
+var dateOfYoga = "2022-04-01";
 
 var lastChatWeek = chatDir + "/" + dateOfYoga;
 
@@ -64,23 +73,6 @@ var ledgerJSON = Fs.readFileSync(ledgerPath, "utf8");
 var addressbook = Belt_List.fromArray(JSON.parse(Fs.readFileSync(addressBookPath, "utf8")));
 
 var accountsJSON = JSON.parse(Fs.readFileSync("output/accounts.json", "utf8"));
-
-function makeAddressBookMap(_mapOpt, _addressbook) {
-  while(true) {
-    var mapOpt = _mapOpt;
-    var addressbook = _addressbook;
-    var map = mapOpt !== undefined ? Caml_option.valFromOption(mapOpt) : undefined;
-    if (!addressbook) {
-      return map;
-    }
-    var entry = addressbook.hd;
-    var address = entry.address.toLowerCase();
-    var map$1 = Belt_MapString.set(map, address, entry);
-    _addressbook = addressbook.tl;
-    _mapOpt = Caml_option.some(map$1);
-    continue ;
-  };
-}
 
 function makeUserMap(_mapOpt, _accounts) {
   while(true) {
@@ -253,7 +245,6 @@ exports.CredError = CredError;
 exports.CSVReadError = CSVReadError;
 exports.Addressbook = Addressbook;
 exports.Sourcecred = Sourcecred$1;
-exports.AddressCmp = AddressCmp;
 exports.chatDir = chatDir;
 exports.dateOfYoga = dateOfYoga;
 exports.lastChatWeek = lastChatWeek;
@@ -267,7 +258,6 @@ exports.ledgerPath = ledgerPath;
 exports.ledgerJSON = ledgerJSON;
 exports.addressbook = addressbook;
 exports.accountsJSON = accountsJSON;
-exports.makeAddressBookMap = makeAddressBookMap;
 exports.makeUserMap = makeUserMap;
 exports.addressBookMap = addressBookMap;
 exports.userMap = userMap;
