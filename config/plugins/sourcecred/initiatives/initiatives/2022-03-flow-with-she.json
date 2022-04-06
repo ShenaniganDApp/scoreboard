@@ -33,6 +33,11 @@
           "timestampIso": "2022-03-18T00:00:00.000Z",
           "weight": 1,
           "contributors": ["cheo0202"]
+        },{
+          "title": "Flow with SHE Instructor: @RHolmes",
+          "timestampIso": "2022-03-18T00:00:00.000Z",
+          "weight": 1.200,
+          "contributors": ["RHolmes"]
         },
         {
           "title": "Flow with SHE Attendee: @MariaEstrada",
@@ -45,6 +50,12 @@
           "timestampIso": "2022-03-18T00:00:00.000Z",
           "weight": 1,
           "contributors": ["dw"]
+        },
+        {
+          "title": "Flow with SHE Attendee: @mlouischarles",
+          "timestampIso": "2022-03-18T00:00:00.000Z",
+          "weight": 1,
+          "contributors": ["mlouischarles"]
         }]
       }
     }]
