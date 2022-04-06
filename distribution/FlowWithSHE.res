@@ -83,7 +83,7 @@ let chatDir = "data/fws-chat"
 let dateOfYoga = "2022-04-01"
 let lastChatWeek = `${chatDir}/${dateOfYoga}`
 
-let instructorAddress = ""
+let instructorAddress = "0x58315fB2b6E94371679fFb4b3322ab32f3dc7311"->Js.String2.toLowerCase
 
 let lineBreakRe = %re(`/\r?\n|\r/g`)
 let addressRe = %re(`/0x[a-fA-F0-9]{40}$/`)
@@ -167,7 +167,7 @@ let accountCred = readFileByLine(lastChatWeek ++ ".csv")->Belt.List.map(line => 
   }
   let cred = 1
   (address, cred)
-})
+})->Belt.List.add((instructorAddress, 1))
 
 let accountCredMap = accountCred->Belt.List.toArray->Belt.Map.String.fromArray
 
@@ -233,7 +233,6 @@ let accountsWithAddress =
     | None => false
     }
   )
-
 let entries = accountsWithAddress->Belt.Array.map(a => {
   open Js.Date
   switch a {
@@ -283,7 +282,6 @@ let initiative = `[
           "entries": [${entries->Js.Array2.toString}]
       }
     }]`
-Js.log(entries)
 
 let writeInitiative = () => {
   open Js.Date

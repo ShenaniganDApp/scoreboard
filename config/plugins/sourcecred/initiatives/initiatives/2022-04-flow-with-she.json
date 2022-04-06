@@ -33,6 +33,11 @@
           "timestampIso": "2022-04-01T00:00:00.000Z",
           "weight": 1,
           "contributors": ["Marialex13"]
+        },{
+          "title": "Flow with SHE Instructor: @RHolmes",
+          "timestampIso": "2022-04-01T00:00:00.000Z",
+          "weight": 0.800,
+          "contributors": ["RHolmes"]
         },
         {
           "title": "Flow with SHE Attendee: @MariaEstrada",
