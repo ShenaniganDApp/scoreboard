@@ -51,7 +51,7 @@ var dateOfYoga = "2022-04-01";
 
 var lastChatWeek = chatDir + "/" + dateOfYoga;
 
-var instructorAddress = "";
+var instructorAddress = "0x58315fB2b6E94371679fFb4b3322ab32f3dc7311".toLowerCase();
 
 var lineBreakRe = /\r?\n|\r/g;
 
@@ -145,22 +145,25 @@ function saveToCSV(lines) {
 
 saveToCSV(filterLines(undefined, readFileByLine(lastChatWeek + ".txt")));
 
-var accountCred = Belt_List.map(readFileByLine(lastChatWeek + ".csv"), (function (line) {
-        var address;
-        if (line !== undefined) {
-          address = Caml_array.get(line.split(","), 0).toLowerCase();
-        } else {
-          throw {
-                RE_EXN_ID: CSVReadError,
-                _1: "CSV read an empty line",
-                Error: new Error()
-              };
-        }
-        return [
-                address,
-                1
-              ];
-      }));
+var accountCred = Belt_List.add(Belt_List.map(readFileByLine(lastChatWeek + ".csv"), (function (line) {
+            var address;
+            if (line !== undefined) {
+              address = Caml_array.get(line.split(","), 0).toLowerCase();
+            } else {
+              throw {
+                    RE_EXN_ID: CSVReadError,
+                    _1: "CSV read an empty line",
+                    Error: new Error()
+                  };
+            }
+            return [
+                    address,
+                    1
+                  ];
+          })), [
+      instructorAddress,
+      1
+    ]);
 
 var accountCredMap = Belt_MapString.fromArray(Belt_List.toArray(accountCred));
 
@@ -230,8 +233,6 @@ var entries = Belt_Array.map(accountsWithAddress, (function (a) {
       }));
 
 var initiative = "[\n      {\n        \"type\": \"sourcecred/initiativeFile\",\n        \"version\": \"0.2.0\"\n      },\n      {\n        \"title\": \"Flow With SHE " + new Date(dateOfYoga).toISOString() + "\",\n        \"timestampIso\": \"" + new Date(dateOfYoga).toISOString() + "\",\n        \"weight\": {\n          \"incomplete\": 0,\n          \"complete\": 0\n        },\n        \"completed\": true,\n        \"champions\": [],\n        \"dependencies\": {},\n        \"references\": {},\n        \"contributions\":{\n          \"entries\": [" + entries.toString() + "]\n      }\n    }]";
-
-console.log(entries);
 
 function writeInitiative(param) {
   var date = new Date(dateOfYoga).toISOString().split("-");
