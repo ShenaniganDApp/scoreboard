@@ -2,7 +2,7 @@
   {
     "name": "YoungKidWarrior",
     "createdAt": 1627445588959,
-    "address": "0xa69656dee6721FF43506477Fb522eFef151E4477",
+    "address": "0xf4bb53eFcFd49Fe036FdCc8F46D981203ae3BAB8",
     "discordId": "683892894767251489",
     "github": "@youngkidwarrior"
   },
@@ -2591,11 +2591,14 @@
   {
     "name": "RHolmes",
     "createdAt": 1649195093516,
-    "address": "0x58315fB2b6E94371679fFb4b3322ab32f3dc7311"
+    "address": "0x58315fB2b6E94371679fFb4b3322ab32f3dc7311",
+    "discordId": "689255108554260557",
+    "github": "@rlholmes38"
   },
   {
-    "name": "RHolmes",
-    "createdAt": 1649195116872,
-    "address": "0x58315fB2b6E94371679fFb4b3322ab32f3dc7311"
+    "name": "papayamaia",
+    "createdAt": 1649273453875,
+    "address": "0xb306BA7A978906118542346327f3DEB93B5a3ca9",
+    "discordId": "599321123611607044"
   }
 ]
