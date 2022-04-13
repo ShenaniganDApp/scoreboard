@@ -66,6 +66,7 @@ const getTimeData = async (blockNumber) => {
     (await readFile(ADDRESS_BOOK_PATH)).toString()
   );
   const addressBookMap = _.keyBy(addressbook, 'address');
+
   const AddressMap = _.keyBy(addressbook, 'discordId');
 
   const accountsJSON = JSON.parse(
@@ -171,9 +172,7 @@ const getTimeData = async (blockNumber) => {
         if (balances[address]) {
           weightedReward[address] = balances[address]
             .filter(({ wallet }) => {
-              return addressbook.find(
-                ({ address: userAddress }) => userAddress === wallet
-              );
+              return addressBookMap[wallet];
             })
             .map(({ wallet, balance }) => {
               return {
