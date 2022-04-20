@@ -3,6 +3,7 @@ const _ = require('lodash');
 
 const fs = require('fs');
 const util = require('util');
+const dotenv = require('dotenv');
 const BigNumber = require('bignumber.js');
 const fetch = require('node-fetch');
 const queries = require('./queries');
@@ -12,6 +13,8 @@ const EPOCHS_PATH = 'rewards/lastRewardEpoch.json';
 const Ledger = sc.ledger.ledger.Ledger;
 const ethers = require('ethers');
 const incrementRewardEpoch = require('./incrementRewardEpoch');
+
+dotenv.config('../.env');
 
 const ADDRESS_BOOK_PATH = 'data/addressbook.json';
 const LEDGER_PATH = 'data/ledger.json';
@@ -52,7 +55,10 @@ const getTimeData = async (blockNumber) => {
 (async () => {
   const epochData = await JSON.parse((await readFile(EPOCHS_PATH)).toString());
   const retrySnapshot = async () =>
-    await snapshot.takeSnapshot(epochData.endBlock);
+    await snapshot.takeSnapshot({
+      blockNumber: epochData.endBlock,
+      startFromFirst: process.env.START_FROM_FIRST_EVENT,
+    });
   await retry(retrySnapshot);
 
   console.log('Incrementing reward epoch...');

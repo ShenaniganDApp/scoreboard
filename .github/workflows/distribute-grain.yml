@@ -4,12 +4,6 @@ on:
   # after the new interval
   schedule:
     - cron: 5 0 * * 0 # 00:05 UTC, 16:05 PST
-  push:
-    branches:
-      # allows us to test this workflow, or manually generate distributions
-      # PRSs created from grain-trigger-* branches are targeted
-      # on their immediate base branches, as opposed to master
-      - "grain-trigger-*"
 
 jobs:
   distribute-grain:
@@ -21,11 +15,11 @@ jobs:
         run: |
           yarn --frozen-lockfile
 
-      - name: Increment LP Reward Epoch
-        run: node ./rewards/incrementRewardEpoch.js
+      - name: Activate New Addresses
+        run: node ./distribution/eth-addresses.js
 
       - name: LP Rewards
-        run: node ./rewards/lpScript.js
+        run: export START_FROM_FIRST_EVENT=yes && node ./rewards/lpScript.js
 
       - name: Load Data and Compute Cred 🧮
         run: yarn sourcecred go
@@ -33,17 +27,14 @@ jobs:
           SOURCECRED_GITHUB_TOKEN: ${{ secrets.SOURCECRED_GITHUB_TOKEN }}
           SOURCECRED_DISCORD_TOKEN: ${{ secrets.SOURCECRED_DISCORD_TOKEN }}
 
-      - name: Activate New Addresses
-        run: node ./distribution/eth-addresses.js
-
       - name: Remove Last Weeks Grain
-        run: export REMOVE_GRAIN=true && node ./distribution/processGrain.js
+        run: export REMOVE_GRAIN=yes && node ./distribution/processGrain.js
 
       - name: Distribute Grain 💸
         run: yarn grain > grain_output.txt
 
       - name: Process This Weeks Grain
-        run: export REMOVE_GRAIN=false && node ./distribution/processGrain.js > ./distributions/csv/$(date +%d-%m-%Y).csv
+        run: export REMOVE_GRAIN=false && export MINT_FILE_PATH=distributions/json/$(date +%d-%m-%Y).json && node ./distribution/processGrain.js > ./distributions/csv/$(date +%d-%m-%Y).csv
 
       - name: Set environment variables
         id: pr_details
@@ -57,7 +48,7 @@ jobs:
           description="${description//$'\r'/'%0D'}"
           echo "::set-output name=pr_body::$description"
           rm grain_output.txt
-# To create a pull request, use this block:
+      # To create a pull request, use this block:
       - name: Create commit and PR for ledger changes
         id: pr
         uses: peter-evans/create-pull-request@v3.10.0

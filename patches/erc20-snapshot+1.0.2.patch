@@ -1,11 +1,347 @@
 diff --git a/node_modules/erc20-snapshot/abi.js b/node_modules/erc20-snapshot/abi.js
-index 367d5fd..9cca906 100644
+index 367d5fd..3c5d5f5 100644
 --- a/node_modules/erc20-snapshot/abi.js
 +++ b/node_modules/erc20-snapshot/abi.js
-@@ -15,6 +15,342 @@ const abi = [
+@@ -15,6 +15,678 @@ const abi = [
      stateMutability: "view",
      type: "function"
    },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
 +  {
 +    constant: true,
 +    inputs: [],
@@ -346,7 +682,7 @@ index 367d5fd..9cca906 100644
      constant: true,
      inputs: [],
 diff --git a/node_modules/erc20-snapshot/balances.js b/node_modules/erc20-snapshot/balances.js
-index e781348..b208b75 100644
+index e781348..9abf34d 100644
 --- a/node_modules/erc20-snapshot/balances.js
 +++ b/node_modules/erc20-snapshot/balances.js
 @@ -2,7 +2,8 @@
@@ -355,7 +691,7 @@ index e781348..b208b75 100644
  
 -module.exports.createBalances = async data => {
 +module.exports.createBalances = async (data, finalBlockNumber) => {
-+  
++
    const balances = new Map();
    const closingBalances = [];
  
@@ -478,7 +814,7 @@ index cccc91b..2c54354 100644
      const contents = await readFileAsync(path.join(directory, file));
      const parsed = JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/events/blockchain.js b/node_modules/erc20-snapshot/events/blockchain.js
-index 3756939..0d0bbba 100644
+index 3756939..70485af 100644
 --- a/node_modules/erc20-snapshot/events/blockchain.js
 +++ b/node_modules/erc20-snapshot/events/blockchain.js
 @@ -5,7 +5,7 @@ const Web3 = require("web3");
@@ -516,7 +852,7 @@ index 3756939..0d0bbba 100644
    try {
 -    const pastEvents = await Contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
 +    const getPastEventsRetry = async () => await contract.getPastEvents("Transfer", { fromBlock: start, toBlock: end });
-+    const pastEvents = await retry(getPastEventsRetry) 
++    const pastEvents = await retry(getPastEventsRetry)
  
      if (pastEvents.length) {
        console.info("Successfully imported ", pastEvents.length, " events");
@@ -765,10 +1101,10 @@ index 237a727..571ae0b 100644
      const contents = await readFileAsync(filePath);
      return JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/index.js b/node_modules/erc20-snapshot/index.js
-index bce42cf..a1817ca 100755
+index bce42cf..2624e79 100755
 --- a/node_modules/erc20-snapshot/index.js
 +++ b/node_modules/erc20-snapshot/index.js
-@@ -6,22 +6,39 @@ const Config = require("./config");
+@@ -6,22 +6,40 @@ const Config = require("./config");
  const Events = require("./events/blockchain");
  const Export = require("./export");
  
@@ -783,6 +1119,7 @@ index bce42cf..a1817ca 100755
 +}
 +
 +const start = async (blockNumber) => {
++
    await Config.checkConfig();
    const format = Config.getConfig().format;
 -  const result = await Events.get();
