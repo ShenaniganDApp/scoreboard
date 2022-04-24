@@ -14,15 +14,15 @@ module Addressbook = {
   external parseIntoAddressbook: string => addressbook = "parse"
 
   let rec makeAddressBookMap = (~map=Belt.Map.String.empty, addressbook: list<entry>) => {
-  switch addressbook {
-  | list{} => map
-  | list{entry, ...rest} => {
-      let address = entry.address->Js.String2.toLowerCase
-      let map = map->Belt.Map.String.set(address, entry)
-      makeAddressBookMap(~map, rest)
+    switch addressbook {
+    | list{} => map
+    | list{entry, ...rest} => {
+        let address = entry.address->Js.String2.toLowerCase
+        let map = map->Belt.Map.String.set(address, entry)
+        makeAddressBookMap(~map, rest)
+      }
     }
   }
-}
 }
 
 module Sourcecred = {
@@ -80,7 +80,7 @@ external appendFileSync: (
 let chatDir = "data/fws-chat"
 
 // Update value to desired Flow with SHE week
-let dateOfYoga = "2022-04-01"
+let dateOfYoga = "2022-04-08"
 let lastChatWeek = `${chatDir}/${dateOfYoga}`
 
 let instructorAddress = "0x58315fB2b6E94371679fFb4b3322ab32f3dc7311"->Js.String2.toLowerCase
@@ -104,8 +104,6 @@ let addressbook =
   ->Belt.List.fromArray
 
 let accountsJSON = Node.Fs.readFileSync("output/accounts.json", #utf8)->Sourcecred.parseIntoAccounts
-
-
 
 let rec makeUserMap = (~map=Belt.Map.String.empty, accounts: list<Sourcecred.accountJSON>) => {
   switch accounts {
@@ -160,14 +158,17 @@ let saveToCSV = lines => {
 //uncomment to write CSV
 readFileByLine(lastChatWeek ++ ".txt")->filterLines(_)->saveToCSV
 
-let accountCred = readFileByLine(lastChatWeek ++ ".csv")->Belt.List.map(line => {
-  let address = switch line {
-  | None => CSVReadError("CSV read an empty line")->raise
-  | Some(line) => Js.String2.split(line, ",")[0]->Js.String2.toLowerCase
-  }
-  let cred = 1
-  (address, cred)
-})->Belt.List.add((instructorAddress, 1))
+let accountCred =
+  readFileByLine(lastChatWeek ++ ".csv")
+  ->Belt.List.map(line => {
+    let address = switch line {
+    | None => CSVReadError("CSV read an empty line")->raise
+    | Some(line) => Js.String2.split(line, ",")[0]->Js.String2.toLowerCase
+    }
+    let cred = 1
+    (address, cred)
+  })
+  ->Belt.List.add((instructorAddress, 1))
 
 let accountCredMap = accountCred->Belt.List.toArray->Belt.Map.String.fromArray
 
@@ -242,7 +243,7 @@ let entries = accountsWithAddress->Belt.Array.map(a => {
       `
         {
           "title": "Flow with SHE Attendee: @${a["account"].identity.name}",
-          "timestampIso": "${fromString(dateOfYoga)->toISOString}",
+          "timestampIso": "${dateOfYoga->fromString->toISOString}",
           "weight": ${a["amount"]->Belt.Int.toString},
           "contributors": ["${a["account"].identity.name}"]
         }`
@@ -287,9 +288,14 @@ let writeInitiative = () => {
   open Js.Date
 
   let date = fromString(dateOfYoga)->toISOString->Js.String2.split("-")
+  let year = date[0]
+  let month = date[1]
+  let dayAndTime = date[2]
+  let dayAndTime = dayAndTime->Js.String2.split("T")
+  let day = dayAndTime[0]
 
   Node.Fs.writeFileSync(
-    `config/plugins/sourcecred/initiatives/initiatives/${date[0]}-${date[1]}-flow-with-she.json`,
+    `config/plugins/sourcecred/initiatives/initiatives/${year}-${month}-${day}-flow-with-she.json`,
     initiative,
     #utf8,
   )
