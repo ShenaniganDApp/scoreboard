@@ -47,7 +47,7 @@ var Sourcecred$1 = {
 
 var chatDir = "data/fws-chat";
 
-var dateOfYoga = "2022-04-01";
+var dateOfYoga = "2022-04-08";
 
 var lastChatWeek = chatDir + "/" + dateOfYoga;
 
@@ -236,7 +236,12 @@ var initiative = "[\n      {\n        \"type\": \"sourcecred/initiativeFile\",\n
 
 function writeInitiative(param) {
   var date = new Date(dateOfYoga).toISOString().split("-");
-  Fs.writeFileSync("config/plugins/sourcecred/initiatives/initiatives/" + Caml_array.get(date, 0) + "-" + Caml_array.get(date, 1) + "-flow-with-she.json", initiative, "utf8");
+  var year = Caml_array.get(date, 0);
+  var month = Caml_array.get(date, 1);
+  var dayAndTime = Caml_array.get(date, 2);
+  var dayAndTime$1 = dayAndTime.split("T");
+  var day = Caml_array.get(dayAndTime$1, 0);
+  Fs.writeFileSync("config/plugins/sourcecred/initiatives/initiatives/" + year + "-" + month + "-" + day + "-flow-with-she.json", initiative, "utf8");
   
 }
 
