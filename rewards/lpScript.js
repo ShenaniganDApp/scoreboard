@@ -3,6 +3,7 @@ const _ = require('lodash');
 
 const fs = require('fs');
 const util = require('util');
+const dotenv = require('dotenv');
 const BigNumber = require('bignumber.js');
 const fetch = require('node-fetch');
 const queries = require('./queries');
@@ -22,6 +23,8 @@ const NodeAddress = sc.core.address.makeAddressModule({
   nonce: 'N',
   otherNonces: new Map().set('E', 'EdgeAddress'),
 });
+
+dotenv.config('../.env');
 
 const oneWeekInBlocks = 120992;
 const oneDayInBlocks = 17284;
@@ -52,7 +55,10 @@ const getTimeData = async (blockNumber) => {
 (async () => {
   const epochData = await JSON.parse((await readFile(EPOCHS_PATH)).toString());
   const retrySnapshot = async () =>
-    await snapshot.takeSnapshot(epochData.endBlock);
+    await snapshot.takeSnapshot({
+      blockNumber: epochData.endBlock,
+      startFromFirstEvent: process.env.START_FROM_FIRST_EVENT,
+    });
   await retry(retrySnapshot);
 
   console.log('Incrementing reward epoch...');
