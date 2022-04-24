@@ -42,7 +42,6 @@ const address_book_file =
 
       discordAliases.forEach((alias) => {
         discordId = NodeAddress.toParts(alias.address)[4];
-        console.log('discordId: ', discordId);
 
         if (AddressMap[discordId]) {
           user = AddressMap[discordId];
@@ -66,7 +65,6 @@ const address_book_file =
       address: addressUtils.nodeAddressForEthAddress(ethAddress),
       description: ethAddress,
     };
-    console.log(ethAlias.description);
 
     const linkedAccount = ledger.accountByAddress(ethAlias.address);
 

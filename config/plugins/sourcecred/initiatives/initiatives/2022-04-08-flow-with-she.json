@@ -1,0 +1,43 @@
+[
+      {
+        "type": "sourcecred/initiativeFile",
+        "version": "0.2.0"
+      },
+      {
+        "title": "Flow With SHE 2022-04-08T00:00:00.000Z",
+        "timestampIso": "2022-04-08T00:00:00.000Z",
+        "weight": {
+          "incomplete": 0,
+          "complete": 0
+        },
+        "completed": true,
+        "champions": [],
+        "dependencies": {},
+        "references": {},
+        "contributions":{
+          "entries": [
+        {
+          "title": "Flow with SHE Attendee: @Victor---Shenanigan",
+          "timestampIso": "2022-04-08T00:00:00.000Z",
+          "weight": 1,
+          "contributors": ["Victor---Shenanigan"]
+        },
+        {
+          "title": "Flow with SHE Attendee: @cheo0202",
+          "timestampIso": "2022-04-08T00:00:00.000Z",
+          "weight": 1,
+          "contributors": ["cheo0202"]
+        },
+        {
+          "title": "Flow with SHE Attendee: @Marialex13",
+          "timestampIso": "2022-04-08T00:00:00.000Z",
+          "weight": 1,
+          "contributors": ["Marialex13"]
+        },{
+          "title": "Flow with SHE Instructor: @RHolmes",
+          "timestampIso": "2022-04-08T00:00:00.000Z",
+          "weight": 0.600,
+          "contributors": ["RHolmes"]
+        }]
+      }
+    }]
