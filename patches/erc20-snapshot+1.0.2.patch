@@ -1,11 +1,1691 @@
 diff --git a/node_modules/erc20-snapshot/abi.js b/node_modules/erc20-snapshot/abi.js
-index 367d5fd..9145199 100644
+index 367d5fd..7252f9f 100644
 --- a/node_modules/erc20-snapshot/abi.js
 +++ b/node_modules/erc20-snapshot/abi.js
-@@ -15,6 +15,1686 @@ const abi = [
+@@ -15,6 +15,3366 @@ const abi = [
      stateMutability: "view",
      type: "function"
    },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token0",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
++  {
++    constant: true,
++    inputs: [],
++    name: "token1",
++    outputs: [
++      {
++        name: "",
++        type: "address"
++      }
++    ],
++    payable: false,
++    stateMutability: "view",
++    type: "function"
++  },
 +  {
 +    constant: true,
 +    inputs: [],
@@ -1822,7 +3502,7 @@ index cccc91b..2c54354 100644
      const contents = await readFileAsync(path.join(directory, file));
      const parsed = JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/events/blockchain.js b/node_modules/erc20-snapshot/events/blockchain.js
-index 3756939..29836c3 100644
+index 3756939..5527563 100644
 --- a/node_modules/erc20-snapshot/events/blockchain.js
 +++ b/node_modules/erc20-snapshot/events/blockchain.js
 @@ -5,7 +5,7 @@ const Web3 = require("web3");
@@ -1864,7 +3544,7 @@ index 3756939..29836c3 100644
  
      if (pastEvents.length) {
        console.info("Successfully imported ", pastEvents.length, " events");
-@@ -42,67 +53,95 @@ const tryGetEvents = async (start, end, symbol) => {
+@@ -42,67 +53,94 @@ const tryGetEvents = async (start, end, symbol) => {
          const blockNumber = key;
          const data = group[key];
  
@@ -1930,7 +3610,6 @@ index 3756939..29836c3 100644
 -  console.log("From %d to %d", fromBlock, toBlock);
 +    let lastDownloadedBlock = await LastDownloadedBlock.get();
 +    if (startFromFirstEvent ==="yes") lastDownloadedBlock = 0
-+    console.log("startFromFirstEvent: ", startFromFirstEvent)
  
 -  let start = fromBlock;
 -  let end = fromBlock + blocksPerBatch;
@@ -2115,7 +3794,7 @@ index 237a727..571ae0b 100644
      const contents = await readFileAsync(filePath);
      return JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/index.js b/node_modules/erc20-snapshot/index.js
-index bce42cf..a3a9059 100755
+index bce42cf..0eba58a 100755
 --- a/node_modules/erc20-snapshot/index.js
 +++ b/node_modules/erc20-snapshot/index.js
 @@ -6,22 +6,40 @@ const Config = require("./config");
@@ -2158,10 +3837,10 @@ index bce42cf..a3a9059 100755
  };
  
 -(async () => {
-+const takeSnapshot = async (blockNumber) => {
++const takeSnapshot = async ({blockNumber, startFromFirstEvent}) => {
    try {
 -    await start();
-+    return await start(blockNumber);
++    return await start({ blockNumber , startFromFirstEvent});
    } catch (e) {
      console.error(e);
    }
