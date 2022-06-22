@@ -30,7 +30,7 @@ const oneWeekInBlocks = 120992;
 const oneDayInBlocks = 17284;
 
 const provider = new ethers.providers.JsonRpcProvider(
-  'https://rpc.xdaichain.com/'
+  'https://rpc.gnosischain.com/'
 );
 
 function retry(fn, retries = 3, err = null) {
