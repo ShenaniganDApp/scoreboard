@@ -1542,7 +1542,7 @@
   {
     "name": "ishoboy",
     "createdAt": 1604296035510,
-    "address": "0xDf5f6D4e0C1138077f58b20C0e9aE33b1a0d44D3",
+    "address": true,
     "discordId": "733273196320784494"
   },
   {
