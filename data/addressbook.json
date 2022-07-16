@@ -1133,7 +1133,8 @@
     "name": "sanchote",
     "createdAt": 1603268871963,
     "address": "0xF77e2C9b9eA81843d97A034e50AAa61B54EDcC92",
-    "discordId": "596581077586542592"
+    "discordId": "596581077586542592",
+    "github": "@sanchotero"
   },
   {
     "name": "2smallmonkey",
@@ -1542,7 +1543,7 @@
   {
     "name": "ishoboy",
     "createdAt": 1604296035510,
-    "address": "0xDf5f6D4e0C1138077f58b20C0e9aE33b1a0d44D3",
+    "address": true,
     "discordId": "733273196320784494"
   },
   {
