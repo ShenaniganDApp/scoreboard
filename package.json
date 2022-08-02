@@ -7,15 +7,15 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@ryyppy/rescript-promise": "^2.1.0",
     "discord.js": "^12.3.1",
     "erc20-snapshot": "^1.0.2",
     "ethers": "^5.4.6",
     "fs-extra": "^9.0.1",
     "lodash": "^4.17.20",
-    "sourcecred": "^0.10.2",
-    "web3-utils": "^1.5.3",
-    "@ryyppy/rescript-promise": "^2.1.0",
-    "rescript-js": "^0.6.2"
+    "rescript-js": "^0.6.2",
+    "sourcecred": "^0.11.2",
+    "web3-utils": "^1.5.3"
   },
   "devDependencies": {
     "dotenv-cli": "^4.0.0",
