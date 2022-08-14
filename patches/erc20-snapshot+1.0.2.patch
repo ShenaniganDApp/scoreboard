@@ -3794,7 +3794,7 @@ index 237a727..571ae0b 100644
      const contents = await readFileAsync(filePath);
      return JSON.parse(contents.toString());
 diff --git a/node_modules/erc20-snapshot/index.js b/node_modules/erc20-snapshot/index.js
-index bce42cf..0eba58a 100755
+index bce42cf..625bd52 100755
 --- a/node_modules/erc20-snapshot/index.js
 +++ b/node_modules/erc20-snapshot/index.js
 @@ -6,22 +6,40 @@ const Config = require("./config");
@@ -3802,7 +3802,7 @@ index bce42cf..0eba58a 100755
  const Export = require("./export");
  
 -const start = async () => {
-+function retry(fn, retries=3, err=null) {
++function retry(fn, retries=7, err=null) {
 +  if (!retries) {
 +    return Promise.reject(err);
 +  }
