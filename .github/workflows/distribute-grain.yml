@@ -9,7 +9,7 @@ on:
       # allows us to test this workflow, or manually generate distributions
       # PRSs created from grain-trigger-* branches are targeted
       # on their immediate base branches, as opposed to master
-      - "grain-trigger-*"
+      - 'grain-trigger-*'
 
 jobs:
   distribute-grain:
@@ -21,11 +21,8 @@ jobs:
         run: |
           yarn --frozen-lockfile
 
-      - name: Increment LP Reward Epoch
-        run: node ./rewards/incrementRewardEpoch.js
-
       - name: LP Rewards
-        run: node ./rewards/lpScript.js
+        run: export START_FROM_FIRST_EVENT=yes && node ./rewards/lpScript.js
 
       - name: Load Data and Compute Cred 🧮
         run: yarn sourcecred go
@@ -57,7 +54,7 @@ jobs:
           description="${description//$'\r'/'%0D'}"
           echo "::set-output name=pr_body::$description"
           rm grain_output.txt
-# To create a pull request, use this block:
+      # To create a pull request, use this block:
       - name: Create commit and PR for ledger changes
         id: pr
         uses: peter-evans/create-pull-request@v3.10.0
