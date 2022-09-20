@@ -1,5 +1,5 @@
 {
-  "provider": "https://rpc.gnosischain.com/",
+  "provider": "https://gnosis-mainnet.public.blastapi.io",
   "contractAddresses": [
     "0xa527dbc7cdb07dd5fdc2d837c7a2054e6d66daf4",
     "0xaaefc56e97624b57ce98374eb4a45b6fd5ffb982",
