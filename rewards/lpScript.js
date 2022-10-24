@@ -365,7 +365,7 @@ const getTimeData = async (blockNumber) => {
     Object.keys(weekTotalRewards).forEach((wallet) => {
       weekTotalRewards[wallet] = weekTotalRewards[wallet]
         .dividedBy(weekSum)
-        .multipliedBy(13)
+        .multipliedBy(5)
         .toString();
     });
 
