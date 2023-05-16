@@ -1,27 +1,27 @@
-const sc = require('sourcecred').sourcecred;
-const fs = require('fs-extra');
-const _ = require('lodash');
-const dotenv = require('dotenv');
-const isValidAddress = require('web3-utils').isAddress;
+const sc = require("sourcecred").sourcecred;
+const fs = require("fs-extra");
+const _ = require("lodash");
+const dotenv = require("dotenv");
+const isValidAddress = require("web3-utils").isAddress;
 const Ledger = sc.ledger.ledger.Ledger;
 const G = sc.ledger.grain;
 
-dotenv.config('../.env');
+dotenv.config("../.env");
 
-const BigNumber = require('bignumber.js');
+const BigNumber = require("bignumber.js");
 
 const NodeAddress = sc.core.address.makeAddressModule({
-  name: 'NodeAddress',
-  nonce: 'N',
-  otherNonces: new Map().set('E', 'EdgeAddress'),
+  name: "NodeAddress",
+  nonce: "N",
+  otherNonces: new Map().set("E", "EdgeAddress"),
 });
 
-const LEDGER_PATH = 'data/ledger.json';
-const DEPENDENCIES_PATH = 'config/dependencies.json';
+const LEDGER_PATH = "data/ledger.json";
+const DEPENDENCIES_PATH = "config/dependencies.json";
 const address_book_file =
-  'https://raw.githubusercontent.com/ShenaniganDApp/scoreboard/master/data/addressbook.json';
-const MINT_AMOUNTS_PATH = 'distribution/distributions/json/2023-02-06.json';
-const COLLAPSED_PARTICLES_IDENTITY_ID = 'apdevFNjKCe3aRZq8IxqKQ';
+  "https://raw.githubusercontent.com/ShenaniganDApp/scoreboard/master/data/addressbook.json";
+const MINT_AMOUNTS_PATH = "distribution/distributions/json/2023-02-13.json";
+const COLLAPSED_PARTICLES_IDENTITY_ID = "apdevFNjKCe3aRZq8IxqKQ";
 
 async function deductParticlesAlreadyMinted(accounts, ledger) {
   const LAST_MINTING = JSON.parse(await fs.readFile(MINT_AMOUNTS_PATH));
@@ -33,7 +33,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
       (a) => a.ethAddress.toLowerCase() === address.toLowerCase()
     );
     if (!account) {
-      console.warn('Missing account for: ', address);
+      console.warn("Missing account for: ", address);
       continue;
     }
 
@@ -58,7 +58,7 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
       from: account.identity.id,
       to: COLLAPSED_PARTICLES_IDENTITY_ID,
       amount: transferAmount,
-      memo: '',
+      memo: "",
     });
   }
 }
@@ -71,11 +71,11 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
 
   const accountsWithAddress = accounts
     .map((a) => {
-      if (a.identity.subtype === 'BOT') return null;
+      if (a.identity.subtype === "BOT") return null;
 
       const ethAliases = a.identity.aliases.filter((alias) => {
         const parts = NodeAddress.toParts(alias.address);
-        return parts.indexOf('ethereum') > 0;
+        return parts.indexOf("ethereum") > 0;
       });
 
       if (!ethAliases.length) return null;
@@ -97,20 +97,20 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
   //   ...(ledger.account(dep.identity.id)),
   //   ...dep,
   // }));
-  if (process.env.REMOVE_GRAIN === 'yes') {
+  if (process.env.REMOVE_GRAIN === "yes") {
     await deductParticlesAlreadyMinted([...accountsWithAddress], ledger);
     await fs.writeFile(LEDGER_PATH, ledger.serialize());
   }
 
-  const addressAccounts = _.keyBy(accountsWithAddress, 'ethAddress');
+  const addressAccounts = _.keyBy(accountsWithAddress, "ethAddress");
   const newMintAmounts = {};
   let total = 0;
   accountsWithAddress.forEach((acc) => {
     if (new BigNumber(acc.balance).gt(1e18)) {
-      const amountToMint = G.format(acc.balance, 9, '').replace(',', '');
+      const amountToMint = G.format(acc.balance, 9, "").replace(",", "");
       newMintAmounts[acc.ethAddress] = amountToMint;
       if (!isValidAddress(acc.ethAddress)) {
-        console.log('INVALID ADD for acc: ', acc);
+        console.log("INVALID ADD for acc: ", acc);
       }
 
       total += parseFloat(amountToMint);
@@ -124,11 +124,11 @@ async function deductParticlesAlreadyMinted(accounts, ledger) {
 
         return `${address},${amount}`;
       })
-      .join('\n')
+      .join("\n")
   );
 
   fs.writeFile(
-    'distribution/distributions/json/2023-02-13.json',
+    "distribution/distributions/json/2023-02-20.json",
     JSON.stringify(newMintAmounts)
   );
 })();
