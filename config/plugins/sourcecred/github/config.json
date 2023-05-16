@@ -1,12 +1,13 @@
 {
-	"repositories": [
-		"ShenaniganDApp/contracts",
-		"ShenaniganDApp/ShenaniganDApp.github.io",
-		"ShenaniganDApp/server",
-		"ShenaniganDapp/docs",
-		"ShenaniganDapp/shenanigan-monorepo",
-		"ShenaniganDapp/ParticleAccelerator",
-		"ShenaniganDapp/prtcle-shtaking",
-		"ShenaniganDapp/SHEiP"
-	]
+  "repositories": [
+    "ShenaniganDApp/contracts",
+    "ShenaniganDApp/ShenaniganDApp.github.io",
+    "ShenaniganDApp/server",
+    "ShenaniganDapp/docs",
+    "ShenaniganDapp/shenanigan-monorepo",
+    "ShenaniganDapp/ParticleAccelerator",
+    "ShenaniganDapp/prtcle-shtaking",
+    "ShenaniganDapp/SHEiP",
+    "ShenaniganDapp/DAO-H3"
+  ]
 }
